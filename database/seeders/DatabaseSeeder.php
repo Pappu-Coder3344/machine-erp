@@ -1,0 +1,24 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $this->call([
+            RoleSeeder::class,
+            PermissionSeeder::class,
+            RolePermissionSeeder::class,
+            DepartmentSeeder::class,
+            ShiftSeeder::class,
+            FactoryUnitSeeder::class,
+            LocationSeeder::class,
+            MachineCategorySeeder::class,
+            UserSeeder::class,
+            OperationalSampleSeeder::class,
+        ]);
+    }
+}
