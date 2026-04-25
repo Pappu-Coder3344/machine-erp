@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item active" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Reports and Analysis</h2>
+            <p class="page-subtitle mb-0">Review machine condition, PM compliance, breakdown performance, rent machine follow-up, and spare parts risk in one reporting page.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export PDF</button>
+          <button class="btn btn-primary" type="button">Download Excel</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-2 col-md-6">
+                <label for="reportFrom" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="reportFrom" value="2026-04-01">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="reportTo" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="reportTo" value="2026-04-21">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="reportUnit" class="form-label">Factory Unit</label>
+                <select class="form-select" id="reportUnit">
+                  <option>Unit 01 - Sewing</option>
+                  <option selected>Unit 02 - Sewing</option>
+                  <option>Unit 03 - Finishing</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="reportType" class="form-label">Report Type</label>
+                <select class="form-select" id="reportType">
+                  <option selected>All Modules</option>
+                  <option>Machine Status</option>
+                  <option>Breakdown</option>
+                  <option>PM Compliance</option>
+                  <option>Rent Machine</option>
+                  <option>Spare Parts</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="reportFloor" class="form-label">Floor / Line</label>
+                <select class="form-select" id="reportFloor">
+                  <option selected>All Locations</option>
+                  <option>Line 01</option>
+                  <option>Line 03</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Finishing 02</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Generate</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Report Date: <strong id="currentDateLabel">21 Apr 2026</strong></span>
+              <span class="text-body-secondary">Period: 01 Apr 2026 to 21 Apr 2026</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Machine Availability</span>
+                <h3 class="summary-value text-success">86%</h3>
+                <p class="summary-note mb-0">214 active machines from 248 total registered records</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Breakdown Closure Rate</span>
+                <h3 class="summary-value text-primary">78%</h3>
+                <p class="summary-note mb-0">25 tickets closed from 32 reported in current period</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">PM Compliance</span>
+                <h3 class="summary-value text-warning">63%</h3>
+                <p class="summary-note mb-0">40 PM tasks completed from 64 scheduled plans</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Low Stock Risk</span>
+                <h3 class="summary-value text-danger">7</h3>
+                <p class="summary-note mb-0">Parts may affect breakdown repair and monthly PM work</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Report Snapshot</h3>
+                    <p class="section-text mb-0">High-level performance comparison across machine, breakdown, PM, rent, and spare parts areas.</p>
+                  </div>
+                  <div class="section-tools">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Email Summary</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Print View</button>
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table erp-table mobile-card-table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Area</th>
+                        <th>Current Status</th>
+                        <th>Key Figure</th>
+                        <th>Risk / Gap</th>
+                        <th>Next Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="Area">
+                          <strong>Machine Master</strong>
+                          <div class="cell-muted">Own + rent machine records</div>
+                        </td>
+                        <td data-label="Current Status"><span class="badge text-bg-success">Stable</span></td>
+                        <td data-label="Key Figure">
+                          <strong>248 Records</strong>
+                          <div class="cell-muted">214 active, 15 idle, 19 under issue</div>
+                        </td>
+                        <td data-label="Risk / Gap">2 rent records need agreement verification</td>
+                        <td data-label="Next Action"><a href="machines.html" class="btn btn-sm btn-outline-primary">Review</a></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Area">
+                          <strong>Breakdown Tickets</strong>
+                          <div class="cell-muted">Complaint to closure flow</div>
+                        </td>
+                        <td data-label="Current Status"><span class="badge text-bg-warning">Needs Follow-up</span></td>
+                        <td data-label="Key Figure">
+                          <strong>32 Tickets</strong>
+                          <div class="cell-muted">6 open, 7 in progress, 19 closed/completed</div>
+                        </td>
+                        <td data-label="Risk / Gap">4 high priority tickets delayed due to parts or assignment</td>
+                        <td data-label="Next Action"><a href="breakdown-list.html" class="btn btn-sm btn-outline-primary">Open List</a></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Area">
+                          <strong>PM Schedule</strong>
+                          <div class="cell-muted">Daily, weekly, monthly PM</div>
+                        </td>
+                        <td data-label="Current Status"><span class="badge text-bg-danger">Overdue Risk</span></td>
+                        <td data-label="Key Figure">
+                          <strong>64 Plans</strong>
+                          <div class="cell-muted">18 due today, 6 overdue, 40 completed</div>
+                        </td>
+                        <td data-label="Risk / Gap">Monthly PM backlog on rent machines</td>
+                        <td data-label="Next Action"><a href="pm-schedule.html" class="btn btn-sm btn-outline-primary">Check PM</a></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Area">
+                          <strong>Rent Machines</strong>
+                          <div class="cell-muted">Vendor and agreement-linked assets</div>
+                        </td>
+                        <td data-label="Current Status"><span class="badge text-bg-primary">Controlled</span></td>
+                        <td data-label="Key Figure">
+                          <strong>50 Machines</strong>
+                          <div class="cell-muted">43 active, 3 idle, 2 return, 2 replacement under review</div>
+                        </td>
+                        <td data-label="Risk / Gap">Vendor response pending for RM-2008 and RM-2010</td>
+                        <td data-label="Next Action"><a href="rent-machines.html" class="btn btn-sm btn-outline-primary">Follow Up</a></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Area">
+                          <strong>Spare Parts</strong>
+                          <div class="cell-muted">Store issue and repair support</div>
+                        </td>
+                        <td data-label="Current Status"><span class="badge text-bg-warning">Low Stock</span></td>
+                        <td data-label="Key Figure">
+                          <strong>7 Alert Items</strong>
+                          <div class="cell-muted">3 items already affecting repair lead time</div>
+                        </td>
+                        <td data-label="Risk / Gap">Thread cutter knife and motor belt need urgent purchase</td>
+                        <td data-label="Next Action"><a href="spare-parts.html" class="btn btn-sm btn-outline-primary">Check Stock</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="compact-note">
+                  This report page should help admin and maintenance head understand where immediate action is needed without opening every module one by one.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Management Highlights</h3>
+                      <p class="section-text mb-0">Most important items for today.</p>
+                    </div>
+                    <span class="badge text-bg-danger">4 Priority</span>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>RM-2010 monthly PM overdue</strong>
+                        <p class="mb-0">Vendor-linked machine needs PM completion or replacement decision under agreement AGR-2026-004.</p>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>MC-1014 frequent breakdown trend</strong>
+                        <p class="mb-0">Line 03 reported repeat looper issue three times this month. Root cause review is needed.</p>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-primary"></span>
+                      <div>
+                        <strong>Low stock part affecting repair</strong>
+                        <p class="mb-0">Cutter knife stock below minimum and 2 open tickets may be delayed if issue is not resolved.</p>
+                      </div>
+                      <span class="activity-time">04:15 PM</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Export Options</h3>
+                      <p class="section-text mb-0">Common report outputs for management review.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Daily Maintenance Summary</strong>
+                        <div class="cell-muted">Dashboard-style brief for maintenance head</div>
+                      </div>
+                      <span class="badge text-bg-primary">PDF</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Breakdown Register</strong>
+                        <div class="cell-muted">Ticket-wise detail for supervisor follow-up</div>
+                      </div>
+                      <span class="badge text-bg-success">Excel</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>PM Compliance Sheet</strong>
+                        <div class="cell-muted">Frequency-wise due, overdue, completed view</div>
+                      </div>
+                      <span class="badge text-bg-warning">Excel</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Vendor Utilization Report</strong>
+                        <div class="cell-muted">Agreement-linked rent machine analysis</div>
+                      </div>
+                      <span class="badge text-bg-dark">PDF</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Top Breakdown Machines</h3>
+                    <p class="section-text mb-0">Machines with repeat complaints in current period.</p>
+                  </div>
+                  <a href="breakdown-list.html" class="btn btn-sm btn-outline-secondary">Open Breakdown</a>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table erp-table mobile-card-table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Machine Code</th>
+                        <th>Machine Type</th>
+                        <th>Line</th>
+                        <th>Complaint Count</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="Machine Code"><strong>MC-1014</strong></td>
+                        <td data-label="Machine Type">Overlock</td>
+                        <td data-label="Line">Line 03</td>
+                        <td data-label="Complaint Count">3</td>
+                        <td data-label="Status"><span class="badge text-bg-danger">High Risk</span></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code"><strong>RM-2006</strong></td>
+                        <td data-label="Machine Type">Flatlock</td>
+                        <td data-label="Line">Line 07</td>
+                        <td data-label="Complaint Count">2</td>
+                        <td data-label="Status"><span class="badge text-bg-warning">Monitor</span></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code"><strong>MC-1050</strong></td>
+                        <td data-label="Machine Type">Button Attach</td>
+                        <td data-label="Line">Line 10</td>
+                        <td data-label="Complaint Count">2</td>
+                        <td data-label="Status"><span class="badge text-bg-warning">Monitor</span></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code"><strong>MC-1092</strong></td>
+                        <td data-label="Machine Type">Bar Tack</td>
+                        <td data-label="Line">Finishing 02</td>
+                        <td data-label="Complaint Count">1</td>
+                        <td data-label="Status"><span class="badge text-bg-success">Normal</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Vendor and Agreement Performance</h3>
+                    <p class="section-text mb-0">Basic view of rent machine support and response.</p>
+                  </div>
+                  <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Open Agreements</a>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table erp-table mobile-card-table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Vendor</th>
+                        <th>Agreement No</th>
+                        <th>Active Machines</th>
+                        <th>Open Issues</th>
+                        <th>Response</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="Vendor"><strong>Prime Machine Service</strong></td>
+                        <td data-label="Agreement No">AGR-2026-004</td>
+                        <td data-label="Active Machines">18</td>
+                        <td data-label="Open Issues">2</td>
+                        <td data-label="Response"><span class="badge text-bg-warning">Pending PM</span></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor"><strong>Asian Sewing Support</strong></td>
+                        <td data-label="Agreement No">AGR-2026-002</td>
+                        <td data-label="Active Machines">14</td>
+                        <td data-label="Open Issues">1</td>
+                        <td data-label="Response"><span class="badge text-bg-success">On Time</span></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor"><strong>Dhaka Machine Trade</strong></td>
+                        <td data-label="Agreement No">AGR-2026-001</td>
+                        <td data-label="Active Machines">11</td>
+                        <td data-label="Open Issues">0</td>
+                        <td data-label="Response"><span class="badge text-bg-success">Stable</span></td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor"><strong>Metro Industrial Care</strong></td>
+                        <td data-label="Agreement No">AGR-2026-006</td>
+                        <td data-label="Active Machines">7</td>
+                        <td data-label="Open Issues">1</td>
+                        <td data-label="Response"><span class="badge text-bg-primary">Replacement Shared</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">PM Compliance by Frequency</h3>
+                    <p class="section-text mb-0">Simple completion view for preventive maintenance planning.</p>
+                  </div>
+                  <a href="pm-schedule.html" class="btn btn-sm btn-outline-secondary">Open PM</a>
+                </div>
+
+                <div class="status-line">
+                  <div>
+                    <strong>Daily PM</strong>
+                    <div class="cell-muted">28 completed from 34 planned items</div>
+                  </div>
+                  <span class="badge text-bg-success">82%</span>
+                </div>
+                <div class="status-line">
+                  <div>
+                    <strong>Weekly PM</strong>
+                    <div class="cell-muted">9 completed from 18 planned items</div>
+                  </div>
+                  <span class="badge text-bg-warning">50%</span>
+                </div>
+                <div class="status-line">
+                  <div>
+                    <strong>Monthly PM</strong>
+                    <div class="cell-muted">3 completed from 12 planned items</div>
+                  </div>
+                  <span class="badge text-bg-danger">25%</span>
+                </div>
+
+                <div class="compact-note">
+                  Weekly and monthly PM should be reviewed first in management meeting because overdue items directly affect machine reliability and rent machine decisions.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Low Stock Spare Parts Alert</h3>
+                    <p class="section-text mb-0">Store items that may delay service or breakdown repair.</p>
+                  </div>
+                  <a href="spare-parts.html" class="btn btn-sm btn-outline-secondary">Open Store</a>
+                </div>
+
+                <div class="mini-stat-list">
+                  <div class="mini-stat-item">
+                    <div>
+                      <strong>Thread Cutter Knife</strong>
+                      <div class="cell-muted">In stock: 4 pcs, minimum: 10 pcs</div>
+                    </div>
+                    <span class="badge text-bg-danger">Critical</span>
+                  </div>
+                  <div class="mini-stat-item">
+                    <div>
+                      <strong>Motor Belt - Type B</strong>
+                      <div class="cell-muted">In stock: 3 pcs, used in 2 open repair jobs</div>
+                    </div>
+                    <span class="badge text-bg-danger">Critical</span>
+                  </div>
+                  <div class="mini-stat-item">
+                    <div>
+                      <strong>Looper Set</strong>
+                      <div class="cell-muted">In stock: 6 sets, minimum: 8 sets</div>
+                    </div>
+                    <span class="badge text-bg-warning">Low</span>
+                  </div>
+                  <div class="mini-stat-item">
+                    <div>
+                      <strong>Needle Bar Bush</strong>
+                      <div class="cell-muted">In stock: 5 pcs, monthly PM demand rising</div>
+                    </div>
+                    <span class="badge text-bg-warning">Low</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

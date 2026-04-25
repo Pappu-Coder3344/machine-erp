@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Return Replace Flow | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item active" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Return and Replacement Flow</h2>
+            <p class="page-subtitle mb-0">Manage rent machine return requests, replacement decisions, vendor follow-up, approval status, and completed history.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export Flow List</button>
+          <button class="btn btn-primary" type="submit" form="returnReplaceForm">Save Request</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="flowSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="flowSearch" placeholder="Search by machine code, request no, vendor or agreement">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="flowType" class="form-label">Flow Type</label>
+                <select class="form-select" id="flowType">
+                  <option selected>All</option>
+                  <option>Return</option>
+                  <option>Replacement</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="flowStatus" class="form-label">Status</label>
+                <select class="form-select" id="flowStatus">
+                  <option selected>All Status</option>
+                  <option>Open</option>
+                  <option>Vendor Review</option>
+                  <option>Approved</option>
+                  <option>Completed</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="flowVendor" class="form-label">Vendor</label>
+                <select class="form-select" id="flowVendor">
+                  <option selected>All Vendors</option>
+                  <option>ABC Sewing Support</option>
+                  <option>Prime Machine Service</option>
+                  <option>Metro Tech Engineering</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="flowAgreement" class="form-label">Agreement</label>
+                <select class="form-select" id="flowAgreement">
+                  <option selected>All Agreements</option>
+                  <option>AGR-2026-001</option>
+                  <option>AGR-2026-004</option>
+                  <option>AGR-2026-006</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Flow Review: <strong id="currentDateLabel">21 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 7 of 15 return and replacement requests</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Open Requests</span>
+                <h3 class="summary-value text-danger">4</h3>
+                <p class="summary-note mb-0">Need vendor or management response for next action</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Vendor Review Pending</span>
+                <h3 class="summary-value text-warning">3</h3>
+                <p class="summary-note mb-0">Machine condition shared, waiting vendor confirmation</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Approved This Month</span>
+                <h3 class="summary-value text-primary">5</h3>
+                <p class="summary-note mb-0">Return and replacement decisions already cleared</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Completed Flow</span>
+                <h3 class="summary-value text-success">6</h3>
+                <p class="summary-note mb-0">Pickup or replacement already executed</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="alert-strip alert-strip-warning">
+            Return and replacement flow should always show machine code, current issue, agreement, vendor response, and final outcome clearly. This is especially important for rent machines under expiring contracts.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-5">
+              <form id="returnReplaceForm" class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Request Entry Form</h3>
+                    <p class="section-text mb-0">Use this form to start a return or replacement request for a rent machine.</p>
+                  </div>
+                  <span class="badge text-bg-primary">Request No: RR-2026-0007</span>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="requestDate" class="form-label">Request Date</label>
+                    <input type="date" class="form-control" id="requestDate" value="2026-04-21">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="requestType" class="form-label">Request Type</label>
+                    <select class="form-select" id="requestType">
+                      <option>Return</option>
+                      <option selected>Replacement</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="requestMachineCode" class="form-label">Machine Code</label>
+                    <input type="search" class="form-control" id="requestMachineCode" list="requestMachineOptions" value="RM-2008" placeholder="Search machine code">
+                    <datalist id="requestMachineOptions">
+                      <option value="RM-2003"></option>
+                      <option value="RM-2006"></option>
+                      <option value="RM-2008"></option>
+                      <option value="RM-2010"></option>
+                      <option value="RM-2011"></option>
+                      <option value="RM-2022"></option>
+                    </datalist>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="requestStatus" class="form-label">Current Flow Status</label>
+                    <select class="form-select" id="requestStatus">
+                      <option>Open</option>
+                      <option selected>Vendor Review</option>
+                      <option>Approved</option>
+                      <option>Completed</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="requestVendor" class="form-label">Vendor</label>
+                    <select class="form-select" id="requestVendor">
+                      <option>ABC Sewing Support</option>
+                      <option selected>Prime Machine Service</option>
+                      <option>Metro Tech Engineering</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="requestAgreement" class="form-label">Agreement No</label>
+                    <select class="form-select" id="requestAgreement">
+                      <option>AGR-2026-001</option>
+                      <option selected>AGR-2026-004</option>
+                      <option>AGR-2026-006</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="currentAllocation" class="form-label">Current Allocation</label>
+                    <input type="text" class="form-control" id="currentAllocation" value="Line 03, Sewing Floor 02" readonly>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="requestRaisedBy" class="form-label">Requested By</label>
+                    <input type="text" class="form-control" id="requestRaisedBy" value="Jahidul Islam" placeholder="Requester name">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="problemReference" class="form-label">Issue Reference</label>
+                    <input type="text" class="form-control" id="problemReference" value="BD-2026-0001" placeholder="Breakdown or service reference">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="vendorReplyDate" class="form-label">Vendor Reply Date</label>
+                    <input type="date" class="form-control" id="vendorReplyDate" value="2026-04-22">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="approvedBy" class="form-label">Approved By</label>
+                    <input type="text" class="form-control" id="approvedBy" value="Mahmud Hasan" placeholder="Approver name">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="completionTarget" class="form-label">Completion Target</label>
+                    <input type="date" class="form-control" id="completionTarget" value="2026-04-24">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="requestReason" class="form-label">Reason for Return / Replacement</label>
+                    <textarea class="form-control" id="requestReason" rows="4" placeholder="Write actual reason for return or replacement">Machine RM-2008 has repeat looper issue and thread break after multiple support attempts. Production on Line 03 is affected. Replacement is preferred if vendor cannot stabilize the machine within the current shift cycle.</textarea>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="vendorResponse" class="form-label">Vendor Response / Flow Remarks</label>
+                    <textarea class="form-control" id="vendorResponse" rows="4" placeholder="Write vendor response or internal remarks">Vendor acknowledged the issue and requested one final repair check before dispatching a replacement machine. Replacement machine can be sent within 24 hours after management approval.</textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-7">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Open Return and Replacement Requests</h3>
+                      <p class="section-text mb-0">Requests currently under discussion, vendor follow-up, or approval.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Send Reminder</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Flow</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Request No</th>
+                          <th>Machine</th>
+                          <th>Flow Type</th>
+                          <th>Vendor / Agreement</th>
+                          <th>Issue</th>
+                          <th>Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Request No"><strong>RR-2026-0007</strong></td>
+                          <td data-label="Machine">
+                            <strong>RM-2008</strong>
+                            <div class="cell-muted">Line 03, Sewing Floor 02</div>
+                          </td>
+                          <td data-label="Flow Type"><span class="badge text-bg-primary">Replacement</span></td>
+                          <td data-label="Vendor / Agreement">
+                            <strong>Prime Machine Service</strong>
+                            <div class="cell-muted">AGR-2026-004</div>
+                          </td>
+                          <td data-label="Issue">Repeat breakdown after service attempts</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Vendor Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="rent-machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Approve</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Request No"><strong>RR-2026-0006</strong></td>
+                          <td data-label="Machine">
+                            <strong>RM-2006</strong>
+                            <div class="cell-muted">Store Hold</div>
+                          </td>
+                          <td data-label="Flow Type"><span class="badge text-bg-secondary">Return</span></td>
+                          <td data-label="Vendor / Agreement">
+                            <strong>ABC Sewing Support</strong>
+                            <div class="cell-muted">AGR-2026-002</div>
+                          </td>
+                          <td data-label="Issue">Style requirement ended, pickup pending</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Approved</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="rent-machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Complete</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Request No"><strong>RR-2026-0005</strong></td>
+                          <td data-label="Machine">
+                            <strong>RM-2022</strong>
+                            <div class="cell-muted">Line 06, Sewing Floor 03</div>
+                          </td>
+                          <td data-label="Flow Type"><span class="badge text-bg-primary">Replacement</span></td>
+                          <td data-label="Vendor / Agreement">
+                            <strong>Metro Tech Engineering</strong>
+                            <div class="cell-muted">AGR-2026-006</div>
+                          </td>
+                          <td data-label="Issue">Replacement machine promised by vendor</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Open</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="rent-machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Follow Up</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Request No"><strong>RR-2026-0003</strong></td>
+                          <td data-label="Machine">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Line 05, Sewing Floor 02</div>
+                          </td>
+                          <td data-label="Flow Type"><span class="badge text-bg-secondary">Return</span></td>
+                          <td data-label="Vendor / Agreement">
+                            <strong>Prime Machine Service</strong>
+                            <div class="cell-muted">AGR-2026-004</div>
+                          </td>
+                          <td data-label="Issue">Contract expiry and PM backlog review</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Vendor Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="agreements.html" class="btn btn-sm btn-outline-primary">Agreement</a>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Track</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Completed History</h3>
+                      <p class="section-text mb-0">Recent completed return and replacement outcomes for reference.</p>
+                    </div>
+                    <a href="rent-machines.html" class="btn btn-sm btn-outline-secondary">Rent List</a>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Machine</th>
+                          <th>Completed Flow</th>
+                          <th>Date</th>
+                          <th>Outcome</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Machine"><strong>RM-2006</strong></td>
+                          <td data-label="Completed Flow">Return completed</td>
+                          <td data-label="Date">18 Apr 2026</td>
+                          <td data-label="Outcome">Vendor pickup completed and machine marked returned</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine"><strong>RM-2014</strong></td>
+                          <td data-label="Completed Flow">Replacement completed</td>
+                          <td data-label="Date">12 Apr 2026</td>
+                          <td data-label="Outcome">Replacement machine received and allocated to Line 08</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine"><strong>RM-2004</strong></td>
+                          <td data-label="Completed Flow">Return completed</td>
+                          <td data-label="Date">29 Mar 2026</td>
+                          <td data-label="Outcome">Contract demand closed and machine sent back to vendor</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-lg-6">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Flow Rules</h3>
+                    <p class="section-text mb-0">Keep return and replacement process practical and visible for all responsible users.</p>
+                  </div>
+                </div>
+
+                <div class="legend-list">
+                  <span class="legend-chip"><span class="badge text-bg-danger">Open</span> Request created but vendor or management decision still pending.</span>
+                  <span class="legend-chip"><span class="badge text-bg-warning">Vendor Review</span> Machine issue shared with vendor and response is awaited.</span>
+                  <span class="legend-chip"><span class="badge text-bg-primary">Approved</span> Internal and vendor approval done, pickup or replacement execution is in progress.</span>
+                  <span class="legend-chip"><span class="badge text-bg-success">Completed</span> Return pickup or replacement machine handover already finished.</span>
+                </div>
+
+                <div class="compact-note">
+                  Rent machine return or replacement should always keep machine code, current issue, vendor name, agreement number, and final decision available. This helps both operations and future backend tracking.
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Recent Flow Updates</h3>
+                    <p class="section-text mb-0">Latest activity from return and replacement follow-up.</p>
+                  </div>
+                </div>
+
+                <div class="activity-list">
+                  <div class="activity-item">
+                    <span class="activity-dot bg-warning"></span>
+                    <div>
+                      <strong>Vendor review started for RM-2008</strong>
+                      <p class="mb-0">Prime Machine Service requested one last repair confirmation before replacement dispatch.</p>
+                    </div>
+                    <span class="activity-time">Today</span>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-dot bg-primary"></span>
+                    <div>
+                      <strong>Return approved for RM-2006</strong>
+                      <p class="mb-0">Machine moved to store hold and vendor pickup timing confirmed.</p>
+                    </div>
+                    <span class="activity-time">20 Apr</span>
+                  </div>
+                  <div class="activity-item">
+                    <span class="activity-dot bg-danger"></span>
+                    <div>
+                      <strong>Agreement review needed for RM-2010</strong>
+                      <p class="mb-0">Return decision depends on contract renewal and current monthly PM backlog.</p>
+                    </div>
+                    <span class="activity-time">21 Apr</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

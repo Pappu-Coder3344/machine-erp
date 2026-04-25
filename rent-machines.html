@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent Machines | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item active" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Rent Machine Management</h2>
+            <p class="page-subtitle mb-0">Track received rent machines, vendor linkage, agreement coverage, allocation, and return or replacement flow.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export Rent List</button>
+          <a class="btn btn-primary" href="rent-machine-form.html">Receive Rent Machine</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="rentMachineSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="rentMachineSearch" placeholder="Search by code, vendor, agreement or line">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentVendor" class="form-label">Vendor</label>
+                <select class="form-select" id="rentVendor">
+                  <option selected>All Vendors</option>
+                  <option>ABC Sewing Support</option>
+                  <option>Prime Machine Service</option>
+                  <option>Metro Tech Engineering</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentAgreement" class="form-label">Agreement</label>
+                <select class="form-select" id="rentAgreement">
+                  <option selected>All Agreements</option>
+                  <option>AGR-2026-001</option>
+                  <option>AGR-2026-004</option>
+                  <option>AGR-2026-006</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentLocation" class="form-label">Floor / Line</label>
+                <select class="form-select" id="rentLocation">
+                  <option selected>All Locations</option>
+                  <option>Line 03</option>
+                  <option>Line 05</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Store Hold</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentStatus" class="form-label">Status</label>
+                <select class="form-select" id="rentStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Idle</option>
+                  <option>Under Maintenance</option>
+                  <option>Breakdown</option>
+                  <option>Returned</option>
+                  <option>Replaced</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Receive Update: <strong>20 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 8 of 50 rent machine records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Rent Machines</span>
+                <h3 class="summary-value">50</h3>
+                <p class="summary-note mb-0">Received under active vendor agreements</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Currently Active</span>
+                <h3 class="summary-value text-success">38</h3>
+                <p class="summary-note mb-0">Running in production lines today</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Return / Replace Pending</span>
+                <h3 class="summary-value text-warning">5</h3>
+                <p class="summary-note mb-0">Need vendor confirmation or internal approval</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Agreement Expiring Soon</span>
+                <h3 class="summary-value text-danger">2</h3>
+                <p class="summary-note mb-0">Review before next receive or extension decision</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-9">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Rent Machine List</h3>
+                    <p class="section-text mb-0">Monitor vendor, agreement, allocation, status, and return or replacement requirement from one screen.</p>
+                  </div>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Agreement Check</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Print Receive List</button>
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table erp-table mobile-card-table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Rent Code</th>
+                        <th>Machine Details</th>
+                        <th>Vendor / Agreement</th>
+                        <th>Receive Date</th>
+                        <th>Current Allocation</th>
+                        <th>Status</th>
+                        <th>Return / Replace</th>
+                        <th class="text-end">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2003</strong>
+                          <div class="cell-muted">Asset Tag: RT-03</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Flatlock</strong>
+                          <div class="cell-muted">Pegasus W562</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>ABC Sewing Support</strong>
+                          <div class="cell-muted">AGR-2026-001</div>
+                        </td>
+                        <td data-label="Receive Date">05 Jan 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Line 07</strong>
+                          <div class="cell-muted">Sewing Floor 03</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-warning">Under Maintenance</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-secondary">No Request</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="rent-machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="return-replace.html" class="btn btn-sm btn-outline-secondary">Flow</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2006</strong>
+                          <div class="cell-muted">Asset Tag: RT-06</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Single Needle</strong>
+                          <div class="cell-muted">Jack A4E</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>ABC Sewing Support</strong>
+                          <div class="cell-muted">AGR-2026-002</div>
+                        </td>
+                        <td data-label="Receive Date">18 Jan 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Store Hold</strong>
+                          <div class="cell-muted">Return waiting dispatch</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-secondary">Returned</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-warning">Pickup Pending</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="return-replace.html" class="btn btn-sm btn-outline-primary">Return</a>
+                            <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Agreement</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2008</strong>
+                          <div class="cell-muted">Asset Tag: RT-08</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Overlock</strong>
+                          <div class="cell-muted">Juki MO-6714S</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Prime Machine Service</strong>
+                          <div class="cell-muted">AGR-2026-004</div>
+                        </td>
+                        <td data-label="Receive Date">02 Feb 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Line 03</strong>
+                          <div class="cell-muted">Sewing Floor 02</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-danger">Breakdown</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-primary">Replacement Pending</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="ticket-details.html" class="btn btn-sm btn-outline-danger">Ticket</a>
+                            <a href="return-replace.html" class="btn btn-sm btn-outline-secondary">Replace</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2011</strong>
+                          <div class="cell-muted">Asset Tag: RT-11</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Button Attach</strong>
+                          <div class="cell-muted">Siruba LKS-1900</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Prime Machine Service</strong>
+                          <div class="cell-muted">AGR-2026-004</div>
+                        </td>
+                        <td data-label="Receive Date">10 Feb 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Line 10</strong>
+                          <div class="cell-muted">Sewing Floor 03</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-secondary">Idle</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-secondary">No Request</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="allocation.html" class="btn btn-sm btn-outline-primary">Allocate</a>
+                            <a href="rent-machine-details.html" class="btn btn-sm btn-outline-secondary">Details</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2015</strong>
+                          <div class="cell-muted">Asset Tag: RT-15</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Single Needle</strong>
+                          <div class="cell-muted">Jack A4E</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Metro Tech Engineering</strong>
+                          <div class="cell-muted">AGR-2026-006</div>
+                        </td>
+                        <td data-label="Receive Date">25 Feb 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Line 05</strong>
+                          <div class="cell-muted">Sewing Floor 02</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-info">Replaced</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-success">Completed</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="return-replace.html" class="btn btn-sm btn-outline-primary">History</a>
+                            <a href="rent-machine-details.html" class="btn btn-sm btn-outline-secondary">Details</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2018</strong>
+                          <div class="cell-muted">Asset Tag: RT-18</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Flatlock</strong>
+                          <div class="cell-muted">Brother MF-7900</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Metro Tech Engineering</strong>
+                          <div class="cell-muted">AGR-2026-006</div>
+                        </td>
+                        <td data-label="Receive Date">03 Mar 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Line 09</strong>
+                          <div class="cell-muted">Sewing Floor 03</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-secondary">No Request</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="rent-machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="allocation.html" class="btn btn-sm btn-outline-secondary">Transfer</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2020</strong>
+                          <div class="cell-muted">Asset Tag: RT-20</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Overlock</strong>
+                          <div class="cell-muted">Juki MO-6714S</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Prime Machine Service</strong>
+                          <div class="cell-muted">AGR-2026-004</div>
+                        </td>
+                        <td data-label="Receive Date">15 Mar 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Store Hold</strong>
+                          <div class="cell-muted">Pending line allocation</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-secondary">Idle</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-secondary">No Request</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="allocation.html" class="btn btn-sm btn-outline-primary">Allocate</a>
+                            <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Agreement</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Rent Code">
+                          <strong>RM-2022</strong>
+                          <div class="cell-muted">Asset Tag: RT-22</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Button Hole</strong>
+                          <div class="cell-muted">Typical GT-1790</div>
+                        </td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>ABC Sewing Support</strong>
+                          <div class="cell-muted">AGR-2026-007</div>
+                        </td>
+                        <td data-label="Receive Date">10 Apr 2026</td>
+                        <td data-label="Current Allocation">
+                          <strong>Line 02</strong>
+                          <div class="cell-muted">Sewing Floor 02</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Return / Replace"><span class="badge text-bg-secondary">No Request</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="rent-machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="breakdown-form.html" class="btn btn-sm btn-outline-secondary">Complaint</a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 pt-3">
+                  <div class="small text-body-secondary">Showing 1 to 8 of 50 rent machine records</div>
+                  <nav aria-label="Rent machine pages">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                      <li class="page-item active"><span class="page-link">1</span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Rent Control Notes</h3>
+                    <p class="section-text mb-0">Keep rent machine workflow complete and easy to audit.</p>
+                  </div>
+                </div>
+
+                <div class="mini-stat-list">
+                  <div class="mini-stat-item">
+                    <span>Missing Agreement Link</span>
+                    <strong>1</strong>
+                  </div>
+                  <div class="mini-stat-item">
+                    <span>Pending Vendor Pickup</span>
+                    <strong>2</strong>
+                  </div>
+                  <div class="mini-stat-item">
+                    <span>Allocation Pending</span>
+                    <strong>3</strong>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="legend-list">
+                  <span class="legend-chip"><span class="badge text-bg-success">Active</span> Running in current line</span>
+                  <span class="legend-chip"><span class="badge text-bg-secondary">Returned</span> Sent back or ready for vendor pickup</span>
+                  <span class="legend-chip"><span class="badge text-bg-primary">Replacement Pending</span> Vendor replacement is under process</span>
+                  <span class="legend-chip"><span class="badge text-bg-info">Replaced</span> New machine already received and updated</span>
+                </div>
+
+                <div class="compact-note">
+                  Every rent machine should keep vendor name, agreement number, receive date, monthly rate, and current line allocation available for future backend linkage.
+                </div>
+
+                <div class="alert-strip alert-strip-warning mt-3 mb-0">
+                  Agreement AGR-2026-004 should be reviewed before receiving any additional machine from Prime Machine Service.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

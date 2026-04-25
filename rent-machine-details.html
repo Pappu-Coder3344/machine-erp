@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent Machine Details | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item active" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Rent Machine Details</h2>
+            <p class="page-subtitle mb-0">Review rent machine profile, vendor agreement linkage, allocation, PM, breakdown, and return or replacement readiness from one page.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="rent-machines.html">Rent Machine List</a>
+          <a class="btn btn-primary" href="rent-machine-form.html">Update Receive Entry</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Selected Rent Machine Overview</h3>
+                <p class="section-text mb-0">This sample detail view shows a rent machine with active agreement, breakdown follow-up, and replacement support under vendor contract.</p>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="badge text-bg-primary">Rent Machine</span>
+                <span class="badge text-bg-danger">Breakdown</span>
+              </div>
+            </div>
+
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="detailMachineCode" class="form-label">Rent Code</label>
+                <input type="text" class="form-control" id="detailMachineCode" value="RM-2008" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="detailMachineType" class="form-label">Machine Type</label>
+                <input type="text" class="form-control" id="detailMachineType" value="Overlock" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="detailBrandModel" class="form-label">Brand / Model</label>
+                <input type="text" class="form-control" id="detailBrandModel" value="Juki MO-6714S" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="detailStatus" class="form-label">Current Status</label>
+                <input type="text" class="form-control" id="detailStatus" value="Breakdown" readonly>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Receive Date: <strong>02 Feb 2026</strong></span>
+              <span class="text-body-secondary">Vendor: Prime Machine Service | Agreement: AGR-2026-004</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Current Allocation</span>
+                <h3 class="summary-value">Line 03</h3>
+                <p class="summary-note mb-0">Sewing Floor 02 under current production use</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Monthly Rent</span>
+                <h3 class="summary-value text-primary">14,500</h3>
+                <p class="summary-note mb-0">BDT monthly contract charge under AGR-2026-004</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Next PM</span>
+                <h3 class="summary-value text-warning">21 May</h3>
+                <p class="summary-note mb-0">Monthly PM due after current issue is closed</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Agreement Validity</span>
+                <h3 class="summary-value text-danger">24 Days</h3>
+                <p class="summary-note mb-0">Renewal decision needed before 15 May 2026</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Rent Machine Profile</h3>
+                      <p class="section-text mb-0">Core profile used in rent machine, PM, breakdown, and return or replacement workflow.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Asset Tag</strong>
+                          <div class="cell-muted">RT-08 tagged during receive process</div>
+                        </div>
+                        <span class="badge text-bg-dark">Tracked</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Receive Condition</strong>
+                          <div class="cell-muted">Machine was received in usable condition</div>
+                        </div>
+                        <span class="badge text-bg-success">Good</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Vendor Serial</strong>
+                          <div class="cell-muted">JUK-RM-6714S-2008</div>
+                        </div>
+                        <span class="badge text-bg-secondary">Serial</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Service Priority</strong>
+                          <div class="cell-muted">Higher review because this machine supports active production line</div>
+                        </div>
+                        <span class="badge text-bg-warning">Medium</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Vendor, Agreement, and Allocation</h3>
+                      <p class="section-text mb-0">Key contract and floor-use details that must stay visible for operational decisions.</p>
+                    </div>
+                    <div class="section-tools">
+                      <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Agreement</a>
+                      <a href="vendors.html" class="btn btn-sm btn-outline-secondary">Vendor</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th>Details</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Item"><strong>Vendor</strong></td>
+                          <td data-label="Details">
+                            <strong>Prime Machine Service</strong>
+                            <div class="cell-muted">Contact: Shafiqur Rahman, Same day response support</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active Vendor</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Agreement</strong></td>
+                          <td data-label="Details">
+                            <strong>AGR-2026-004</strong>
+                            <div class="cell-muted">Rent machine with service support and replacement option</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Expiring Soon</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Current Allocation</strong></td>
+                          <td data-label="Details">
+                            <strong>Line 03, Sewing Floor 02</strong>
+                            <div class="cell-muted">Allocated under knit line overlock support</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Running Line</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Return / Replace Terms</strong></td>
+                          <td data-label="Details">
+                            <strong>Return and replacement allowed</strong>
+                            <div class="cell-muted">Vendor to confirm replacement if repeat issue continues</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-info">Covered</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">PM, Breakdown, and Return History</h3>
+                      <p class="section-text mb-0">Recent maintenance and complaint flow that affects vendor follow-up and machine availability.</p>
+                    </div>
+                    <div class="section-tools">
+                      <a href="pm-schedule.html" class="btn btn-sm btn-outline-secondary">PM</a>
+                      <a href="return-replace.html" class="btn btn-sm btn-outline-secondary">Return Flow</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Reference</th>
+                          <th>Activity</th>
+                          <th>Date</th>
+                          <th>Assigned To</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Reference"><strong>BD-2026-0001</strong></td>
+                          <td data-label="Activity">
+                            <strong>Looper issue, thread break</strong>
+                            <div class="cell-muted">Current active breakdown complaint affecting Line 03 output</div>
+                          </td>
+                          <td data-label="Date">20 Apr 2026</td>
+                          <td data-label="Assigned To">Sohel Rana</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">In Progress</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Reference"><strong>PM-2026-045</strong></td>
+                          <td data-label="Activity">
+                            <strong>Monthly PM overdue</strong>
+                            <div class="cell-muted">Vendor service note linked because machine is under contract</div>
+                          </td>
+                          <td data-label="Date">16 Apr 2026</td>
+                          <td data-label="Assigned To">Rafiqul Islam</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Overdue</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Reference"><strong>RR-2026-0003</strong></td>
+                          <td data-label="Activity">
+                            <strong>Replacement discussion opened</strong>
+                            <div class="cell-muted">Vendor asked for issue confirmation before dispatching substitute machine</div>
+                          </td>
+                          <td data-label="Date">21 Apr 2026</td>
+                          <td data-label="Assigned To">Jahidul Islam</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Pending Vendor Reply</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Reference"><strong>PM-2026-018</strong></td>
+                          <td data-label="Activity">
+                            <strong>Monthly PM completed</strong>
+                            <div class="cell-muted">Normal machine response found during previous cycle</div>
+                          </td>
+                          <td data-label="Date">16 Mar 2026</td>
+                          <td data-label="Assigned To">Hasan Ali</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Completed</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Current Action Board</h3>
+                      <p class="section-text mb-0">Most important follow-up items for this rent machine.</p>
+                    </div>
+                    <span class="badge text-bg-danger">3 Active</span>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Open Breakdown</strong>
+                        <div class="cell-muted">Technician update needed before replacement decision</div>
+                      </div>
+                      <span class="badge text-bg-danger">Urgent</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>PM Overdue</strong>
+                        <div class="cell-muted">Monthly PM cannot stay pending for long under contract</div>
+                      </div>
+                      <span class="badge text-bg-warning">Due</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Agreement Renewal Watch</strong>
+                        <div class="cell-muted">Renewal review needed before adding new rent machines</div>
+                      </div>
+                      <span class="badge text-bg-primary">Review</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Activity</h3>
+                      <p class="section-text mb-0">Latest updates for rent machine follow-up.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>Breakdown complaint raised</strong>
+                        <p class="mb-0">Production user from Line 03 reported repeated thread break and abnormal looper movement.</p>
+                      </div>
+                      <span class="activity-time">20 Apr</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>Monthly PM shifted</strong>
+                        <p class="mb-0">Planned PM was delayed because breakdown issue received priority attention.</p>
+                      </div>
+                      <span class="activity-time">18 Apr</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-primary"></span>
+                      <div>
+                        <strong>Vendor informed for replacement support</strong>
+                        <p class="mb-0">Prime Machine Service was informed that replacement may be needed if issue repeats after repair.</p>
+                      </div>
+                      <span class="activity-time">21 Apr</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Spare Parts and Cost Risk</h3>
+                      <p class="section-text mb-0">Parts and contract concerns affecting this rent machine.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Looper Set</strong>
+                      <div class="cell-muted">Requested for current breakdown review</div>
+                    </div>
+                    <span class="badge text-bg-warning">Pending</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Cutter Knife</strong>
+                      <div class="cell-muted">Store stock low for this machine group</div>
+                    </div>
+                    <span class="badge text-bg-danger">Low Stock</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Agreement Cost Exposure</strong>
+                      <div class="cell-muted">Renewal may increase cost if replacement claim is active</div>
+                    </div>
+                    <span class="badge text-bg-primary">Watch</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Actions</h3>
+                      <p class="section-text mb-0">Useful next steps from this rent details page.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <a href="rent-machine-form.html" class="mini-stat-item">
+                      <div>
+                        <strong>Update Receive Entry</strong>
+                        <div class="cell-muted">Edit receive, allocation, or vendor linkage</div>
+                      </div>
+                      <span class="badge text-bg-primary">Edit</span>
+                    </a>
+                    <a href="return-replace.html" class="mini-stat-item">
+                      <div>
+                        <strong>Return / Replace Flow</strong>
+                        <div class="cell-muted">Open vendor coordination and approval path</div>
+                      </div>
+                      <span class="badge text-bg-warning">Flow</span>
+                    </a>
+                    <a href="ticket-details.html" class="mini-stat-item">
+                      <div>
+                        <strong>Breakdown Ticket</strong>
+                        <div class="cell-muted">Review current complaint details and technician notes</div>
+                      </div>
+                      <span class="badge text-bg-danger">Ticket</span>
+                    </a>
+                    <a href="agreements.html" class="mini-stat-item">
+                      <div>
+                        <strong>Agreement Register</strong>
+                        <div class="cell-muted">Open current contract and renewal view</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Contract</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

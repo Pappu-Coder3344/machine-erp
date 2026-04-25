@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PM Completion | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item active" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">PM Completion Record</h2>
+            <p class="page-subtitle mb-0">Confirm the PM work result, record spare or observation, and close the PM task with the next due update.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="pm-checklist.html">PM Checklist</a>
+          <button class="btn btn-primary" type="submit" form="pmCompleteForm">Confirm PM Complete</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Completed PM Summary</h3>
+                <p class="section-text mb-0">Final PM confirmation should clearly show the machine, execution result, and next due date before moving the task to completed.</p>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="badge text-bg-primary">Daily</span>
+                <span class="badge text-bg-success">Ready to Complete</span>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-lg-3 col-md-6">
+                <label for="completePlanNo" class="form-label">Plan No</label>
+                <input type="text" class="form-control" id="completePlanNo" value="PM-2026-048" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="completeMachineCode" class="form-label">Machine Code</label>
+                <input type="text" class="form-control" id="completeMachineCode" value="MC-1108" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="completeMachineType" class="form-label">Machine Type</label>
+                <input type="text" class="form-control" id="completeMachineType" value="Single Needle" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="completeLocation" class="form-label">Floor / Line</label>
+                <input type="text" class="form-control" id="completeLocation" value="Sewing Floor 02 / Line 01" readonly>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Due Date: <strong>21 Apr 2026</strong></span>
+              <span class="text-body-secondary">Technician: Rafiqul Islam | PM window: 09:15 AM</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Execution Time</span>
+                <h3 class="summary-value text-warning">18 Min</h3>
+                <p class="summary-note mb-0">Daily PM finished inside the planned time window</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Machine Result</span>
+                <h3 class="summary-value text-success">Normal</h3>
+                <p class="summary-note mb-0">No abnormal sound or vibration observed after PM</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Spare Usage</span>
+                <h3 class="summary-value text-primary">None</h3>
+                <p class="summary-note mb-0">No spare issue needed for this daily PM task</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Next Due</span>
+                <h3 class="summary-value text-dark">22 Apr</h3>
+                <p class="summary-note mb-0">Next daily PM will carry forward automatically</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <form id="pmCompleteForm" class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">PM Completion Form</h3>
+                    <p class="section-text mb-0">The completion record should stay practical for reports, technician review, and future backend history.</p>
+                  </div>
+                  <span class="badge text-bg-success">Completion Approval</span>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="completeDate" class="form-label">Completion Date</label>
+                    <input type="date" class="form-control" id="completeDate" value="2026-04-21">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="completeTime" class="form-label">Completion Time</label>
+                    <input type="time" class="form-control" id="completeTime" value="09:33">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="completeTechnician" class="form-label">Completed By</label>
+                    <input type="text" class="form-control" id="completeTechnician" value="Rafiqul Islam">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="completeStatus" class="form-label">Final Status</label>
+                    <select class="form-select" id="completeStatus">
+                      <option>In Progress</option>
+                      <option selected>Completed</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="machineCondition" class="form-label">Machine Condition</label>
+                    <select class="form-select" id="machineCondition">
+                      <option selected>Normal</option>
+                      <option>Normal with Observation</option>
+                      <option>Needs Repair Follow-Up</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="productionReady" class="form-label">Production Ready</label>
+                    <select class="form-select" id="productionReady">
+                      <option selected>Ready for Production</option>
+                      <option>Ready After Observation</option>
+                      <option>Hold for Repair Check</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="spareUse" class="form-label">Spare Parts Usage</label>
+                    <select class="form-select" id="spareUse">
+                      <option selected>No Spare Used</option>
+                      <option>Minor Spare Used</option>
+                      <option>Store Issue Logged</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="nextDueConfirm" class="form-label">Next Due Date</label>
+                    <input type="date" class="form-control" id="nextDueConfirm" value="2026-04-22">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="completionSummary" class="form-label">Completion Summary</label>
+                    <textarea class="form-control" id="completionSummary" rows="4">Machine cleaned, oil points checked, thread path cleaned, and safety guard reviewed. Daily PM completed without abnormal sign and machine released back to production.</textarea>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="observationNote" class="form-label">Observation Note</label>
+                    <textarea class="form-control" id="observationNote" rows="3">No follow-up repair required. Keep normal observation during next shift start.</textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="approvedBy" class="form-label">Reviewed By</label>
+                    <input type="text" class="form-control" id="approvedBy" value="Rahima Begum">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="reportCategory" class="form-label">Report Category</label>
+                    <select class="form-select" id="reportCategory">
+                      <option selected>Normal PM Completion</option>
+                      <option>PM with Observation</option>
+                      <option>PM Follow-Up Needed</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Completion Checklist</h3>
+                      <p class="section-text mb-0">Final checks before the PM item is closed as completed.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Checklist Done</strong>
+                        <div class="cell-muted">Daily PM points completed and technician remarks added</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Next Due Updated</strong>
+                        <div class="cell-muted">Next PM moved to the following work date</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Production Release</strong>
+                        <div class="cell-muted">Machine can return to line immediately</div>
+                      </div>
+                      <span class="badge text-bg-primary">Ready</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Execution Snapshot</h3>
+                      <p class="section-text mb-0">Short summary for the PM completion board.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th>Details</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Item"><strong>Cleaning</strong></td>
+                          <td data-label="Details">Completed around oil points and thread path area</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Done</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Oil Check</strong></td>
+                          <td data-label="Details">Normal oil level and no leakage found</td>
+                          <td data-label="Status"><span class="badge text-bg-success">OK</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Safety Guard</strong></td>
+                          <td data-label="Details">Guard position checked before machine release</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Checked</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Next Review</strong></td>
+                          <td data-label="Details">Standard daily PM review on next work date</td>
+                          <td data-label="Status"><span class="badge text-bg-secondary">Planned</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Links</h3>
+                      <p class="section-text mb-0">Connected PM closure pages.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary" href="pm-checklist.html">Open PM Checklist</a>
+                    <a class="btn btn-outline-primary" href="pm-due.html">PM Due Board</a>
+                    <a class="btn btn-outline-primary" href="reports.html">PM Reports</a>
+                    <a class="btn btn-outline-secondary" href="pm-schedule.html">Back to PM Schedule</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

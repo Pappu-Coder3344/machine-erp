@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendor Details | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item active" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Vendor Details</h2>
+            <p class="page-subtitle mb-0">Review vendor profile, support contact, agreement readiness, machine coverage, and operational follow-up before daily business use.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="vendors.html">Vendor List</a>
+          <a class="btn btn-primary" href="vendor-form.html">Edit Vendor</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Vendor Code</span>
+                <h3 class="summary-value">VEN-004</h3>
+                <p class="summary-note mb-0">Prime Machine Service master support profile</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Vendor Status</span>
+                <h3 class="summary-value text-success">Active</h3>
+                <p class="summary-note mb-0">Currently used for rent machine support operations</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Machine Coverage</span>
+                <h3 class="summary-value text-primary">18</h3>
+                <p class="summary-note mb-0">Rent machines under current support scope</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Agreement Watch</span>
+                <h3 class="summary-value text-warning">Soon</h3>
+                <p class="summary-note mb-0">Latest contract is approaching renewal review</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Vendor Profile Overview</h3>
+                      <p class="section-text mb-0">Core vendor information used in rent machine receive, agreement review, PM escalation, and return or replacement follow-up.</p>
+                    </div>
+                    <span class="badge text-bg-primary">Rent Machine Vendor</span>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Vendor Name</strong>
+                          <div class="cell-muted">Prime Machine Service</div>
+                        </div>
+                        <span class="badge text-bg-success">Active</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Business Type</strong>
+                          <div class="cell-muted">Rent machine with service support</div>
+                        </div>
+                        <span class="badge text-bg-info">Support</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>City</strong>
+                          <div class="cell-muted">Gazipur</div>
+                        </div>
+                        <span class="badge text-bg-dark">Local</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Response Time</strong>
+                          <div class="cell-muted">Same day as per current support note</div>
+                        </div>
+                        <span class="badge text-bg-warning">SLA</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    This vendor is currently supporting high-use rent machines. Contact and agreement visibility should remain clear because PM overdue, machine return, and replacement decisions can depend on this record.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Contact and Address Details</h3>
+                      <p class="section-text mb-0">Primary support contact information used during machine service coordination and escalation.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <tbody>
+                        <tr>
+                          <td data-label="Field"><strong>Contact Person</strong></td>
+                          <td data-label="Value">Shafiqur Rahman</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Field"><strong>Designation</strong></td>
+                          <td data-label="Value">Manager - Rental Support</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Field"><strong>Mobile Number</strong></td>
+                          <td data-label="Value">01819-225577</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Field"><strong>Email</strong></td>
+                          <td data-label="Value">prime.service@email.com</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Field"><strong>Office Phone</strong></td>
+                          <td data-label="Value">02-8899112</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Field"><strong>Office Address</strong></td>
+                          <td data-label="Value">House 18, Block C, Tongi Industrial Area, Gazipur, Bangladesh</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Agreement and Coverage Snapshot</h3>
+                      <p class="section-text mb-0">Current agreement and machine support view linked with this vendor profile.</p>
+                    </div>
+                    <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Open Agreements</a>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Agreement No</th>
+                          <th>Coverage Type</th>
+                          <th>Machine Coverage</th>
+                          <th>Status</th>
+                          <th>End Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Agreement No"><strong>AGR-2026-004</strong></td>
+                          <td data-label="Coverage Type">Rent machine with service support</td>
+                          <td data-label="Machine Coverage">18 Rent Machines</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Expiring Soon</span></td>
+                          <td data-label="End Date">15 May 2026</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Agreement No"><strong>AGR-2025-011</strong></td>
+                          <td data-label="Coverage Type">Service support only</td>
+                          <td data-label="Machine Coverage">Closed cycle support</td>
+                          <td data-label="Status"><span class="badge text-bg-secondary">Expired</span></td>
+                          <td data-label="End Date">31 Dec 2025</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Covered Machine Snapshot</h3>
+                      <p class="section-text mb-0">Example machines currently depending on this vendor for rent and support visibility.</p>
+                    </div>
+                    <a href="rent-machines.html" class="btn btn-sm btn-outline-secondary">Open Rent Machines</a>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Machine Code</th>
+                          <th>Machine Type</th>
+                          <th>Floor / Line</th>
+                          <th>Current Status</th>
+                          <th>PM / Support</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Machine Code"><strong>RM-2006</strong></td>
+                          <td data-label="Machine Type">Flatlock</td>
+                          <td data-label="Floor / Line">Line 07, Sewing Floor 02</td>
+                          <td data-label="Current Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="PM / Support"><span class="badge text-bg-danger">PM Overdue</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine Code"><strong>RM-2010</strong></td>
+                          <td data-label="Machine Type">Single Needle</td>
+                          <td data-label="Floor / Line">Line 05, Sewing Floor 02</td>
+                          <td data-label="Current Status"><span class="badge text-bg-warning">Under Maintenance</span></td>
+                          <td data-label="PM / Support"><span class="badge text-bg-warning">Vendor Follow-Up</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine Code"><strong>RM-2014</strong></td>
+                          <td data-label="Machine Type">Overlock</td>
+                          <td data-label="Floor / Line">Line 12, Sewing Floor 03</td>
+                          <td data-label="Current Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="PM / Support"><span class="badge text-bg-primary">Support Ready</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Vendor Watch</h3>
+                      <p class="section-text mb-0">Short visibility on the items that need close follow-up before daily operations are affected.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Agreement Renewal</strong>
+                        <div class="cell-muted">Latest contract should be renewed before additional receive</div>
+                      </div>
+                      <span class="badge text-bg-warning">Open</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>PM Escalation</strong>
+                        <div class="cell-muted">Two covered machines are already in overdue watch</div>
+                      </div>
+                      <span class="badge text-bg-danger">Risk</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Response Readiness</strong>
+                        <div class="cell-muted">Support contact remains valid and reachable</div>
+                      </div>
+                      <span class="badge text-bg-success">Ready</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Performance Snapshot</h3>
+                      <p class="section-text mb-0">Quick operational view for vendor service and business use.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Current Coverage</strong>
+                      <div class="cell-muted">18 rent machines under active support scope</div>
+                    </div>
+                    <span class="badge text-bg-primary">18</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Complaint Response</strong>
+                      <div class="cell-muted">Same day support as per recent internal note</div>
+                    </div>
+                    <span class="badge text-bg-success">Good</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Renewal Risk</strong>
+                      <div class="cell-muted">Service continuity depends on timely contract update</div>
+                    </div>
+                    <span class="badge text-bg-warning">Watch</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Vendor Updates</h3>
+                      <p class="section-text mb-0">Latest follow-up items visible for maintenance and admin review.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>Renewal watch opened</strong>
+                        <div class="cell-muted">Contract entered expiring-soon tracking for May review</div>
+                      </div>
+                      <span class="activity-time">22 Apr 2026</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-success"></span>
+                      <div>
+                        <strong>Support contact verified</strong>
+                        <div class="cell-muted">Primary mobile and email were rechecked by maintenance team</div>
+                      </div>
+                      <span class="activity-time">21 Apr 2026</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>Overdue PM linked</strong>
+                        <div class="cell-muted">Vendor record now appears in PM overdue follow-up notes</div>
+                      </div>
+                      <span class="activity-time">18 Apr 2026</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Short rules and reminders for using this vendor in live operations.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-success">Use</span> Active vendors with valid agreement for new rent machine receive.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">Review</span> Renew expiring vendors before approving new support dependency.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">Avoid</span> Continued support use if agreement visibility becomes unclear.</span>
+                    <span class="legend-chip"><span class="badge text-bg-primary">Link</span> PM, complaint, and return or replacement decisions with vendor readiness.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

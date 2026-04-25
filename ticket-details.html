@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ticket Details | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item active" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Ticket Details</h2>
+            <p class="page-subtitle mb-0">Track one breakdown ticket from complaint entry to technician work update, production confirmation, and closure.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="breakdown-list.html">Ticket List</a>
+          <a class="btn btn-primary" href="technician-tasks.html">Update Work</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Selected Ticket Overview</h3>
+                <p class="section-text mb-0">This sample record shows a rent machine breakdown that is under active technician follow-up and may need vendor support if parts replacement is confirmed.</p>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="badge text-bg-warning">Medium Priority</span>
+                <span class="badge text-bg-info">In Progress</span>
+              </div>
+            </div>
+
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="detailTicketNo" class="form-label">Ticket No</label>
+                <input type="text" class="form-control" id="detailTicketNo" value="BD-2026-0004" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="detailMachineCode" class="form-label">Machine Code</label>
+                <input type="text" class="form-control" id="detailMachineCode" value="RM-2003" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="detailMachineType" class="form-label">Machine Type</label>
+                <input type="text" class="form-control" id="detailMachineType" value="Flatlock" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="detailLocation" class="form-label">Floor / Line</label>
+                <input type="text" class="form-control" id="detailLocation" value="Sewing Floor 03 / Line 07" readonly>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Raised: <strong>20 Apr 2026, 10:25 AM</strong></span>
+              <span class="text-body-secondary">Raised by Rahima Begum | Linked agreement: AGR-2026-004</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Response Window</span>
+                <h3 class="summary-value text-success">18 Min</h3>
+                <p class="summary-note mb-0">Technician accepted within target response time</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Downtime</span>
+                <h3 class="summary-value text-warning">1.4 Hrs</h3>
+                <p class="summary-note mb-0">Line is running on backup arrangement only</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Technician Stage</span>
+                <h3 class="summary-value text-primary">Trial Run</h3>
+                <p class="summary-note mb-0">Need production confirmation after setting adjustment</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Spare Parts Impact</span>
+                <h3 class="summary-value text-danger">Check</h3>
+                <p class="summary-note mb-0">Needle bar set may be required if problem repeats</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Complaint and Machine Context</h3>
+                      <p class="section-text mb-0">Show the original issue, production impact, and machine or vendor context before repair decisions are taken.</p>
+                    </div>
+                    <div class="section-tools">
+                      <a href="rent-machine-details.html" class="btn btn-sm btn-outline-secondary">Machine Details</a>
+                      <a href="return-replace.html" class="btn btn-sm btn-outline-secondary">Return or Replace</a>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Problem Type</strong>
+                          <div class="cell-muted">Needle bar setting problem</div>
+                        </div>
+                        <span class="badge text-bg-warning">Repeat Issue</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Ownership</strong>
+                          <div class="cell-muted">Rent machine under service agreement</div>
+                        </div>
+                        <span class="badge text-bg-primary">Rent</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Vendor</strong>
+                          <div class="cell-muted">Prime Machine Service</div>
+                        </div>
+                        <span class="badge text-bg-secondary">On Call</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Production Impact</strong>
+                          <div class="cell-muted">Line efficiency reduced during peak sewing hour</div>
+                        </div>
+                        <span class="badge text-bg-danger">Operational Loss</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    Operator reported unstable stitch balance and skipped stitch after a minor setting correction. The line supervisor escalated the complaint because quality defects started appearing on sample pieces.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Assignment and Workflow Control</h3>
+                      <p class="section-text mb-0">Supervisor assignment, response SLA, escalation path, and closure ownership should stay visible at ticket level.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Workflow Item</th>
+                          <th>Details</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Workflow Item"><strong>Raised By</strong></td>
+                          <td data-label="Details">Rahima Begum, Supervisor for Sewing Floor 03</td>
+                          <td data-label="Status"><span class="badge text-bg-secondary">Captured</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Workflow Item"><strong>Assigned Technician</strong></td>
+                          <td data-label="Details">Sohel Rana accepted the job at 10:43 AM</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Assigned</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Workflow Item"><strong>Target Response</strong></td>
+                          <td data-label="Details">Within 30 minutes from complaint raise time</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Met</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Workflow Item"><strong>Escalation</strong></td>
+                          <td data-label="Details">Vendor support to be informed if issue repeats after trial run</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Stand By</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Workflow Item"><strong>Closure Owner</strong></td>
+                          <td data-label="Details">Production confirmation by line supervisor after output check</td>
+                          <td data-label="Status"><span class="badge text-bg-info">Pending</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Technician Work Updates</h3>
+                      <p class="section-text mb-0">The ticket should capture repair notes, action timing, and next operational decision in simple chronological order.</p>
+                    </div>
+                    <div class="section-tools">
+                      <a href="technician-tasks.html" class="btn btn-sm btn-outline-secondary">Technician Board</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Time</th>
+                          <th>Updated By</th>
+                          <th>Work Note</th>
+                          <th>Next Step</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Time">10:43 AM</td>
+                          <td data-label="Updated By">Sohel Rana</td>
+                          <td data-label="Work Note">Reached line and checked feed timing, needle position, and operator setup.</td>
+                          <td data-label="Next Step">Open front cover and inspect needle bar alignment</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Accepted</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Time">11:05 AM</td>
+                          <td data-label="Updated By">Sohel Rana</td>
+                          <td data-label="Work Note">Found slight needle bar movement and reset clamp positioning.</td>
+                          <td data-label="Next Step">Run sample stitch on scrap fabric</td>
+                          <td data-label="Status"><span class="badge text-bg-info">In Progress</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Time">11:32 AM</td>
+                          <td data-label="Updated By">Sohel Rana</td>
+                          <td data-label="Work Note">Stitch improved after manual setting correction, but vibration still observed under speed.</td>
+                          <td data-label="Next Step">Monitor for repeat issue during trial run</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Watch</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Time">11:48 AM</td>
+                          <td data-label="Updated By">Rahima Begum</td>
+                          <td data-label="Work Note">Trial pieces approved for appearance, waiting for line restart confirmation.</td>
+                          <td data-label="Next Step">Close if 30-minute run is stable</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Review</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Spare Parts and Repair Decision</h3>
+                      <p class="section-text mb-0">Keep parts need simple so maintenance and store can coordinate without overcomplicating the prototype.</p>
+                    </div>
+                    <div class="section-tools">
+                      <a href="spare-parts.html" class="btn btn-sm btn-outline-secondary">Spare Parts</a>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Current Parts Decision</strong>
+                          <div class="cell-muted">No issue part issued yet from store</div>
+                        </div>
+                        <span class="badge text-bg-secondary">Hold</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Probable Requirement</strong>
+                          <div class="cell-muted">Needle bar set if vibration returns in live production</div>
+                        </div>
+                        <span class="badge text-bg-warning">Conditional</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Store Coordination</strong>
+                          <div class="cell-muted">One set available in maintenance store rack B-02</div>
+                        </div>
+                        <span class="badge text-bg-success">Available</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Vendor Support Need</strong>
+                          <div class="cell-muted">Escalate only if repeat issue occurs in same shift</div>
+                        </div>
+                        <span class="badge text-bg-info">Optional</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    Simple ticket-level part visibility helps future backend users understand whether the complaint ended with adjustment only, store issue, or vendor intervention.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Current Status Board</h3>
+                      <p class="section-text mb-0">Fast read for production, maintenance, and management users.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Ticket Stage</strong>
+                        <div class="cell-muted">Assigned and under technician monitoring</div>
+                      </div>
+                      <span class="badge text-bg-info">In Progress</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Production Confirmation</strong>
+                        <div class="cell-muted">Supervisor must confirm stable output before closure</div>
+                      </div>
+                      <span class="badge text-bg-warning">Pending</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Closure Readiness</strong>
+                        <div class="cell-muted">Expected closure within current shift if no repeat complaint appears</div>
+                      </div>
+                      <span class="badge text-bg-success">Likely</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Actions</h3>
+                      <p class="section-text mb-0">Keep next actions visible so the ticket does not stall.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-primary" href="technician-tasks.html">Post Technician Update</a>
+                    <a class="btn btn-outline-primary" href="breakdown-form.html">Edit Complaint</a>
+                    <a class="btn btn-outline-primary" href="return-replace.html">Start Replacement Flow</a>
+                    <a class="btn btn-outline-primary" href="rent-machine-details.html">Open Machine Record</a>
+                    <a class="btn btn-outline-secondary" href="breakdown-list.html">Back to Ticket List</a>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Workflow Timeline</h3>
+                      <p class="section-text mb-0">Simple step view for the breakdown lifecycle.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Complaint Raised</strong>
+                        <div class="cell-muted">20 Apr 2026, 10:25 AM by supervisor</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Technician Assigned</strong>
+                        <div class="cell-muted">Within response target</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Repair in Progress</strong>
+                        <div class="cell-muted">Monitoring after adjustment</div>
+                      </div>
+                      <span class="badge text-bg-info">Running</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Production Sign-Off</strong>
+                        <div class="cell-muted">Needed before close</div>
+                      </div>
+                      <span class="badge text-bg-warning">Next</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Related Links</h3>
+                      <p class="section-text mb-0">Shortcut links to connected modules.</p>
+                    </div>
+                  </div>
+
+                  <div class="list-group">
+                    <a href="rent-machines.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                      Rent Machine Register
+                      <span class="badge text-bg-light">RM-2003</span>
+                    </a>
+                    <a href="agreements.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                      Agreement Register
+                      <span class="badge text-bg-light">AGR-2026-004</span>
+                    </a>
+                    <a href="pm-schedule.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                      PM Schedule Review
+                      <span class="badge text-bg-light">Monthly</span>
+                    </a>
+                    <a href="reports.html" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                      Breakdown Reports
+                      <span class="badge text-bg-light">Dashboard</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

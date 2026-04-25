@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spare Parts | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item active" href="spare-parts.html">Spare Parts</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Spare Parts and Store</h2>
+            <p class="page-subtitle mb-0">Review available stock, low stock risk, issue history, and machine-wise spare support for breakdown and PM work.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export Stock List</button>
+          <a class="btn btn-primary" href="spare-part-form.html">Add Spare Part</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="partSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="partSearch" placeholder="Search by part name, code, machine type or rack">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="partCategory" class="form-label">Category</label>
+                <select class="form-select" id="partCategory">
+                  <option selected>All Categories</option>
+                  <option>Needle and Knife</option>
+                  <option>Motor and Belt</option>
+                  <option>Sensor and Electrical</option>
+                  <option>Pressure and Air Line</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="partStockStatus" class="form-label">Stock Status</label>
+                <select class="form-select" id="partStockStatus">
+                  <option selected>All Status</option>
+                  <option>Available</option>
+                  <option>Low Stock</option>
+                  <option>Critical</option>
+                  <option>Out of Stock</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="partMachineType" class="form-label">Machine Type</label>
+                <select class="form-select" id="partMachineType">
+                  <option selected>All Machines</option>
+                  <option>Single Needle</option>
+                  <option>Overlock</option>
+                  <option>Flatlock</option>
+                  <option>Button Attach</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="partRack" class="form-label">Rack / Bin</label>
+                <select class="form-select" id="partRack">
+                  <option selected>All Racks</option>
+                  <option>Rack A-01</option>
+                  <option>Rack B-02</option>
+                  <option>Rack C-03</option>
+                  <option>Store Counter</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Store Review Date: <strong>21 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 8 of 41 spare part records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Available Parts</span>
+                <h3 class="summary-value text-success">34</h3>
+                <p class="summary-note mb-0">Usable items ready for maintenance and PM support</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Low Stock Alerts</span>
+                <h3 class="summary-value text-warning">5</h3>
+                <p class="summary-note mb-0">Need purchase follow-up before repair delay increases</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Critical Items</span>
+                <h3 class="summary-value text-danger">2</h3>
+                <p class="summary-note mb-0">Already affecting open breakdown or PM work</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Issues Today</span>
+                <h3 class="summary-value text-primary">7</h3>
+                <p class="summary-note mb-0">Parts issued against technician and store requests</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="alert-strip alert-strip-warning">
+            Thread cutter knife and motor belt stock are below minimum level. Two active jobs are waiting for store issue confirmation.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Spare Parts Stock Register</h3>
+                      <p class="section-text mb-0">Main stock list with machine compatibility, balance quantity, rack location, and current risk level.</p>
+                    </div>
+                    <div class="section-tools">
+                      <a href="stock-history.html" class="btn btn-sm btn-outline-secondary">Stock History</a>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Purchase List</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Part Code</th>
+                          <th>Part Details</th>
+                          <th>Machine Type</th>
+                          <th>Balance</th>
+                          <th>Rack</th>
+                          <th>Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Part Code">
+                            <strong>SP-0012</strong>
+                            <div class="cell-muted">Item Group: Knife</div>
+                          </td>
+                          <td data-label="Part Details">
+                            <strong>Thread Cutter Knife</strong>
+                            <div class="cell-muted">Used in single needle auto trim machine</div>
+                          </td>
+                          <td data-label="Machine Type">Single Needle</td>
+                          <td data-label="Balance">
+                            <strong>4 pcs</strong>
+                            <div class="cell-muted">Minimum: 10 pcs</div>
+                          </td>
+                          <td data-label="Rack">Rack B-02</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Critical</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="technician-tasks.html" class="btn btn-sm btn-outline-primary">Issue</a>
+                              <a href="reports.html" class="btn btn-sm btn-outline-secondary">Risk</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Part Code">
+                            <strong>SP-0024</strong>
+                            <div class="cell-muted">Item Group: Belt</div>
+                          </td>
+                          <td data-label="Part Details">
+                            <strong>Motor Belt - Type B</strong>
+                            <div class="cell-muted">For flatlock and overlock motor drive</div>
+                          </td>
+                          <td data-label="Machine Type">Flatlock / Overlock</td>
+                          <td data-label="Balance">
+                            <strong>3 pcs</strong>
+                            <div class="cell-muted">Minimum: 8 pcs</div>
+                          </td>
+                          <td data-label="Rack">Rack A-01</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Critical</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="pm-due.html" class="btn btn-sm btn-outline-primary">PM Link</a>
+                              <a href="technician-task-update.html" class="btn btn-sm btn-outline-secondary">Update</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Part Code">
+                            <strong>SP-0031</strong>
+                            <div class="cell-muted">Item Group: Needle Bar</div>
+                          </td>
+                          <td data-label="Part Details">
+                            <strong>Needle Bar Set</strong>
+                            <div class="cell-muted">For button attach and flatlock repair support</div>
+                          </td>
+                          <td data-label="Machine Type">Button Attach / Flatlock</td>
+                          <td data-label="Balance">
+                            <strong>7 pcs</strong>
+                            <div class="cell-muted">Minimum: 5 pcs</div>
+                          </td>
+                          <td data-label="Rack">Rack C-03</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Available</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Ticket</a>
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-secondary">Machine</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Part Code">
+                            <strong>SP-0040</strong>
+                            <div class="cell-muted">Item Group: Air Line</div>
+                          </td>
+                          <td data-label="Part Details">
+                            <strong>Pressure Joint Connector</strong>
+                            <div class="cell-muted">For pressure line and air setup support</div>
+                          </td>
+                          <td data-label="Machine Type">Button Attach / Pneumatic</td>
+                          <td data-label="Balance">
+                            <strong>11 pcs</strong>
+                            <div class="cell-muted">Minimum: 6 pcs</div>
+                          </td>
+                          <td data-label="Rack">Rack B-02</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Normal</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="pm-checklist.html" class="btn btn-sm btn-outline-primary">PM</a>
+                              <a href="pm-complete.html" class="btn btn-sm btn-outline-secondary">Complete</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Part Code">
+                            <strong>SP-0048</strong>
+                            <div class="cell-muted">Item Group: Sensor</div>
+                          </td>
+                          <td data-label="Part Details">
+                            <strong>Trimmer Sensor Unit</strong>
+                            <div class="cell-muted">Used for auto trim single needle machines</div>
+                          </td>
+                          <td data-label="Machine Type">Single Needle</td>
+                          <td data-label="Balance">
+                            <strong>5 pcs</strong>
+                            <div class="cell-muted">Minimum: 6 pcs</div>
+                          </td>
+                          <td data-label="Rack">Store Counter</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Low Stock</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="dashboard.html" class="btn btn-sm btn-outline-primary">Alert</a>
+                              <a href="reports.html" class="btn btn-sm btn-outline-secondary">Report</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Issue Register</h3>
+                      <p class="section-text mb-0">Parts issued against breakdown and PM activity with simple store traceability.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Issue No</th>
+                          <th>Reference</th>
+                          <th>Part</th>
+                          <th>Issued Qty</th>
+                          <th>Issued To</th>
+                          <th>Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Issue No"><strong>ISS-2026-021</strong></td>
+                          <td data-label="Reference">BD-2026-0010</td>
+                          <td data-label="Part">Cable Sleeve</td>
+                          <td data-label="Issued Qty">2 pcs</td>
+                          <td data-label="Issued To">Shamim Mia</td>
+                          <td data-label="Date">19 Apr 2026</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Issue No"><strong>ISS-2026-024</strong></td>
+                          <td data-label="Reference">PM-2026-044</td>
+                          <td data-label="Part">Pressure Joint Connector</td>
+                          <td data-label="Issued Qty">1 pc</td>
+                          <td data-label="Issued To">Shamim Mia</td>
+                          <td data-label="Date">21 Apr 2026</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Issue No"><strong>ISS-2026-025</strong></td>
+                          <td data-label="Reference">BD-2026-0004</td>
+                          <td data-label="Part">Needle Bar Set</td>
+                          <td data-label="Issued Qty">0 pcs</td>
+                          <td data-label="Issued To">Sohel Rana</td>
+                          <td data-label="Date">Pending</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Issue No"><strong>ISS-2026-026</strong></td>
+                          <td data-label="Reference">PM-2026-045</td>
+                          <td data-label="Part">Thread Cutter Knife</td>
+                          <td data-label="Issued Qty">0 pcs</td>
+                          <td data-label="Issued To">Rafiqul Islam</td>
+                          <td data-label="Date">Pending</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Low Stock Alert</h3>
+                      <p class="section-text mb-0">Store items that may delay maintenance work.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Thread Cutter Knife</strong>
+                        <div class="cell-muted">4 pcs left, two open jobs already linked</div>
+                      </div>
+                      <span class="badge text-bg-danger">Critical</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Motor Belt - Type B</strong>
+                        <div class="cell-muted">3 pcs left, below safety stock level</div>
+                      </div>
+                      <span class="badge text-bg-danger">Critical</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Trimmer Sensor Unit</strong>
+                        <div class="cell-muted">5 pcs left, purchase request should start now</div>
+                      </div>
+                      <span class="badge text-bg-warning">Low</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Machine Compatibility</h3>
+                      <p class="section-text mb-0">Simple mapping for frequent issue parts.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Single Needle</strong>
+                      <div class="cell-muted">Knife, sensor, thread trimmer, motor belt</div>
+                    </div>
+                    <span class="badge text-bg-primary">4 Groups</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Overlock</strong>
+                      <div class="cell-muted">Looper set, motor belt, needle bar, oil wick</div>
+                    </div>
+                    <span class="badge text-bg-primary">4 Groups</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Flatlock</strong>
+                      <div class="cell-muted">Needle bar, motor belt, pressure joint</div>
+                    </div>
+                    <span class="badge text-bg-primary">3 Groups</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Button Attach</strong>
+                      <div class="cell-muted">Pressure joint, air line, sensor unit</div>
+                    </div>
+                    <span class="badge text-bg-primary">3 Groups</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Purchase Follow-Up</h3>
+                      <p class="section-text mb-0">Pending actions for store and admin.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>Thread Cutter Knife Reorder</strong>
+                        <p class="mb-0">Raise urgent purchase note today to avoid breakdown repair delay in auto trim line.</p>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>Motor Belt Stock Review</strong>
+                        <p class="mb-0">Confirm compatible vendor stock and open a purchase follow-up for next week use.</p>
+                      </div>
+                      <span class="activity-time">This Week</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-primary"></span>
+                      <div>
+                        <strong>Sensor Unit Count Check</strong>
+                        <p class="mb-0">Physical stock verification needed because issue history and rack balance are close.</p>
+                      </div>
+                      <span class="activity-time">Review</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Links</h3>
+                      <p class="section-text mb-0">Connected pages for spare-related workflow.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary" href="technician-tasks.html">Technician Tasks</a>
+                    <a class="btn btn-outline-primary" href="pm-due.html">PM Due Board</a>
+                    <a class="btn btn-outline-primary" href="ticket-details.html">Ticket Details</a>
+                    <a class="btn btn-outline-primary" href="reports.html">Reports</a>
+                    <a class="btn btn-outline-secondary" href="dashboard.html">Back to Dashboard</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,566 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent Machine History | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item active" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="spare-parts.html">Spare Parts</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Rent Machine History</h2>
+            <p class="page-subtitle mb-0">Full history and activity record of one rented machine</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="rent-machines.html">Back to Rent Machine List</a>
+          <a class="btn btn-outline-primary" href="rent-machine-form.html">Edit Rent Machine</a>
+          <button class="btn btn-primary" id="printHistoryBtn" type="button">Print History</button>
+        </div>
+      </header>
+
+      <main class="main-content rent-machine-history-page">
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-lg-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Rent Machine Code</span>
+                <h3 class="summary-value text-primary">RM-2008</h3>
+                <p class="summary-note mb-0">Flatlock Machine</p>
+                <div class="cell-muted mt-2">Brand / Model: Juki MO-6714S</div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Vendor and Agreement</span>
+                <h3 class="summary-value">Prime Machine Service</h3>
+                <p class="summary-note mb-0">AGR-2026-003</p>
+                <div class="cell-muted mt-2">Monthly Rent: BDT 14,500</div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Rent Period</span>
+                <h3 class="summary-value text-warning">01 Jan 2026</h3>
+                <p class="summary-note mb-0">Start Date</p>
+                <div class="cell-muted mt-2">End Date: 31 Dec 2026</div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Current Location and Status</span>
+                <h3 class="summary-value">Floor 02</h3>
+                <p class="summary-note mb-0">Line 07</p>
+                <div class="mt-2"><span class="badge text-bg-success">Active</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="erp-card">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Rent Machine Summary Snapshot</h3>
+                <p class="section-text mb-0">Quick reference for management, maintenance, and store users before they review the detailed history sections below.</p>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="badge text-bg-primary">Rent</span>
+                <span class="badge text-bg-success">Active</span>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-md-6 col-xl-3">
+                <label class="form-label">Serial Number</label>
+                <input class="form-control" type="text" value="JUK-RM-6714S-2208" readonly>
+              </div>
+              <div class="col-md-6 col-xl-3">
+                <label class="form-label">Current Floor</label>
+                <input class="form-control" type="text" value="Sewing Floor 02" readonly>
+              </div>
+              <div class="col-md-6 col-xl-3">
+                <label class="form-label">Current Line</label>
+                <input class="form-control" type="text" value="Line 07" readonly>
+              </div>
+              <div class="col-md-6 col-xl-3">
+                <label class="form-label">Status</label>
+                <input class="form-control" type="text" value="Active" readonly>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Machine Profile Card</h3>
+                      <p class="section-text mb-0">Core machine information used in rent, PM, breakdown, and return or replace workflows.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Machine Code</strong>
+                          <div class="cell-muted">RM-2008</div>
+                        </div>
+                        <span class="badge text-bg-primary">Rent</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Machine Type</strong>
+                          <div class="cell-muted">Flatlock Machine</div>
+                        </div>
+                        <span class="badge text-bg-secondary">Production Use</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Brand</strong>
+                          <div class="cell-muted">Juki</div>
+                        </div>
+                        <span class="badge text-bg-dark">Brand</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Model</strong>
+                          <div class="cell-muted">MO-6714S</div>
+                        </div>
+                        <span class="badge text-bg-info">Model</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Serial No</strong>
+                          <div class="cell-muted">JUK-RM-6714S-2208</div>
+                        </div>
+                        <span class="badge text-bg-secondary">Tracked</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Current Status</strong>
+                          <div class="cell-muted">Running in active line support</div>
+                        </div>
+                        <span class="badge text-bg-success">Active</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    Remarks: Rent machine is performing well after recent PM work. Vendor support is still required if thread balance issue appears again during peak production.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Allocation History</h3>
+                      <p class="section-text mb-0">Track when the rent machine moved between floors or lines and who approved the allocation.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Floor</th>
+                          <th>Line</th>
+                          <th>Allocated By</th>
+                          <th>Status</th>
+                          <th>Remarks</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Date">18 Apr 2026</td>
+                          <td data-label="Floor">Sewing Floor 02</td>
+                          <td data-label="Line">Line 07</td>
+                          <td data-label="Allocated By">Rahima Begum</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Remarks">Moved to support export order line</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date">02 Mar 2026</td>
+                          <td data-label="Floor">Sewing Floor 03</td>
+                          <td data-label="Line">Line 10</td>
+                          <td data-label="Allocated By">Nasima Akter</td>
+                          <td data-label="Status"><span class="badge text-bg-info">Reallocated</span></td>
+                          <td data-label="Remarks">Temporary balancing support</td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date">05 Jan 2026</td>
+                          <td data-label="Floor">Store Hold</td>
+                          <td data-label="Line">Not Assigned</td>
+                          <td data-label="Allocated By">Shahadat Hossain</td>
+                          <td data-label="Status"><span class="badge text-bg-secondary">Received</span></td>
+                          <td data-label="Remarks">Waiting for line deployment</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Breakdown History</h3>
+                      <p class="section-text mb-0">Review breakdown tickets that affected this rent machine and the response from maintenance users.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Ticket No</th>
+                          <th>Date</th>
+                          <th>Problem</th>
+                          <th>Priority</th>
+                          <th>Technician</th>
+                          <th>Status</th>
+                          <th>Downtime</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Ticket No"><strong>BD-2026-0119</strong></td>
+                          <td data-label="Date">22 Apr 2026</td>
+                          <td data-label="Problem">Thread break and stitch imbalance</td>
+                          <td data-label="Priority"><span class="badge text-bg-danger">High</span></td>
+                          <td data-label="Technician">Sohel Rana</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Closed</span></td>
+                          <td data-label="Downtime">1 Hr 35 Min</td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Ticket No"><strong>BD-2026-0074</strong></td>
+                          <td data-label="Date">11 Mar 2026</td>
+                          <td data-label="Problem">Looper timing issue</td>
+                          <td data-label="Priority"><span class="badge text-bg-warning">Medium</span></td>
+                          <td data-label="Technician">Rafiqul Islam</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Closed</span></td>
+                          <td data-label="Downtime">2 Hrs 10 Min</td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Maintenance History</h3>
+                      <p class="section-text mb-0">Keep preventive and corrective maintenance actions visible for long-term machine review.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>Maintenance Type</th>
+                          <th>Description</th>
+                          <th>Technician</th>
+                          <th>Spare Used</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Date">18 Apr 2026</td>
+                          <td data-label="Maintenance Type">Monthly PM</td>
+                          <td data-label="Description">Cleaning, feed check, pressure adjustment</td>
+                          <td data-label="Technician">Hasan Ali</td>
+                          <td data-label="Spare Used">Needle Set</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date">12 Mar 2026</td>
+                          <td data-label="Maintenance Type">Corrective</td>
+                          <td data-label="Description">Looper timing reset after breakdown</td>
+                          <td data-label="Technician">Rafiqul Islam</td>
+                          <td data-label="Spare Used">No</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date">08 Feb 2026</td>
+                          <td data-label="Maintenance Type">Initial PM</td>
+                          <td data-label="Description">Receive condition check and setup tuning</td>
+                          <td data-label="Technician">Shamim Mia</td>
+                          <td data-label="Spare Used">Oil and Needle</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Completed</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Vendor and Agreement Information</h3>
+                      <p class="section-text mb-0">Contract and contact details that support rent machine follow-up and escalation decisions.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list rent-machine-history-stack">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Vendor Name</strong>
+                        <div class="cell-muted">Prime Machine Service</div>
+                      </div>
+                      <span class="badge text-bg-primary">Linked</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Contact Person</strong>
+                        <div class="cell-muted">Shafiqur Rahman</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Vendor</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Phone</strong>
+                        <div class="cell-muted">01711-889977</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Active</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Agreement Number</strong>
+                        <div class="cell-muted">AGR-2026-003</div>
+                      </div>
+                      <span class="badge text-bg-dark">Contract</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Agreement Start</strong>
+                        <div class="cell-muted">01 Jan 2026</div>
+                      </div>
+                      <span class="badge text-bg-info">Start</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Agreement End</strong>
+                        <div class="cell-muted">31 Dec 2026</div>
+                      </div>
+                      <span class="badge text-bg-warning">End</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Contract Status</strong>
+                        <div class="cell-muted">Running under active support coverage</div>
+                      </div>
+                      <span class="badge text-bg-success">Active</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Monthly Rent Amount</strong>
+                        <div class="cell-muted">BDT 14,500</div>
+                      </div>
+                      <span class="badge text-bg-primary">Monthly</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Return / Replace History</h3>
+                      <p class="section-text mb-0">Keep return and replacement decisions visible for contract and machine planning.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Returned</th>
+                          <th>Replaced</th>
+                          <th>Return Date</th>
+                          <th>Replace Date</th>
+                          <th>Reason</th>
+                          <th>Remarks</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Returned"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Replaced"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Return Date">Not Applied</td>
+                          <td data-label="Replace Date">Not Applied</td>
+                          <td data-label="Reason">Machine currently active</td>
+                          <td data-label="Remarks">Replacement allowed if repeat failure continues</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Status Timeline</h3>
+                      <p class="section-text mb-0">Vertical history view of the machine lifecycle from receive to current activity.</p>
+                    </div>
+                  </div>
+
+                  <div class="rent-machine-timeline">
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-primary"></span>
+                      <div>
+                        <strong>Machine Received</strong>
+                        <div class="cell-muted">05 Jan 2026 | Machine received in usable condition</div>
+                      </div>
+                    </div>
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-info"></span>
+                      <div>
+                        <strong>Vendor Linked</strong>
+                        <div class="cell-muted">05 Jan 2026 | Prime Machine Service assigned as support vendor</div>
+                      </div>
+                    </div>
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-dark"></span>
+                      <div>
+                        <strong>Agreement Linked</strong>
+                        <div class="cell-muted">05 Jan 2026 | AGR-2026-003 mapped to the machine</div>
+                      </div>
+                    </div>
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-success"></span>
+                      <div>
+                        <strong>Allocated to Line</strong>
+                        <div class="cell-muted">07 Jan 2026 | First deployed to Sewing Floor 03, Line 10</div>
+                      </div>
+                    </div>
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-danger"></span>
+                      <div>
+                        <strong>Breakdown Reported</strong>
+                        <div class="cell-muted">11 Mar 2026 | Looper timing issue reported by production supervisor</div>
+                      </div>
+                    </div>
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-success"></span>
+                      <div>
+                        <strong>Maintenance Completed</strong>
+                        <div class="cell-muted">18 Apr 2026 | Monthly PM completed and machine restored to stable run</div>
+                      </div>
+                    </div>
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-warning"></span>
+                      <div>
+                        <strong>Reallocated</strong>
+                        <div class="cell-muted">18 Apr 2026 | Shifted to Sewing Floor 02, Line 07 for urgent line support</div>
+                      </div>
+                    </div>
+                    <div class="rent-machine-timeline-item">
+                      <span class="rent-machine-timeline-dot bg-secondary"></span>
+                      <div>
+                        <strong>Returned / Replaced</strong>
+                        <div class="cell-muted">Not yet processed | Contract still active and machine remains in production use</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script>
+    document.getElementById("printHistoryBtn").addEventListener("click", function () {
+      window.print();
+    });
+  </script>
+</body>
+</html>
+

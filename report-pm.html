@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PM Report | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item active" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">PM Report</h2>
+            <p class="page-subtitle mb-0">Analyze PM compliance, due and overdue pressure, technician closure performance, and machine-wise preventive maintenance risk.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="reports.html">All Reports</a>
+          <button class="btn btn-primary" type="button">Export PM Report</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-2 col-md-6">
+                <label for="pmReportFrom" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="pmReportFrom" value="2026-04-01">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmReportTo" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="pmReportTo" value="2026-04-22">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmReportUnit" class="form-label">Factory Unit</label>
+                <select class="form-select" id="pmReportUnit">
+                  <option>Unit 01 - Sewing</option>
+                  <option selected>Unit 02 - Sewing</option>
+                  <option>Unit 03 - Finishing</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmReportFrequency" class="form-label">Frequency</label>
+                <select class="form-select" id="pmReportFrequency">
+                  <option selected>All Frequency</option>
+                  <option>Daily</option>
+                  <option>Weekly</option>
+                  <option>Monthly</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmReportArea" class="form-label">Floor / Line</label>
+                <select class="form-select" id="pmReportArea">
+                  <option selected>All Locations</option>
+                  <option>Line 01</option>
+                  <option>Line 03</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Finishing 02</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Generate Report</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Report Date: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Period: 01 Apr 2026 to 22 Apr 2026 | Unit 02 - Sewing</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Scheduled PM Plans</span>
+                <h3 class="summary-value">64</h3>
+                <p class="summary-note mb-0">Daily, weekly, and monthly PM items in the selected period</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">PM Compliance</span>
+                <h3 class="summary-value text-success">63%</h3>
+                <p class="summary-note mb-0">40 completed from 64 scheduled preventive tasks</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Due and Overdue</span>
+                <h3 class="summary-value text-danger">24</h3>
+                <p class="summary-note mb-0">18 due today and 6 already overdue</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Rent Machine PM Risk</span>
+                <h3 class="summary-value text-warning">2</h3>
+                <p class="summary-note mb-0">Agreement-linked machines need PM follow-up without delay</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="alert-strip alert-strip-warning">
+            Weekly and monthly PM pressure is highest on Line 03 and Line 07. Two rent machines are still overdue and should be reviewed with vendor-aware planning before compliance drops further.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">PM Report Snapshot</h3>
+                      <p class="section-text mb-0">High-level comparison of PM volume, closure performance, due pressure, and machine risk across the selected period.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Report</button>
+                      <a href="pm-schedule.html" class="btn btn-sm btn-outline-secondary">Open PM Schedule</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Report Area</th>
+                          <th>Current Figure</th>
+                          <th>Observation</th>
+                          <th>Gap / Risk</th>
+                          <th>Suggested Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Completion Output</strong>
+                            <div class="cell-muted">Closed PM work against schedule</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>40 Completed</strong>
+                            <div class="cell-muted">24 plans still due or pending</div>
+                          </td>
+                          <td data-label="Observation">Daily PM is more stable, but weekly and monthly items fall behind during heavy breakdown load</td>
+                          <td data-label="Gap / Risk">Completion pace slows after mid-month planning pressure</td>
+                          <td data-label="Suggested Action"><a href="pm-due.html" class="btn btn-sm btn-outline-primary">Due Board</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Due and Overdue Control</strong>
+                            <div class="cell-muted">Items waiting for technician action</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>24 Items</strong>
+                            <div class="cell-muted">18 due today, 6 overdue</div>
+                          </td>
+                          <td data-label="Observation">Overdue pressure is concentrated on machines that also had recent breakdown support</td>
+                          <td data-label="Gap / Risk">PM backlog is reducing compliance score and creating repeat issue risk</td>
+                          <td data-label="Suggested Action"><a href="technician-tasks.html" class="btn btn-sm btn-outline-primary">Task Follow-Up</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Frequency Performance</strong>
+                            <div class="cell-muted">Daily, weekly, monthly compliance mix</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>Daily 82%</strong>
+                            <div class="cell-muted">Weekly 50%, Monthly 25%</div>
+                          </td>
+                          <td data-label="Observation">Monthly PM has the weakest completion and drives most overdue follow-up</td>
+                          <td data-label="Gap / Risk">Long-gap tasks are easier to postpone during operational pressure</td>
+                          <td data-label="Suggested Action"><a href="pm-complete.html" class="btn btn-sm btn-outline-primary">Close PM</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Rent Machine PM</strong>
+                            <div class="cell-muted">Vendor and agreement-linked PM work</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>2 Overdue</strong>
+                            <div class="cell-muted">RM-2008 and RM-2010 under watch</div>
+                          </td>
+                          <td data-label="Observation">Rent machine PM delays are now visible in breakdown and report pages together</td>
+                          <td data-label="Gap / Risk">Vendor coordination may be needed if PM remains pending</td>
+                          <td data-label="Suggested Action"><a href="rent-machines.html" class="btn btn-sm btn-outline-primary">Rent Review</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="compact-note">
+                    This report should help admin and maintenance head understand which PM items are slipping, which lines carry the most due pressure, and where technician attention should move first.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Frequency-Wise PM Performance</h3>
+                      <p class="section-text mb-0">Use frequency-level review to identify which PM cycle is stable and which one is causing compliance pressure.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Frequency</th>
+                          <th>Scheduled</th>
+                          <th>Completed</th>
+                          <th>Due / Overdue</th>
+                          <th>Compliance</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Frequency"><strong>Daily PM</strong></td>
+                          <td data-label="Scheduled">34</td>
+                          <td data-label="Completed">28</td>
+                          <td data-label="Due / Overdue">6</td>
+                          <td data-label="Compliance">82%</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Controlled</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Frequency"><strong>Weekly PM</strong></td>
+                          <td data-label="Scheduled">18</td>
+                          <td data-label="Completed">9</td>
+                          <td data-label="Due / Overdue">9</td>
+                          <td data-label="Compliance">50%</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Needs Follow-Up</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Frequency"><strong>Monthly PM</strong></td>
+                          <td data-label="Scheduled">12</td>
+                          <td data-label="Completed">3</td>
+                          <td data-label="Due / Overdue">9</td>
+                          <td data-label="Compliance">25%</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Overdue Risk</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Area-Wise PM Pressure</h3>
+                      <p class="section-text mb-0">Review which floors or lines are carrying the highest due pressure and the weakest PM completion rhythm.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Floor / Line</th>
+                          <th>Scheduled</th>
+                          <th>Completed</th>
+                          <th>Due / Overdue</th>
+                          <th>Main Machine Type</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 02 / Line 03</strong>
+                          </td>
+                          <td data-label="Scheduled">15</td>
+                          <td data-label="Completed">8</td>
+                          <td data-label="Due / Overdue">7</td>
+                          <td data-label="Main Machine Type">Overlock</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">High Pressure</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 03 / Line 07</strong>
+                          </td>
+                          <td data-label="Scheduled">13</td>
+                          <td data-label="Completed">7</td>
+                          <td data-label="Due / Overdue">6</td>
+                          <td data-label="Main Machine Type">Flatlock</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Watch</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 02 / Line 01</strong>
+                          </td>
+                          <td data-label="Scheduled">12</td>
+                          <td data-label="Completed">10</td>
+                          <td data-label="Due / Overdue">2</td>
+                          <td data-label="Main Machine Type">Single Needle</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Stable</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Finishing 02</strong>
+                          </td>
+                          <td data-label="Scheduled">8</td>
+                          <td data-label="Completed">7</td>
+                          <td data-label="Due / Overdue">1</td>
+                          <td data-label="Main Machine Type">Button Attach</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Controlled</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Technician PM Closure Board</h3>
+                      <p class="section-text mb-0">Simple view of who is carrying most of the PM recovery load in the selected period.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Rafiqul Islam</strong>
+                        <div class="cell-muted">11 PM items closed, best daily clearance rate</div>
+                      </div>
+                      <span class="badge text-bg-success">Strong</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Hasan Ali</strong>
+                        <div class="cell-muted">9 PM items closed, strong monthly PM support</div>
+                      </div>
+                      <span class="badge text-bg-primary">Balanced</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Sohel Rana</strong>
+                        <div class="cell-muted">7 PM items closed, but breakdown queue is reducing PM completion pace</div>
+                      </div>
+                      <span class="badge text-bg-warning">Loaded</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">PM Risk Watch</h3>
+                      <p class="section-text mb-0">Management-level watch points that should not be missed in the PM report.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Monthly PM Backlog</strong>
+                        <div class="cell-muted">9 monthly plans remain due or overdue</div>
+                      </div>
+                      <span class="badge text-bg-danger">R1</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Rent Machine PM</strong>
+                        <div class="cell-muted">RM-2008 and RM-2010 still need vendor-aware follow-up</div>
+                      </div>
+                      <span class="badge text-bg-warning">R2</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Breakdown Interruption</strong>
+                        <div class="cell-muted">Weekly PM plans are slipping when technician load shifts to complaints</div>
+                      </div>
+                      <span class="badge text-bg-info">R3</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Report Notes</h3>
+                      <p class="section-text mb-0">Management observations from the current PM period.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-list">
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 11:30 AM</strong>
+                      <p class="mb-0">Monthly PM remains the weakest cycle and should be reviewed separately from daily and weekly closure planning.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 09:10 AM</strong>
+                      <p class="mb-0">Line 03 and Line 07 contribute most of the current PM due pressure and should receive technician rebalancing.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>21 Apr 2026, 04:50 PM</strong>
+                      <p class="mb-0">Two rent machine PM items stayed overdue because breakdown support and vendor coordination overlapped in the same shift.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Keep PM reporting practical for admin, maintenance head, and supervisor review.</p>
+                    </div>
+                  </div>
+
+                  <ul class="list-unstyled note-list mb-0">
+                    <li>PM reporting should clearly separate completed work, due pressure, and overdue machine risk.</li>
+                    <li>Frequency-wise review helps identify whether daily, weekly, or monthly PM needs the fastest management action.</li>
+                    <li>Rent machine PM should stay visible with vendor and agreement context when delays continue.</li>
+                    <li>This report structure can later support PDF, Excel, and monthly management review without redesign.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

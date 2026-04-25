@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent Machine Report | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item active" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Rent Machine Report</h2>
+            <p class="page-subtitle mb-0">Analyze rent machine utilization, vendor and agreement exposure, downtime, return or replacement risk, and current operational dependency.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="reports.html">All Reports</a>
+          <button class="btn btn-primary" type="button">Export Rent Report</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-2 col-md-6">
+                <label for="rentReportFrom" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="rentReportFrom" value="2026-04-01">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentReportTo" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="rentReportTo" value="2026-04-22">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentReportUnit" class="form-label">Factory Unit</label>
+                <select class="form-select" id="rentReportUnit">
+                  <option>Unit 01 - Sewing</option>
+                  <option selected>Unit 02 - Sewing</option>
+                  <option>Unit 03 - Finishing</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentReportVendor" class="form-label">Vendor</label>
+                <select class="form-select" id="rentReportVendor">
+                  <option selected>All Vendors</option>
+                  <option>ABC Sewing Support</option>
+                  <option>Prime Machine Service</option>
+                  <option>Metro Tech Engineering</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="rentReportArea" class="form-label">Floor / Line</label>
+                <select class="form-select" id="rentReportArea">
+                  <option selected>All Locations</option>
+                  <option>Line 03</option>
+                  <option>Line 05</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Store Hold</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Generate Report</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Report Date: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Period: 01 Apr 2026 to 22 Apr 2026 | Unit 02 - Sewing</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Rent Machines</span>
+                <h3 class="summary-value">50</h3>
+                <p class="summary-note mb-0">Machines under active vendor or agreement-supported operation</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Currently Active</span>
+                <h3 class="summary-value text-success">43</h3>
+                <p class="summary-note mb-0">Running on current production floors and lines</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Return / Replace Watch</span>
+                <h3 class="summary-value text-warning">5</h3>
+                <p class="summary-note mb-0">Need vendor confirmation or internal review</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Agreement Risk</span>
+                <h3 class="summary-value text-danger">2</h3>
+                <p class="summary-note mb-0">Contracts expiring soon or needing renewal decision</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="alert-strip alert-strip-warning">
+            Rent machine pressure is highest on Line 07 and Line 05. Two vendor-linked machines remain under repeat issue watch, and one agreement renewal decision is affecting replacement planning.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Rent Machine Report Snapshot</h3>
+                      <p class="section-text mb-0">High-level comparison of active use, vendor dependency, agreement risk, and current return or replacement exposure.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Report</button>
+                      <a href="rent-machines.html" class="btn btn-sm btn-outline-secondary">Open Rent List</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Report Area</th>
+                          <th>Current Figure</th>
+                          <th>Observation</th>
+                          <th>Gap / Risk</th>
+                          <th>Suggested Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Active Utilization</strong>
+                            <div class="cell-muted">Current use across lines and floors</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>43 Active</strong>
+                            <div class="cell-muted">5 under watch, 2 store hold</div>
+                          </td>
+                          <td data-label="Observation">Rent machines are heavily supporting Line 07 and Line 05 under current production demand</td>
+                          <td data-label="Gap / Risk">Higher dependency means breakdown or return decision impacts line output quickly</td>
+                          <td data-label="Suggested Action"><a href="allocation.html" class="btn btn-sm btn-outline-primary">Allocation Review</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Agreement Coverage</strong>
+                            <div class="cell-muted">Contract visibility and expiry status</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>50 Linked</strong>
+                            <div class="cell-muted">2 agreements near renewal window</div>
+                          </td>
+                          <td data-label="Observation">Most rent machine records are linked properly, but renewal action is pending for expiring support</td>
+                          <td data-label="Gap / Risk">Late agreement renewal may block replacement and service support</td>
+                          <td data-label="Suggested Action"><a href="agreements.html" class="btn btn-sm btn-outline-primary">Agreement Review</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Breakdown and Downtime</strong>
+                            <div class="cell-muted">Rent machine operational interruption</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>7 Tickets</strong>
+                            <div class="cell-muted">Average downtime 2.1 hrs on rent machine complaints</div>
+                          </td>
+                          <td data-label="Observation">RM-2008 and RM-2010 create most vendor-linked downtime follow-up</td>
+                          <td data-label="Gap / Risk">Vendor response delay increases closure time and line support pressure</td>
+                          <td data-label="Suggested Action"><a href="breakdown-list.html" class="btn btn-sm btn-outline-primary">Breakdown Review</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Return / Replace Exposure</strong>
+                            <div class="cell-muted">Machines under review for contract or condition</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>5 Cases</strong>
+                            <div class="cell-muted">2 replacement watch, 3 return review</div>
+                          </td>
+                          <td data-label="Observation">Repeated issues and agreement timing are driving review decisions more than normal contract cycle</td>
+                          <td data-label="Gap / Risk">Standby machine planning may be late if review is not closed early</td>
+                          <td data-label="Suggested Action"><a href="return-replace.html" class="btn btn-sm btn-outline-primary">Flow Review</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="compact-note">
+                    This report should help admin and maintenance head understand where rent machine dependency, vendor coordination, and replacement planning need the fastest action.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Vendor-Wise Rent Machine Performance</h3>
+                      <p class="section-text mb-0">Review supplier-linked machine count, downtime exposure, and current watch status by vendor.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Vendor</th>
+                          <th>Machine Count</th>
+                          <th>Active Use</th>
+                          <th>Current Watch</th>
+                          <th>Avg Downtime</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Vendor"><strong>Prime Machine Service</strong></td>
+                          <td data-label="Machine Count">18</td>
+                          <td data-label="Active Use">15 Active</td>
+                          <td data-label="Current Watch">RM-2008, RM-2010</td>
+                          <td data-label="Avg Downtime">2.3 Hrs</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Needs Follow-Up</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Vendor"><strong>ABC Sewing Support</strong></td>
+                          <td data-label="Machine Count">16</td>
+                          <td data-label="Active Use">14 Active</td>
+                          <td data-label="Current Watch">1 return review</td>
+                          <td data-label="Avg Downtime">1.6 Hrs</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Controlled</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Vendor"><strong>Metro Tech Engineering</strong></td>
+                          <td data-label="Machine Count">16</td>
+                          <td data-label="Active Use">14 Active</td>
+                          <td data-label="Current Watch">1 agreement renewal</td>
+                          <td data-label="Avg Downtime">1.9 Hrs</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Stable</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Top Rent Machine Risk List</h3>
+                      <p class="section-text mb-0">List rent machines that most strongly affect agreement, breakdown, PM, or replacement decision.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Rent Machine</th>
+                          <th>Vendor / Agreement</th>
+                          <th>Main Risk</th>
+                          <th>Current Position</th>
+                          <th>Suggested Action</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Rent Machine">
+                            <strong>RM-2008</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Vendor / Agreement">
+                            <strong>Prime Machine Service</strong>
+                            <div class="cell-muted">AGR-2026-003</div>
+                          </td>
+                          <td data-label="Main Risk">Repeat breakdown and delayed vendor support</td>
+                          <td data-label="Current Position">Active but under replacement watch</td>
+                          <td data-label="Suggested Action">Vendor review and standby machine planning</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Critical Watch</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Rent Machine">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Vendor / Agreement">
+                            <strong>Prime Machine Service</strong>
+                            <div class="cell-muted">AGR-2026-004</div>
+                          </td>
+                          <td data-label="Main Risk">Frequent transfer and spare-related delay</td>
+                          <td data-label="Current Position">Active with high service dependence</td>
+                          <td data-label="Suggested Action">Fix allocation and parts support</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Monitor</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Rent Machine">
+                            <strong>RM-2012</strong>
+                            <div class="cell-muted">Store Hold</div>
+                          </td>
+                          <td data-label="Vendor / Agreement">
+                            <strong>ABC Sewing Support</strong>
+                            <div class="cell-muted">AGR-2026-001</div>
+                          </td>
+                          <td data-label="Main Risk">Return process open after repeated service interruption</td>
+                          <td data-label="Current Position">Waiting for final vendor pickup</td>
+                          <td data-label="Suggested Action">Close return and confirm replacement timing</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Return Review</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Agreement Risk Watch</h3>
+                      <p class="section-text mb-0">Current agreement and renewal concerns that affect rent machine continuity.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>AGR-2026-003</strong>
+                        <div class="cell-muted">RM-2008 under repeated vendor support pressure</div>
+                      </div>
+                      <span class="badge text-bg-warning">Renewal Watch</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>AGR-2026-004</strong>
+                        <div class="cell-muted">Service support is active but response speed is weakening</div>
+                      </div>
+                      <span class="badge text-bg-danger">Service Risk</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>AGR-2026-001</strong>
+                        <div class="cell-muted">Return decision should close before next billing cycle</div>
+                      </div>
+                      <span class="badge text-bg-info">Review</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Report Notes</h3>
+                      <p class="section-text mb-0">Management observations from the current rent machine period.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-list">
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 11:25 AM</strong>
+                      <p class="mb-0">Line 07 continues to depend most on rent machine support and should be reviewed together with breakdown and PM pressure.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 09:35 AM</strong>
+                      <p class="mb-0">RM-2008 remains the top repeat risk machine and may need standby planning before agreement renewal.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>21 Apr 2026, 05:10 PM</strong>
+                      <p class="mb-0">One return review and one replacement watch are still open because vendor timing is not yet confirmed.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Keep the report practical for admin, maintenance head, and management review.</p>
+                    </div>
+                  </div>
+
+                  <ul class="list-unstyled note-list mb-0">
+                    <li>Rent machine reporting should clearly show active use, vendor dependency, and agreement timing together.</li>
+                    <li>Breakdown, PM, and replacement exposure should stay visible on the same report page for quicker decisions.</li>
+                    <li>Vendor-wise comparison helps management understand which supplier is creating most operational pressure.</li>
+                    <li>This report structure can later support PDF, Excel, and monthly management review without redesign.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

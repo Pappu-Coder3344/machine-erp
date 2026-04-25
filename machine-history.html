@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Machine History | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item active" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Machine History</h2>
+            <p class="page-subtitle mb-0">Review machine movement, status changes, PM and breakdown references, and ownership-linked events from one history page.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="machines.html">Machine List</a>
+          <button class="btn btn-primary" type="button">Export History</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="machineHistorySearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="machineHistorySearch" placeholder="Search by machine code, line, event type, ticket or agreement">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="machineHistoryOwnership" class="form-label">Ownership</label>
+                <select class="form-select" id="machineHistoryOwnership">
+                  <option selected>All Ownership</option>
+                  <option>Own</option>
+                  <option>Rent</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="machineHistoryEvent" class="form-label">Event Type</label>
+                <select class="form-select" id="machineHistoryEvent">
+                  <option selected>All Events</option>
+                  <option>Registration</option>
+                  <option>Allocation</option>
+                  <option>Status Change</option>
+                  <option>PM Update</option>
+                  <option>Breakdown</option>
+                  <option>Return / Replace</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="machineHistoryStatus" class="form-label">Current Status</label>
+                <select class="form-select" id="machineHistoryStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Idle</option>
+                  <option>Breakdown</option>
+                  <option>Under Maintenance</option>
+                  <option>Returned</option>
+                  <option>Replaced</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="machineHistoryPeriod" class="form-label">Review Period</label>
+                <select class="form-select" id="machineHistoryPeriod">
+                  <option selected>Last 30 Days</option>
+                  <option>Today</option>
+                  <option>Last 7 Days</option>
+                  <option>This Month</option>
+                  <option>Last Quarter</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">History Review: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 9 of 96 machine history entries</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Movement Entries</span>
+                <h3 class="summary-value">96</h3>
+                <p class="summary-note mb-0">Registration, allocation, PM, and breakdown-linked history events</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Allocation Changes</span>
+                <h3 class="summary-value text-primary">18</h3>
+                <p class="summary-note mb-0">Line or floor transfer events tracked this month</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Status Updates</span>
+                <h3 class="summary-value text-warning">23</h3>
+                <p class="summary-note mb-0">Active, maintenance, returned, and replaced changes recorded</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Rent Machine Events</span>
+                <h3 class="summary-value text-danger">11</h3>
+                <p class="summary-note mb-0">Agreement, vendor, and return or replacement linkage visible</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Machine History Register</h3>
+                      <p class="section-text mb-0">Chronological view of machine record changes with event source, location impact, and linked PM or breakdown references.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print History</button>
+                      <a href="reports.html" class="btn btn-sm btn-outline-secondary">History Report</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Date / Time</th>
+                          <th>Machine</th>
+                          <th>Event Type</th>
+                          <th>History Details</th>
+                          <th>Linked Ref</th>
+                          <th>Updated By</th>
+                          <th>Status After Event</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Date / Time">
+                            <strong>22 Apr 2026</strong>
+                            <div class="cell-muted">09:30 AM</div>
+                          </td>
+                          <td data-label="Machine">
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Event Type"><span class="badge text-bg-danger">Breakdown</span></td>
+                          <td data-label="History Details">
+                            <strong>Machine moved into breakdown follow-up</strong>
+                            <div class="cell-muted">Looper timing issue recorded from production line</div>
+                          </td>
+                          <td data-label="Linked Ref">
+                            <strong>BD-2026-0118</strong>
+                            <div class="cell-muted">Ticket reference</div>
+                          </td>
+                          <td data-label="Updated By">Nasima Akter</td>
+                          <td data-label="Status After Event"><span class="badge text-bg-danger">Breakdown</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-secondary">Ticket</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">
+                            <strong>21 Apr 2026</strong>
+                            <div class="cell-muted">04:45 PM</div>
+                          </td>
+                          <td data-label="Machine">
+                            <strong>RM-2006</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Event Type"><span class="badge text-bg-warning">Status Change</span></td>
+                          <td data-label="History Details">
+                            <strong>Returned to active after vendor adjustment</strong>
+                            <div class="cell-muted">Trial output checked and line released</div>
+                          </td>
+                          <td data-label="Linked Ref">
+                            <strong>AGR-2026-004</strong>
+                            <div class="cell-muted">Agreement support note</div>
+                          </td>
+                          <td data-label="Updated By">Rahima Begum</td>
+                          <td data-label="Status After Event"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="rent-machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="agreement-details.html" class="btn btn-sm btn-outline-secondary">Agreement</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">
+                            <strong>20 Apr 2026</strong>
+                            <div class="cell-muted">11:20 AM</div>
+                          </td>
+                          <td data-label="Machine">
+                            <strong>MC-1050</strong>
+                            <div class="cell-muted">Button Attach, Line 10</div>
+                          </td>
+                          <td data-label="Event Type"><span class="badge text-bg-primary">PM Update</span></td>
+                          <td data-label="History Details">
+                            <strong>Weekly PM completed and next due updated</strong>
+                            <div class="cell-muted">Checklist closed after pressure test</div>
+                          </td>
+                          <td data-label="Linked Ref">
+                            <strong>PM-2026-044</strong>
+                            <div class="cell-muted">Checklist closed</div>
+                          </td>
+                          <td data-label="Updated By">Shamim Mia</td>
+                          <td data-label="Status After Event"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="pm-complete.html" class="btn btn-sm btn-outline-secondary">PM</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">
+                            <strong>18 Apr 2026</strong>
+                            <div class="cell-muted">02:15 PM</div>
+                          </td>
+                          <td data-label="Machine">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Event Type"><span class="badge text-bg-info">Allocation</span></td>
+                          <td data-label="History Details">
+                            <strong>Transferred from Line 02 to Line 05</strong>
+                            <div class="cell-muted">Production balancing required additional support machine</div>
+                          </td>
+                          <td data-label="Linked Ref">
+                            <strong>ALC-2026-019</strong>
+                            <div class="cell-muted">Allocation register</div>
+                          </td>
+                          <td data-label="Updated By">Shahadat Hossain</td>
+                          <td data-label="Status After Event"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="allocation.html" class="btn btn-sm btn-outline-primary">Allocation</a>
+                              <a href="rent-machine-details.html" class="btn btn-sm btn-outline-secondary">Machine</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">
+                            <strong>16 Apr 2026</strong>
+                            <div class="cell-muted">09:05 AM</div>
+                          </td>
+                          <td data-label="Machine">
+                            <strong>MC-1036</strong>
+                            <div class="cell-muted">Flatlock, Line 08</div>
+                          </td>
+                          <td data-label="Event Type"><span class="badge text-bg-secondary">Registration</span></td>
+                          <td data-label="History Details">
+                            <strong>Machine record updated with category and serial correction</strong>
+                            <div class="cell-muted">Master data review completed</div>
+                          </td>
+                          <td data-label="Linked Ref">
+                            <strong>Master Edit</strong>
+                            <div class="cell-muted">Machine form update</div>
+                          </td>
+                          <td data-label="Updated By">Nasima Akter</td>
+                          <td data-label="Status After Event"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="machine-edit.html" class="btn btn-sm btn-outline-primary">Edit</a>
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-secondary">View</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">
+                            <strong>14 Apr 2026</strong>
+                            <div class="cell-muted">03:50 PM</div>
+                          </td>
+                          <td data-label="Machine">
+                            <strong>RM-2008</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Event Type"><span class="badge text-bg-dark">Return / Replace</span></td>
+                          <td data-label="History Details">
+                            <strong>Replacement request opened after repeated breakdown</strong>
+                            <div class="cell-muted">Vendor coordination started for standby unit review</div>
+                          </td>
+                          <td data-label="Linked Ref">
+                            <strong>RR-2026-007</strong>
+                            <div class="cell-muted">Return and replace request</div>
+                          </td>
+                          <td data-label="Updated By">Rahima Begum</td>
+                          <td data-label="Status After Event"><span class="badge text-bg-warning">Under Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="return-replace.html" class="btn btn-sm btn-outline-primary">Flow</a>
+                              <a href="rent-machine-details.html" class="btn btn-sm btn-outline-secondary">Machine</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="table-footer">
+                    <div class="pagination-info">Machine history should retain allocation, status, PM, and breakdown references so later backend reports can use the same structure.</div>
+                    <nav aria-label="Machine history pagination">
+                      <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                        <li class="page-item active"><span class="page-link">1</span></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Machine Event Review</h3>
+                      <p class="section-text mb-0">Use history to identify repeat allocation changes, unstable machine status, and areas that need PM or replacement planning.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Machine</th>
+                          <th>Recent History Pattern</th>
+                          <th>Operational Impact</th>
+                          <th>Suggested Follow-Up</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Recent History Pattern">2 breakdown-linked events and 1 PM due reminder in 14 days</td>
+                          <td data-label="Operational Impact">Line output risk during peak sewing hour</td>
+                          <td data-label="Suggested Follow-Up">Move machine into urgent PM and root-cause review</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Critical Watch</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2008</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Recent History Pattern">Return and replace review after repeated vendor-linked issue</td>
+                          <td data-label="Operational Impact">May require standby rent support</td>
+                          <td data-label="Suggested Follow-Up">Keep vendor and agreement review visible</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Replacement Review</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Recent History Pattern">Multiple allocation moves in one month</td>
+                          <td data-label="Operational Impact">Utilization high across shifting production loads</td>
+                          <td data-label="Suggested Follow-Up">Check if dedicated line placement is needed</td>
+                          <td data-label="Status"><span class="badge text-bg-info">Transfer Watch</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">History Snapshot</h3>
+                      <p class="section-text mb-0">Quick view of what is changing most across machine records.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Breakdown-Linked Entries</strong>
+                        <div class="cell-muted">12 events reference active or recently closed tickets</div>
+                      </div>
+                      <span class="badge text-bg-danger">12</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>PM-Linked Entries</strong>
+                        <div class="cell-muted">21 history rows came from PM completion or due updates</div>
+                      </div>
+                      <span class="badge text-bg-primary">21</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Return / Replace Review</strong>
+                        <div class="cell-muted">3 rent machine events still need final decision</div>
+                      </div>
+                      <span class="badge text-bg-warning">03</span>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    Machine history becomes most useful when every movement keeps exact date, machine code, event source, and resulting status together.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent History Notes</h3>
+                      <p class="section-text mb-0">Latest master and operational updates already captured.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-list">
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 09:30 AM</strong>
+                      <p class="mb-0">MC-1014 status moved to breakdown after production complaint linked with BD-2026-0118.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>21 Apr 2026, 04:45 PM</strong>
+                      <p class="mb-0">RM-2006 returned to active after vendor adjustment and trial output approval.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>20 Apr 2026, 11:20 AM</strong>
+                      <p class="mb-0">MC-1050 PM closed and next due date updated from PM completion page.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">History Watch</h3>
+                      <p class="section-text mb-0">Machine records that deserve extra review even after update entry is done.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Repeated Status Flips</strong>
+                        <div class="cell-muted">MC-1014 switched between active and breakdown twice this month</div>
+                      </div>
+                      <span class="badge text-bg-danger">Watch</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Frequent Transfer</strong>
+                        <div class="cell-muted">RM-2010 moved across 3 lines in 30 days</div>
+                      </div>
+                      <span class="badge text-bg-info">Review</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Vendor Dependency</strong>
+                        <div class="cell-muted">RM-2008 history now depends on return or replacement decision</div>
+                      </div>
+                      <span class="badge text-bg-warning">Pending</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Keep machine history usable for audits, reporting, and later backend conversion.</p>
+                    </div>
+                  </div>
+
+                  <ul class="list-unstyled note-list mb-0">
+                    <li>Every event should show exact machine code, event source, user, and resulting status.</li>
+                    <li>Rent machine history should keep vendor and agreement references visible when relevant.</li>
+                    <li>PM and breakdown pages can later write into this same history structure without redesign.</li>
+                    <li>Allocation and return or replacement flows should remain traceable from one machine timeline.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

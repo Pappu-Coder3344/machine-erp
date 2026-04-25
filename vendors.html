@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vendors | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item active" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Vendor Management</h2>
+            <p class="page-subtitle mb-0">Maintain rent machine vendors, contact records, service support coverage, and agreement readiness.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export Vendor List</button>
+          <a class="btn btn-primary" href="vendor-form.html">Add Vendor</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-4 col-md-6">
+                <label for="vendorSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="vendorSearch" placeholder="Search by vendor name, contact person, city or phone">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="vendorType" class="form-label">Vendor Type</label>
+                <select class="form-select" id="vendorType">
+                  <option selected>All Types</option>
+                  <option>Rent Machine Vendor</option>
+                  <option>Service Support Vendor</option>
+                  <option>Spare Parts Vendor</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="vendorStatus" class="form-label">Status</label>
+                <select class="form-select" id="vendorStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Pending Approval</option>
+                  <option>Inactive</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="vendorAgreement" class="form-label">Agreement</label>
+                <select class="form-select" id="vendorAgreement">
+                  <option selected>All</option>
+                  <option>With Active Agreement</option>
+                  <option>Agreement Expiring Soon</option>
+                  <option>No Active Agreement</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find Vendor</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Vendor Review: <strong>20 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 6 of 22 vendor records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Vendors</span>
+                <h3 class="summary-value">22</h3>
+                <p class="summary-note mb-0">Machine rent, support, and spare parts vendors</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Active Vendors</span>
+                <h3 class="summary-value text-success">16</h3>
+                <p class="summary-note mb-0">Currently used for machine or service support</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Agreement Expiring Soon</span>
+                <h3 class="summary-value text-warning">3</h3>
+                <p class="summary-note mb-0">Need renewal or replacement decision</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Pending Approval</span>
+                <h3 class="summary-value text-danger">2</h3>
+                <p class="summary-note mb-0">Waiting management review before use</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-9">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Vendor List</h3>
+                    <p class="section-text mb-0">Keep vendor profile, support contact, agreement coverage, and machine linkage available for daily operation.</p>
+                  </div>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Print List</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Agreement Review</button>
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table erp-table mobile-card-table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Vendor Name</th>
+                        <th>Type</th>
+                        <th>Contact Person</th>
+                        <th>Phone / Email</th>
+                        <th>City</th>
+                        <th>Agreement Status</th>
+                        <th>Machine Coverage</th>
+                        <th>Status</th>
+                        <th class="text-end">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="Vendor Name">
+                          <strong>ABC Sewing Support</strong>
+                          <div class="cell-muted">Vendor Code: VEN-001</div>
+                        </td>
+                        <td data-label="Type">Rent Machine Vendor</td>
+                        <td data-label="Contact Person">
+                          <strong>Md. Kamal Hossain</strong>
+                          <div class="cell-muted">Service Coordinator</div>
+                        </td>
+                        <td data-label="Phone / Email">
+                          <strong>01711-456789</strong>
+                          <div class="cell-muted">abc.support@email.com</div>
+                        </td>
+                        <td data-label="City">Dhaka</td>
+                        <td data-label="Agreement Status"><span class="badge text-bg-success">Active Agreement</span></td>
+                        <td data-label="Machine Coverage">14 Rent Machines</td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="vendor-form.html" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Agreements</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor Name">
+                          <strong>Prime Machine Service</strong>
+                          <div class="cell-muted">Vendor Code: VEN-004</div>
+                        </td>
+                        <td data-label="Type">Rent Machine Vendor</td>
+                        <td data-label="Contact Person">
+                          <strong>Shafiqur Rahman</strong>
+                          <div class="cell-muted">Manager - Rental Support</div>
+                        </td>
+                        <td data-label="Phone / Email">
+                          <strong>01819-225577</strong>
+                          <div class="cell-muted">prime.service@email.com</div>
+                        </td>
+                        <td data-label="City">Gazipur</td>
+                        <td data-label="Agreement Status"><span class="badge text-bg-warning">Expiring Soon</span></td>
+                        <td data-label="Machine Coverage">18 Rent Machines</td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="vendor-form.html" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="rent-machines.html" class="btn btn-sm btn-outline-secondary">Machines</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor Name">
+                          <strong>Metro Tech Engineering</strong>
+                          <div class="cell-muted">Vendor Code: VEN-006</div>
+                        </td>
+                        <td data-label="Type">Rent Machine Vendor</td>
+                        <td data-label="Contact Person">
+                          <strong>Rezaul Karim</strong>
+                          <div class="cell-muted">Technical Support Lead</div>
+                        </td>
+                        <td data-label="Phone / Email">
+                          <strong>01912-771155</strong>
+                          <div class="cell-muted">metro.tech@email.com</div>
+                        </td>
+                        <td data-label="City">Narayanganj</td>
+                        <td data-label="Agreement Status"><span class="badge text-bg-success">Active Agreement</span></td>
+                        <td data-label="Machine Coverage">9 Rent Machines</td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="vendor-form.html" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Agreements</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor Name">
+                          <strong>Needle Point Traders</strong>
+                          <div class="cell-muted">Vendor Code: VEN-009</div>
+                        </td>
+                        <td data-label="Type">Spare Parts Vendor</td>
+                        <td data-label="Contact Person">
+                          <strong>Jahirul Islam</strong>
+                          <div class="cell-muted">Sales Executive</div>
+                        </td>
+                        <td data-label="Phone / Email">
+                          <strong>01614-889955</strong>
+                          <div class="cell-muted">needle.point@email.com</div>
+                        </td>
+                        <td data-label="City">Dhaka</td>
+                        <td data-label="Agreement Status"><span class="badge text-bg-secondary">No Agreement</span></td>
+                        <td data-label="Machine Coverage">Spare Parts Supply</td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="vendor-form.html" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="spare-parts.html" class="btn btn-sm btn-outline-secondary">Parts</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor Name">
+                          <strong>Stitch Care Services</strong>
+                          <div class="cell-muted">Vendor Code: VEN-011</div>
+                        </td>
+                        <td data-label="Type">Service Support Vendor</td>
+                        <td data-label="Contact Person">
+                          <strong>Tanvir Ahmed</strong>
+                          <div class="cell-muted">Support Engineer</div>
+                        </td>
+                        <td data-label="Phone / Email">
+                          <strong>01788-332211</strong>
+                          <div class="cell-muted">stitch.care@email.com</div>
+                        </td>
+                        <td data-label="City">Chattogram</td>
+                        <td data-label="Agreement Status"><span class="badge text-bg-primary">Under Review</span></td>
+                        <td data-label="Machine Coverage">External Service Support</td>
+                        <td data-label="Status"><span class="badge text-bg-warning">Pending Approval</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="vendor-form.html" class="btn btn-sm btn-outline-primary">Review</a>
+                            <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Check</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Vendor Name">
+                          <strong>Golden Parts Center</strong>
+                          <div class="cell-muted">Vendor Code: VEN-014</div>
+                        </td>
+                        <td data-label="Type">Spare Parts Vendor</td>
+                        <td data-label="Contact Person">
+                          <strong>Nusrat Jahan</strong>
+                          <div class="cell-muted">Account Manager</div>
+                        </td>
+                        <td data-label="Phone / Email">
+                          <strong>01844-663399</strong>
+                          <div class="cell-muted">golden.parts@email.com</div>
+                        </td>
+                        <td data-label="City">Dhaka</td>
+                        <td data-label="Agreement Status"><span class="badge text-bg-warning">Expiring Soon</span></td>
+                        <td data-label="Machine Coverage">Spare Parts Supply</td>
+                        <td data-label="Status"><span class="badge text-bg-secondary">Inactive</span></td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="vendor-form.html" class="btn btn-sm btn-outline-primary">Edit</a>
+                            <a href="reports.html" class="btn btn-sm btn-outline-secondary">Usage</a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 pt-3">
+                  <div class="small text-body-secondary">Showing 1 to 6 of 22 vendor records</div>
+                  <nav aria-label="Vendor pages">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                      <li class="page-item active"><span class="page-link">1</span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Vendor Control Notes</h3>
+                    <p class="section-text mb-0">Checklist for keeping vendor data practical and audit-ready.</p>
+                  </div>
+                </div>
+
+                <div class="mini-stat-list">
+                  <div class="mini-stat-item">
+                    <span>Vendors Without Contact</span>
+                    <strong>1</strong>
+                  </div>
+                  <div class="mini-stat-item">
+                    <span>Expiring Agreements</span>
+                    <strong>3</strong>
+                  </div>
+                  <div class="mini-stat-item">
+                    <span>Pending Approval</span>
+                    <strong>2</strong>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="legend-list">
+                  <span class="legend-chip"><span class="badge text-bg-success">Active</span> Vendor can be used for current operations</span>
+                  <span class="legend-chip"><span class="badge text-bg-warning">Pending Approval</span> Not yet approved for operational use</span>
+                  <span class="legend-chip"><span class="badge text-bg-secondary">Inactive</span> Keep record for history only</span>
+                  <span class="legend-chip"><span class="badge text-bg-warning">Expiring Soon</span> Agreement needs renewal review</span>
+                </div>
+
+                <div class="compact-note">
+                  Rent machine vendors should include support contact, response phone number, agreement reference, and service area so return and replacement flow stays easy to manage.
+                </div>
+
+                <div class="alert-strip alert-strip-warning mt-3 mb-0">
+                  Prime Machine Service and Golden Parts Center should be reviewed this week because agreement dates are close to expiry.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

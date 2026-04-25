@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Machine Category | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item active" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Machine Category Setup</h2>
+            <p class="page-subtitle mb-0">Maintain machine categories, PM frequency preference, spare relevance, and business-friendly machine grouping for future records.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export Categories</button>
+          <button class="btn btn-primary" type="button">Add Category</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-4 col-md-6">
+                <label for="categorySearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="categorySearch" placeholder="Search by category, machine type, PM group or spare note">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="ownershipSupport" class="form-label">Ownership Use</label>
+                <select class="form-select" id="ownershipSupport">
+                  <option selected>All</option>
+                  <option>Own Only</option>
+                  <option>Rent Only</option>
+                  <option>Own and Rent</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmGroup" class="form-label">PM Group</label>
+                <select class="form-select" id="pmGroup">
+                  <option selected>All Group</option>
+                  <option>Daily PM</option>
+                  <option>Weekly PM</option>
+                  <option>Monthly PM</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="categoryStatus" class="form-label">Status</label>
+                <select class="form-select" id="categoryStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Under Review</option>
+                  <option>Inactive</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find Category</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Category Review: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 7 of 14 category records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Categories</span>
+                <h3 class="summary-value">14</h3>
+                <p class="summary-note mb-0">Machine groups used across master and PM pages</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Active Categories</span>
+                <h3 class="summary-value text-success">11</h3>
+                <p class="summary-note mb-0">Currently used for machine registration and planning</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Spare-Sensitive Group</span>
+                <h3 class="summary-value text-primary">6</h3>
+                <p class="summary-note mb-0">Need clearer spare linkage for breakdown support</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Need Review</span>
+                <h3 class="summary-value text-warning">3</h3>
+                <p class="summary-note mb-0">PM group and naming need correction</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Machine Category Register</h3>
+                      <p class="section-text mb-0">Category-wise setup for machine grouping, PM frequency preference, ownership use, and spare or breakdown relevance.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print List</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Review PM Group</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Category Name</th>
+                          <th>Machine Group</th>
+                          <th>Ownership Use</th>
+                          <th>Preferred PM</th>
+                          <th>Spare Relevance</th>
+                          <th>Breakdown Risk</th>
+                          <th>Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Category Name">
+                            <strong>Single Needle</strong>
+                            <div class="cell-muted">Core sewing machine category</div>
+                          </td>
+                          <td data-label="Machine Group">Stitching Machine</td>
+                          <td data-label="Ownership Use">Own and Rent</td>
+                          <td data-label="Preferred PM"><span class="badge text-bg-primary">Weekly</span></td>
+                          <td data-label="Spare Relevance">Needle, feed dog, motor belt</td>
+                          <td data-label="Breakdown Risk">Medium</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">PM</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Category Name">
+                            <strong>Overlock</strong>
+                            <div class="cell-muted">High-use sewing support category</div>
+                          </td>
+                          <td data-label="Machine Group">Stitching Machine</td>
+                          <td data-label="Ownership Use">Own and Rent</td>
+                          <td data-label="Preferred PM"><span class="badge text-bg-primary">Weekly</span></td>
+                          <td data-label="Spare Relevance">Looper, knife, needle bar</td>
+                          <td data-label="Breakdown Risk">High</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Parts</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Category Name">
+                            <strong>Flatlock</strong>
+                            <div class="cell-muted">Stretch sewing and support category</div>
+                          </td>
+                          <td data-label="Machine Group">Stitching Machine</td>
+                          <td data-label="Ownership Use">Own and Rent</td>
+                          <td data-label="Preferred PM"><span class="badge text-bg-info">Monthly</span></td>
+                          <td data-label="Spare Relevance">Looper, pressure spring, belt</td>
+                          <td data-label="Breakdown Risk">Medium</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Category Name">
+                            <strong>Button Attach</strong>
+                            <div class="cell-muted">Special operation category</div>
+                          </td>
+                          <td data-label="Machine Group">Special Sewing</td>
+                          <td data-label="Ownership Use">Own Only</td>
+                          <td data-label="Preferred PM"><span class="badge text-bg-info">Monthly</span></td>
+                          <td data-label="Spare Relevance">Button clamp, sensor, spring set</td>
+                          <td data-label="Breakdown Risk">Medium</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Category Name">
+                            <strong>Bar Tack</strong>
+                            <div class="cell-muted">Reinforcement sewing category</div>
+                          </td>
+                          <td data-label="Machine Group">Special Sewing</td>
+                          <td data-label="Ownership Use">Own Only</td>
+                          <td data-label="Preferred PM"><span class="badge text-bg-info">Monthly</span></td>
+                          <td data-label="Spare Relevance">Hook set, motor belt, sensor</td>
+                          <td data-label="Breakdown Risk">Medium</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Parts</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Category Name">
+                            <strong>Sample Mixed Group</strong>
+                            <div class="cell-muted">Used for sample room support machines</div>
+                          </td>
+                          <td data-label="Machine Group">Mixed Sample Support</td>
+                          <td data-label="Ownership Use">Own and Rent</td>
+                          <td data-label="Preferred PM"><span class="badge text-bg-warning">Custom</span></td>
+                          <td data-label="Spare Relevance">Mixed low-volume spare need</td>
+                          <td data-label="Breakdown Risk">Low</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Under Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Audit</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Category Name">
+                            <strong>Repair Holding Group</strong>
+                            <div class="cell-muted">Temporary machine holding and test category</div>
+                          </td>
+                          <td data-label="Machine Group">Maintenance Support</td>
+                          <td data-label="Ownership Use">Own and Rent</td>
+                          <td data-label="Preferred PM"><span class="badge text-bg-secondary">No Fixed PM</span></td>
+                          <td data-label="Spare Relevance">As per active complaint item</td>
+                          <td data-label="Breakdown Risk">Case Based</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Under Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <nav class="responsive-pagination mt-4" aria-label="Machine category pages">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                      <li class="page-item active"><span class="page-link">1</span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Category Review Watch</h3>
+                      <p class="section-text mb-0">Categories that need PM group, spare linkage, or naming correction before future records depend on them.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Custom PM Group</strong>
+                          <div class="cell-muted">Sample Mixed Group should confirm usable PM logic</div>
+                        </div>
+                        <span class="badge text-bg-warning">01</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Repair Holding Logic</strong>
+                          <div class="cell-muted">This category should not behave like a normal production group</div>
+                        </div>
+                        <span class="badge text-bg-danger">01</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Spare Mapping Check</strong>
+                          <div class="cell-muted">Overlock and Flatlock spare list should stay clean and separate</div>
+                        </div>
+                        <span class="badge text-bg-info">02</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Ownership Scope</strong>
+                          <div class="cell-muted">Special machine groups should clearly show own vs rent support use</div>
+                        </div>
+                        <span class="badge text-bg-primary">01</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Category Distribution</h3>
+                      <p class="section-text mb-0">Quick view of machine grouping across the current master setup.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Core Sewing Group</strong>
+                      <div class="cell-muted">Single Needle, Overlock, Flatlock categories</div>
+                    </div>
+                    <span class="badge text-bg-success">03</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Special Sewing Group</strong>
+                      <div class="cell-muted">Button Attach, Bar Tack, and similar support categories</div>
+                    </div>
+                    <span class="badge text-bg-primary">04</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Support Group</strong>
+                      <div class="cell-muted">Sample, repair, and mixed temporary machine groups</div>
+                    </div>
+                    <span class="badge text-bg-info">03</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Category Notes</h3>
+                      <p class="section-text mb-0">Short rules for keeping machine category records practical and backend-ready.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-success">Keep</span> Category names aligned with machine registration and PM planning terms.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">Check</span> PM frequency logic should match actual machine service need.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">Avoid</span> Mixing temporary repair groups with normal production machine categories.</span>
+                    <span class="legend-chip"><span class="badge text-bg-primary">Review</span> Spare relevance should be visible for high-breakdown categories.</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Category Updates</h3>
+                      <p class="section-text mb-0">Latest category-level changes visible for machine master follow-up.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-success"></span>
+                      <div>
+                        <strong>Overlock spare mapping updated</strong>
+                        <div class="cell-muted">Looper and knife linkage reviewed for breakdown readiness</div>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>Sample group PM logic flagged</strong>
+                        <div class="cell-muted">Custom PM frequency needs a cleaner rule before wider use</div>
+                      </div>
+                      <span class="activity-time">Yesterday</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>Repair holding category reviewed</strong>
+                        <div class="cell-muted">Temporary machine support group should remain separate from production machine list</div>
+                      </div>
+                      <span class="activity-time">18 Apr 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

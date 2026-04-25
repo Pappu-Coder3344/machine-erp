@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Machine Edit | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item active" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Edit Machine Record</h2>
+            <p class="page-subtitle mb-0">Update machine master information without changing the existing machine code.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="machines.html">Machine List</a>
+          <button class="btn btn-primary" type="submit" form="machineForm">Update Machine</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="alert alert-info mb-0" role="alert">
+            Machine code is fixed for edit mode. Update operational details, location, maintenance setup, and remarks only.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <form id="machineForm" class="erp-card h-100" data-current-machine-code="MC-1001" data-machine-form-mode="edit">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Machine Edit Information</h3>
+                    <p class="section-text mb-0">Review and update the existing machine record so status, location, and maintenance planning stay accurate.</p>
+                  </div>
+                  <span class="badge text-bg-primary" id="machineRecordBadge">Record ID: MC-1001</span>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="machineCode" class="form-label">Machine Code</label>
+                    <input type="text" class="form-control" id="machineCode" value="MC-1001" maxlength="7" readonly required>
+                    <div id="machineCodeAlert" class="form-text d-none"></div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="machineStatus" class="form-label">Current Status</label>
+                    <select class="form-select" id="machineStatus">
+                      <option selected>Active</option>
+                      <option>Idle</option>
+                      <option>Breakdown</option>
+                      <option>Under Maintenance</option>
+                      <option>Returned</option>
+                      <option>Replaced</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="machineType" class="form-label">Machine Type</label>
+                    <input type="search" class="form-control" id="machineType" list="machineTypeOptions" value="Single Needle" placeholder="Select machine type">
+                    <datalist id="machineTypeOptions">
+                      <option value="Single Needle"></option>
+                      <option value="Overlock"></option>
+                      <option value="Flatlock"></option>
+                      <option value="Button Hole"></option>
+                      <option value="Button Attach"></option>
+                      <option value="Bar Tack"></option>
+                      <option value="Feed Off The Arm"></option>
+                    </datalist>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="machineBrand" class="form-label">Brand</label>
+                    <input type="text" class="form-control" id="machineBrand" value="Juki" placeholder="Example: Juki, Brother, Pegasus">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="machineModel" class="form-label">Model</label>
+                    <input type="text" class="form-control" id="machineModel" value="DDL-8700" placeholder="Machine model number">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="serialNo" class="form-label">Serial Number</label>
+                    <input type="text" class="form-control" id="serialNo" value="JK-22-1001-4412" placeholder="Factory or vendor serial no">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="ownershipType" class="form-label">Ownership Type</label>
+                    <select class="form-select" id="ownershipType" disabled>
+                      <option selected>Own</option>
+                      <option>Rent</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="machineCondition" class="form-label">Machine Condition</label>
+                    <select class="form-select" id="machineCondition">
+                      <option selected>Good</option>
+                      <option>Need Observation</option>
+                      <option>Frequent Complaint</option>
+                      <option>Repair Required</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="factoryUnit" class="form-label">Factory Unit</label>
+                    <select class="form-select" id="factoryUnit">
+                      <option>Unit 01 - Sewing</option>
+                      <option selected>Unit 02 - Sewing</option>
+                      <option>Unit 03 - Finishing</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="floorName" class="form-label">Floor</label>
+                    <select class="form-select" id="floorName">
+                      <option>Sewing Floor 01</option>
+                      <option selected>Sewing Floor 02</option>
+                      <option>Sewing Floor 03</option>
+                      <option>Finishing Floor</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="lineName" class="form-label">Line</label>
+                    <select class="form-select" id="lineName">
+                      <option selected>Line 01</option>
+                      <option>Line 03</option>
+                      <option>Line 08</option>
+                      <option>Line 10</option>
+                      <option>Finishing 02</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="sectionName" class="form-label">Section</label>
+                    <select class="form-select" id="sectionName">
+                      <option selected>Sewing</option>
+                      <option>Finishing</option>
+                      <option>Sample</option>
+                      <option>Training</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="receivedDate" class="form-label">Received / Installation Date</label>
+                    <input type="date" class="form-control" id="receivedDate" value="2025-12-12">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="lastServiceDate" class="form-label">Last Service Date</label>
+                    <input type="date" class="form-control" id="lastServiceDate" value="2026-04-18">
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Rent Machine Linkage</h3>
+                    <p class="section-text mb-0">This section remains available for review, but this sample record is an own machine.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="vendorName" class="form-label">Vendor</label>
+                    <select class="form-select" id="vendorName">
+                      <option selected>Not Applicable</option>
+                      <option>Prime Machine Service</option>
+                      <option>Asian Sewing Support</option>
+                      <option>Dhaka Machine Trade</option>
+                      <option>Metro Industrial Care</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="agreementNo" class="form-label">Agreement No</label>
+                    <select class="form-select" id="agreementNo">
+                      <option selected>Not Applicable</option>
+                      <option>AGR-2026-001</option>
+                      <option>AGR-2026-002</option>
+                      <option>AGR-2026-004</option>
+                      <option>AGR-2026-006</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="rentStartDate" class="form-label">Rent Start Date</label>
+                    <input type="date" class="form-control" id="rentStartDate" value="">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="returnTerms" class="form-label">Return / Replace Terms</label>
+                    <select class="form-select" id="returnTerms">
+                      <option selected>Not Applicable</option>
+                      <option>Return Allowed</option>
+                      <option>Replacement Allowed</option>
+                      <option>Return and Replacement Allowed</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="vendorRemarks" class="form-label">Vendor / Agreement Remarks</label>
+                    <textarea class="form-control" id="vendorRemarks" rows="3" placeholder="Write vendor, agreement, or rent condition notes if applicable">Own machine record. No active vendor or agreement linkage for this machine.</textarea>
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Maintenance and PM Setup</h3>
+                    <p class="section-text mb-0">Update maintenance planning so PM and technician follow-up stay current.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label for="pmFrequency" class="form-label">PM Frequency</label>
+                    <select class="form-select" id="pmFrequency">
+                      <option>Daily</option>
+                      <option selected>Weekly</option>
+                      <option>Monthly</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="nextPmDate" class="form-label">Next PM Due Date</label>
+                    <input type="date" class="form-control" id="nextPmDate" value="2026-04-25">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="assignedTechnician" class="form-label">Responsible Technician</label>
+                    <select class="form-select" id="assignedTechnician">
+                      <option selected>Rafiqul Islam</option>
+                      <option>Shamim Mia</option>
+                      <option>Sohel Rana</option>
+                      <option>Hasan Ali</option>
+                      <option>Md. Imran</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="spareCategory" class="form-label">Common Spare Category</label>
+                    <select class="form-select" id="spareCategory">
+                      <option selected>Needle / Presser Parts</option>
+                      <option>Motor / Belt</option>
+                      <option>Looper / Hook Set</option>
+                      <option>Cutter / Knife</option>
+                      <option>Electrical / Sensor</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="servicePriority" class="form-label">Maintenance Priority</label>
+                    <select class="form-select" id="servicePriority">
+                      <option>Low</option>
+                      <option selected>Medium</option>
+                      <option>High</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="maintenanceNotes" class="form-label">Maintenance Notes</label>
+                    <textarea class="form-control" id="maintenanceNotes" rows="4" placeholder="Write short service instructions or observation">Machine is running in Line 01 with stable performance. Keep weekly PM active and continue feed timing observation after the last service update.</textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Edit Summary</h3>
+                      <p class="section-text mb-0">Current record snapshot before update.</p>
+                    </div>
+                    <span class="badge text-bg-success">Existing Record</span>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Machine Code</strong>
+                      <div class="cell-muted">MC-1001</div>
+                    </div>
+                    <span class="badge text-bg-dark">Own</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Location</strong>
+                      <div class="cell-muted">Sewing Floor 02, Line 01</div>
+                    </div>
+                    <span class="badge text-bg-primary">Allocated</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Current Status</strong>
+                      <div class="cell-muted">Machine is available for standard sewing production</div>
+                    </div>
+                    <span class="badge text-bg-success">Active</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Last Service</strong>
+                      <div class="cell-muted">18 Apr 2026 by Rafiqul Islam</div>
+                    </div>
+                    <span class="badge text-bg-warning">Recent</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Edit Rules</h3>
+                      <p class="section-text mb-0">Keep edit flow safe and simple.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-secondary">Fixed Code</span> Machine code stays unchanged during edit to preserve history, PM, and breakdown linkage.</span>
+                    <span class="legend-chip"><span class="badge text-bg-primary">Location Update</span> Change floor, line, or section here when the machine is shifted.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">PM Review</span> Update technician and next due date after each service review.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">Status Update</span> If machine condition changes, keep status aligned with actual floor condition.</span>
+                  </div>
+
+                  <div class="compact-note">
+                    Use edit form for record correction and operational updates. Use the registration page only for new machine entry.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Actions</h3>
+                      <p class="section-text mb-0">Related pages for this machine record.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <a href="machines.html" class="mini-stat-item">
+                      <div>
+                        <strong>Back to Machine List</strong>
+                        <div class="cell-muted">Review all master records</div>
+                      </div>
+                      <span class="badge text-bg-secondary">List</span>
+                    </a>
+                    <a href="machine-details.html" class="mini-stat-item">
+                      <div>
+                        <strong>Machine Details</strong>
+                        <div class="cell-muted">Open history and status page</div>
+                      </div>
+                      <span class="badge text-bg-primary">View</span>
+                    </a>
+                    <a href="pm-schedule.html" class="mini-stat-item">
+                      <div>
+                        <strong>PM Schedule</strong>
+                        <div class="cell-muted">Review due and upcoming PM work</div>
+                      </div>
+                      <span class="badge text-bg-warning">PM</span>
+                    </a>
+                    <a href="breakdown-form.html" class="mini-stat-item">
+                      <div>
+                        <strong>Raise Complaint</strong>
+                        <div class="cell-muted">Create breakdown entry if new issue appears</div>
+                      </div>
+                      <span class="badge text-bg-danger">Alert</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

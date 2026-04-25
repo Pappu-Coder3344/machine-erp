@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agreement Form | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item active" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Agreement Entry Form</h2>
+            <p class="page-subtitle mb-0">Create or update vendor agreements with contract period, coverage, monthly cost, and renewal visibility.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="agreements.html">Agreement List</a>
+          <button class="btn btn-primary" type="submit" form="agreementForm">Save Agreement</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="alert alert-warning mb-0" role="alert">
+            Agreement information should stay clear because rent machine receive, vendor support, return or replacement, and PM follow-up depend on valid contract coverage.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <form id="agreementForm" class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Agreement Information</h3>
+                    <p class="section-text mb-0">Use practical contract details so factory users can understand which vendor is active, what the agreement covers, and when it needs renewal.</p>
+                  </div>
+                  <span class="badge text-bg-primary">Agreement No: AGR-2026-009</span>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="agreementNo" class="form-label">Agreement No</label>
+                    <input type="text" class="form-control" id="agreementNo" value="AGR-2026-009" placeholder="Example: AGR-2026-009">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="agreementStatus" class="form-label">Agreement Status</label>
+                    <select class="form-select" id="agreementStatus">
+                      <option selected>Active</option>
+                      <option>Expiring Soon</option>
+                      <option>Expired</option>
+                      <option>Draft</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="vendorName" class="form-label">Vendor</label>
+                    <select class="form-select" id="vendorName">
+                      <option>ABC Sewing Support</option>
+                      <option selected>Prime Machine Service</option>
+                      <option>Metro Tech Engineering</option>
+                      <option>Eastern Machine Support</option>
+                      <option>Stitch Care Services</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="agreementType" class="form-label">Agreement Type</label>
+                    <select class="form-select" id="agreementType">
+                      <option selected>Rent Machine</option>
+                      <option>Service Support</option>
+                      <option>Spare Parts Supply</option>
+                      <option>Combined Support</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="startDate" value="2026-05-01">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="endDate" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="endDate" value="2027-04-30">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="renewalNotice" class="form-label">Renewal Notice Period</label>
+                    <select class="form-select" id="renewalNotice">
+                      <option>15 Days</option>
+                      <option selected>30 Days</option>
+                      <option>45 Days</option>
+                      <option>60 Days</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="approvalStatus" class="form-label">Approval Status</label>
+                    <select class="form-select" id="approvalStatus">
+                      <option selected>Approved</option>
+                      <option>Pending Approval</option>
+                      <option>Need Review</option>
+                    </select>
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Coverage and Commercial Terms</h3>
+                    <p class="section-text mb-0">Keep machine quantity, support area, and cost details visible for clear vendor and management review.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="coverageType" class="form-label">Coverage Type</label>
+                    <select class="form-select" id="coverageType">
+                      <option selected>Rent Machine with Service Support</option>
+                      <option>Rent Machine Only</option>
+                      <option>Service Support Only</option>
+                      <option>Spare Parts Supply</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="machineCoverage" class="form-label">Machine Coverage</label>
+                    <input type="text" class="form-control" id="machineCoverage" value="12 Rent Machines" placeholder="Example: 12 Rent Machines">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="monthlyCost" class="form-label">Monthly Cost</label>
+                    <input type="text" class="form-control" id="monthlyCost" value="BDT 165,000" placeholder="Example: BDT 165,000">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="paymentTerms" class="form-label">Payment Terms</label>
+                    <select class="form-select" id="paymentTerms">
+                      <option selected>Monthly Bill Submission</option>
+                      <option>Advance Monthly Payment</option>
+                      <option>Quarterly Payment</option>
+                      <option>As per Contract</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="serviceArea" class="form-label">Service Area</label>
+                    <input type="text" class="form-control" id="serviceArea" value="Gazipur, Dhaka, Tongi" placeholder="Service coverage area">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="replacementSupport" class="form-label">Return / Replacement Support</label>
+                    <select class="form-select" id="replacementSupport">
+                      <option>Return Allowed</option>
+                      <option>Replacement Allowed</option>
+                      <option selected>Return and Replacement Allowed</option>
+                      <option>Not Covered</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="coverageRemarks" class="form-label">Coverage Remarks</label>
+                    <textarea class="form-control" id="coverageRemarks" rows="4" placeholder="Write machine coverage, cost, or contract term details">This agreement covers 12 rent machines with standard vendor service support. Return and replacement support are allowed during the contract period based on machine condition and approval.</textarea>
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Support Contact and Operational Notes</h3>
+                    <p class="section-text mb-0">Keep service contact and agreement notes simple and practical for everyday operations.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="contactPerson" class="form-label">Contact Person</label>
+                    <input type="text" class="form-control" id="contactPerson" value="Shafiqur Rahman" placeholder="Primary vendor contact">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="contactRole" class="form-label">Contact Role</label>
+                    <input type="text" class="form-control" id="contactRole" value="Manager - Rental Support" placeholder="Role or designation">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="mobileNo" class="form-label">Mobile Number</label>
+                    <input type="text" class="form-control" id="mobileNo" value="01819-225577" placeholder="Mobile number">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="emailAddress" class="form-label">Email Address</label>
+                    <input type="email" class="form-control" id="emailAddress" value="prime.service@email.com" placeholder="Email address">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="supportResponse" class="form-label">Typical Response Time</label>
+                    <select class="form-select" id="supportResponse">
+                      <option>Within 2 Hours</option>
+                      <option selected>Same Day</option>
+                      <option>Next Working Day</option>
+                      <option>As per Agreement</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="reviewedBy" class="form-label">Reviewed By</label>
+                    <input type="text" class="form-control" id="reviewedBy" value="Jahidul Islam" placeholder="Reviewer name">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="reviewDate" class="form-label">Review Date</label>
+                    <input type="date" class="form-control" id="reviewDate" value="2026-04-21">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="nextReviewDate" class="form-label">Next Review Date</label>
+                    <input type="date" class="form-control" id="nextReviewDate" value="2026-11-30">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="internalNotes" class="form-label">Internal Notes</label>
+                    <textarea class="form-control" id="internalNotes" rows="4" placeholder="Write internal notes for operations or renewal follow-up">Suitable for new rent machine receive and replacement support. Keep renewal reminder before 31 Mar 2027. Vendor contact verified by maintenance head.</textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Agreement Summary</h3>
+                      <p class="section-text mb-0">Quick review before saving.</p>
+                    </div>
+                    <span class="badge text-bg-success">Ready to Save</span>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Agreement Type</strong>
+                      <div class="cell-muted">Rent machine support contract</div>
+                    </div>
+                    <span class="badge text-bg-primary">Rent</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Vendor</strong>
+                      <div class="cell-muted">Prime Machine Service</div>
+                    </div>
+                    <span class="badge text-bg-dark">Linked</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Contract Period</strong>
+                      <div class="cell-muted">01 May 2026 to 30 Apr 2027</div>
+                    </div>
+                    <span class="badge text-bg-success">Active</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Coverage</strong>
+                      <div class="cell-muted">12 machines with return and replacement support</div>
+                    </div>
+                    <span class="badge text-bg-warning">Covered</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Agreement Rules</h3>
+                      <p class="section-text mb-0">Important business points for contract entry.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-success">Active</span> Use active agreements for rent machine receive and vendor support planning.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">Expiring Soon</span> Review and renew before adding more rent machines under the same vendor.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">Expired</span> Do not use expired agreements for new receive entry or support allocation.</span>
+                    <span class="legend-chip"><span class="badge text-bg-primary">Draft</span> Draft agreements should stay under review until approval is complete.</span>
+                  </div>
+
+                  <div class="compact-note">
+                    Agreement data should remain simple but clear. This page should support rent machine, vendor, return or replacement, and reports modules without extra complexity.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Actions</h3>
+                      <p class="section-text mb-0">Related pages for contract follow-up.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <a href="agreements.html" class="mini-stat-item">
+                      <div>
+                        <strong>Back to Agreement List</strong>
+                        <div class="cell-muted">Review all contracts</div>
+                      </div>
+                      <span class="badge text-bg-secondary">List</span>
+                    </a>
+                    <a href="vendors.html" class="mini-stat-item">
+                      <div>
+                        <strong>Vendor Register</strong>
+                        <div class="cell-muted">Open vendor profiles and contact details</div>
+                      </div>
+                      <span class="badge text-bg-dark">Vendor</span>
+                    </a>
+                    <a href="rent-machines.html" class="mini-stat-item">
+                      <div>
+                        <strong>Rent Machine List</strong>
+                        <div class="cell-muted">Review agreement-linked machines</div>
+                      </div>
+                      <span class="badge text-bg-primary">Machines</span>
+                    </a>
+                    <a href="reports.html" class="mini-stat-item">
+                      <div>
+                        <strong>Reports</strong>
+                        <div class="cell-muted">Check agreement usage and expiry summary</div>
+                      </div>
+                      <span class="badge text-bg-warning">Usage</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

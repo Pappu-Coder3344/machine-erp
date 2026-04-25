@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breakdown Report | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item active" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Breakdown Report</h2>
+            <p class="page-subtitle mb-0">Analyze complaint volume, closure performance, downtime impact, line-wise issues, and recurring machine breakdown trends.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="reports.html">All Reports</a>
+          <button class="btn btn-primary" type="button">Export Breakdown Report</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-2 col-md-6">
+                <label for="breakdownReportFrom" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="breakdownReportFrom" value="2026-04-01">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="breakdownReportTo" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="breakdownReportTo" value="2026-04-22">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="breakdownReportUnit" class="form-label">Factory Unit</label>
+                <select class="form-select" id="breakdownReportUnit">
+                  <option>Unit 01 - Sewing</option>
+                  <option selected>Unit 02 - Sewing</option>
+                  <option>Unit 03 - Finishing</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="breakdownReportFloor" class="form-label">Floor / Line</label>
+                <select class="form-select" id="breakdownReportFloor">
+                  <option selected>All Locations</option>
+                  <option>Line 01</option>
+                  <option>Line 03</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Finishing 02</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="breakdownReportType" class="form-label">Machine Type</label>
+                <select class="form-select" id="breakdownReportType">
+                  <option selected>All Types</option>
+                  <option>Single Needle</option>
+                  <option>Overlock</option>
+                  <option>Flatlock</option>
+                  <option>Button Attach</option>
+                  <option>Bar Tack</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Generate Report</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Report Date: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Period: 01 Apr 2026 to 22 Apr 2026 | Unit 02 - Sewing</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Reported Tickets</span>
+                <h3 class="summary-value text-danger">32</h3>
+                <p class="summary-note mb-0">Total complaints captured during the selected period</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Closure Rate</span>
+                <h3 class="summary-value text-success">78%</h3>
+                <p class="summary-note mb-0">25 tickets closed or completed from total reported</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Average Downtime</span>
+                <h3 class="summary-value text-warning">1.9 Hrs</h3>
+                <p class="summary-note mb-0">Average production impact before machine release</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Repeat Issue Machines</span>
+                <h3 class="summary-value text-primary">6</h3>
+                <p class="summary-note mb-0">Machines reported more than once in the same month</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="alert-strip alert-strip-warning">
+            Line 03, Line 07, and rent machine overlock support are contributing most of the open breakdown pressure. Repeat issue machines should be reviewed with PM and vendor coordination together.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Breakdown Report Snapshot</h3>
+                      <p class="section-text mb-0">High-level comparison of volume, closure performance, downtime, and current gap across breakdown operations.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Report</button>
+                      <a href="breakdown-list.html" class="btn btn-sm btn-outline-secondary">Open Ticket List</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Report Area</th>
+                          <th>Current Figure</th>
+                          <th>Observation</th>
+                          <th>Gap / Risk</th>
+                          <th>Suggested Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Open and Assigned Tickets</strong>
+                            <div class="cell-muted">Complaint inflow and ownership follow-up</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>13 Tickets</strong>
+                            <div class="cell-muted">6 open, 7 assigned/in progress</div>
+                          </td>
+                          <td data-label="Observation">Supervisor assignment is happening, but high priority cases stay open too long</td>
+                          <td data-label="Gap / Risk">4 tickets delayed by parts or technician load</td>
+                          <td data-label="Suggested Action"><a href="ticket-assign.html" class="btn btn-sm btn-outline-primary">Assign Review</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Closure Performance</strong>
+                            <div class="cell-muted">Completed and closed ticket output</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>25 Tickets</strong>
+                            <div class="cell-muted">19 closed, 6 completed awaiting final confirmation</div>
+                          </td>
+                          <td data-label="Observation">Closure is stable, but completed-to-closed conversion is slower on rent machine cases</td>
+                          <td data-label="Gap / Risk">Supervisor confirmation pending on 3 machine releases</td>
+                          <td data-label="Suggested Action"><a href="ticket-close.html" class="btn btn-sm btn-outline-primary">Close Review</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Downtime Impact</strong>
+                            <div class="cell-muted">Production loss during breakdown response</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>1.9 Hrs Avg</strong>
+                            <div class="cell-muted">Longest ticket touched 4.5 hours</div>
+                          </td>
+                          <td data-label="Observation">Line 07 and Line 03 create most downtime because repeat issues return during peak load</td>
+                          <td data-label="Gap / Risk">Output loss risk on export-heavy lines</td>
+                          <td data-label="Suggested Action"><a href="machines.html" class="btn btn-sm btn-outline-primary">Machine Review</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Repeat Machine Issues</strong>
+                            <div class="cell-muted">Recurring complaints on same code</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>6 Machines</strong>
+                            <div class="cell-muted">MC-1014, RM-2008, RM-2010 are top repeat cases</div>
+                          </td>
+                          <td data-label="Observation">Repeat issue trend is strongest on overlock and flatlock support machines</td>
+                          <td data-label="Gap / Risk">Root-cause not fully closed after repair</td>
+                          <td data-label="Suggested Action"><a href="pm-schedule.html" class="btn btn-sm btn-outline-primary">PM Follow-Up</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="compact-note">
+                    This report should help the maintenance head quickly identify which lines, machine types, and technicians need action without opening multiple modules.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Line-Wise Breakdown Summary</h3>
+                      <p class="section-text mb-0">Use line-level reporting to understand complaint pressure, downtime, and closure quality by production area.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Floor / Line</th>
+                          <th>Reported</th>
+                          <th>Closed</th>
+                          <th>Avg Downtime</th>
+                          <th>Top Machine Type</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 02 / Line 03</strong>
+                          </td>
+                          <td data-label="Reported">9</td>
+                          <td data-label="Closed">6</td>
+                          <td data-label="Avg Downtime">2.3 Hrs</td>
+                          <td data-label="Top Machine Type">Overlock</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">High Risk</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 03 / Line 07</strong>
+                          </td>
+                          <td data-label="Reported">8</td>
+                          <td data-label="Closed">6</td>
+                          <td data-label="Avg Downtime">2.1 Hrs</td>
+                          <td data-label="Top Machine Type">Flatlock</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Needs Follow-Up</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 02 / Line 01</strong>
+                          </td>
+                          <td data-label="Reported">5</td>
+                          <td data-label="Closed">5</td>
+                          <td data-label="Avg Downtime">1.2 Hrs</td>
+                          <td data-label="Top Machine Type">Single Needle</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Controlled</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Finishing 02</strong>
+                          </td>
+                          <td data-label="Reported">3</td>
+                          <td data-label="Closed">3</td>
+                          <td data-label="Avg Downtime">0.9 Hrs</td>
+                          <td data-label="Top Machine Type">Button Attach</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Stable</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Top Repeat Breakdown Machines</h3>
+                      <p class="section-text mb-0">List machines that repeatedly enter complaint flow so management can decide PM, vendor, or replacement action.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Machine</th>
+                          <th>Ownership</th>
+                          <th>Recent Breakdown Count</th>
+                          <th>Main Issue</th>
+                          <th>Suggested Action</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Ownership"><span class="badge text-bg-dark">Own</span></td>
+                          <td data-label="Recent Breakdown Count">3 tickets in 21 days</td>
+                          <td data-label="Main Issue">Looper timing and thread break</td>
+                          <td data-label="Suggested Action">Root-cause review and weekly PM attention</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Repeat Risk</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2008</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                          <td data-label="Recent Breakdown Count">2 tickets in 14 days</td>
+                          <td data-label="Main Issue">Stitch imbalance after heavy use</td>
+                          <td data-label="Suggested Action">Vendor coordination and agreement review</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Vendor Watch</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                          <td data-label="Recent Breakdown Count">2 tickets in 18 days</td>
+                          <td data-label="Main Issue">Thread trim failure and belt wear</td>
+                          <td data-label="Suggested Action">Spare parts reorder and service follow-up</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Parts Risk</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Root Cause Watch</h3>
+                      <p class="section-text mb-0">Most common problem patterns reported in the selected period.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Thread Break / Tension</strong>
+                        <div class="cell-muted">9 tickets across overlock and flatlock lines</div>
+                      </div>
+                      <span class="badge text-bg-danger">R1</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Looper / Timing Issue</strong>
+                        <div class="cell-muted">7 tickets with repeat service demand</div>
+                      </div>
+                      <span class="badge text-bg-warning">R2</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Motor / Belt Problem</strong>
+                        <div class="cell-muted">5 tickets tied to part wear or stock delay</div>
+                      </div>
+                      <span class="badge text-bg-info">R3</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Technician Closure Board</h3>
+                      <p class="section-text mb-0">Simple view of who is carrying most of the breakdown recovery load.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Rafiqul Islam</strong>
+                        <div class="cell-muted">8 tickets closed, avg downtime 1.6 hrs</div>
+                      </div>
+                      <span class="badge text-bg-success">Strong</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Sohel Rana</strong>
+                        <div class="cell-muted">7 tickets closed, 2 rent machine cases pending</div>
+                      </div>
+                      <span class="badge text-bg-warning">Loaded</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Shamim Mia</strong>
+                        <div class="cell-muted">6 tickets closed, best closure quality on PM-linked machines</div>
+                      </div>
+                      <span class="badge text-bg-primary">Balanced</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Report Notes</h3>
+                      <p class="section-text mb-0">Management-level observations from the current breakdown period.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-list">
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 11:15 AM</strong>
+                      <p class="mb-0">Line 03 created the highest complaint pressure and should be reviewed with machine and PM records together.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 09:40 AM</strong>
+                      <p class="mb-0">RM-2008 and RM-2010 remain the top rent machine contributors to vendor-linked breakdown delay.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>21 Apr 2026, 05:20 PM</strong>
+                      <p class="mb-0">Thread cutter knife and motor belt shortage were noted as direct causes of longer closure time in two tickets.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Keep the report usable for admin, maintenance head, and supervisor review.</p>
+                    </div>
+                  </div>
+
+                  <ul class="list-unstyled note-list mb-0">
+                    <li>Breakdown reporting should clearly separate open pressure, closure performance, and repeat machine risk.</li>
+                    <li>Line-wise downtime helps management decide where technician and PM attention should move first.</li>
+                    <li>Rent machine complaints should stay visible with vendor, agreement, and spare parts context.</li>
+                    <li>This structure can later feed PDF, Excel, and monthly management review without redesign.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

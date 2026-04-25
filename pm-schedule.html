@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PM Schedule | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="pm-schedule-page">
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item active" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Preventive Maintenance Schedule</h2>
+            <p class="page-subtitle mb-0">Plan daily, weekly, and monthly PM work with due visibility, technician assignment, and machine-wise service history.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="pm-due.html">View Due Items</a>
+          <button class="btn btn-primary" type="button">Create PM Plan</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="pmSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="pmSearch" placeholder="Search by machine code, plan no, line or technician">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmMonth" class="form-label">Schedule Month</label>
+                <input type="month" class="form-control" id="pmMonth" value="2026-04">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmFrequency" class="form-label">Frequency</label>
+                <select class="form-select" id="pmFrequency">
+                  <option selected>All Frequency</option>
+                  <option>Daily</option>
+                  <option>Weekly</option>
+                  <option>Monthly</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmLocation" class="form-label">Floor / Line</label>
+                <select class="form-select" id="pmLocation">
+                  <option selected>All Locations</option>
+                  <option>Line 01</option>
+                  <option>Line 03</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Finishing 02</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="pmStatus" class="form-label">Status</label>
+                <select class="form-select" id="pmStatus">
+                  <option selected>All Status</option>
+                  <option>Due</option>
+                  <option>Overdue</option>
+                  <option>Completed</option>
+                  <option>Planned</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">PM Review Date: <strong id="currentDateLabel">22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 8 of 64 PM plan records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section pm-schedule-board">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="row g-2">
+                  <div class="col-sm-6 col-xl-3">
+                    <div class="summary-card h-100">
+                      <span class="summary-label">Scheduled This Month</span>
+                      <h3 class="summary-value">64</h3>
+                      <p class="summary-note mb-0">Daily, weekly, and monthly PM plan records for Unit 02</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xl-3">
+                    <div class="summary-card h-100">
+                      <span class="summary-label">Due Today</span>
+                      <h3 class="summary-value text-warning">18</h3>
+                      <p class="summary-note mb-0">Need technician update before end of general shift</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xl-3">
+                    <div class="summary-card h-100">
+                      <span class="summary-label">Overdue</span>
+                      <h3 class="summary-value text-danger">6</h3>
+                      <p class="summary-note mb-0">Pending from previous dates and affecting compliance score</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 col-xl-3">
+                    <div class="summary-card h-100">
+                      <span class="summary-label">Completed This Month</span>
+                      <h3 class="summary-value text-success">40</h3>
+                      <p class="summary-note mb-0">Current completion rate 62.5% across all frequencies</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">PM Control Snapshot</h3>
+                      <p class="section-text mb-0">Quick operational view so the schedule page feels like a real working control board, not a loose report page.</p>
+                    </div>
+                    <span class="badge text-bg-warning">Shift Watch</span>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Morning Clearance</strong>
+                          <div class="cell-muted">7 daily PM items should close before lunch</div>
+                        </div>
+                        <span class="badge text-bg-primary">07</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Overdue Pressure</strong>
+                          <div class="cell-muted">6 pending items are dragging compliance down</div>
+                        </div>
+                        <span class="badge text-bg-danger">06</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Rent PM Risk</strong>
+                          <div class="cell-muted">2 agreement-linked machines need vendor-aware follow-up</div>
+                        </div>
+                        <span class="badge text-bg-dark">02</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Expected Closure</strong>
+                          <div class="cell-muted">14 items can still close in the current shift</div>
+                        </div>
+                        <span class="badge text-bg-success">14</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    2 rent machines under active agreement have monthly PM overdue. Follow up with technician and vendor support before replacement risk increases.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">PM Schedule Register</h3>
+                      <p class="section-text mb-0">Machine-wise PM plan with frequency, due date, technician responsibility, and latest completion status.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Export Schedule</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Board</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Plan No</th>
+                          <th>Machine / Location</th>
+                          <th>Frequency</th>
+                          <th>Last PM</th>
+                          <th>Next Due</th>
+                          <th>Assigned Technician</th>
+                          <th>Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-041</strong>
+                            <div class="cell-muted">Checklist: Oil + Cleaning</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1001</strong>
+                            <div class="cell-muted">Single Needle, Line 01</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-primary">Daily</span></td>
+                          <td data-label="Last PM">21 Apr 2026</td>
+                          <td data-label="Next Due">
+                            <strong>22 Apr 2026</strong>
+                            <div class="cell-muted">09:30 AM slot</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Rafiqul Islam</strong>
+                            <div class="cell-muted">Sewing Floor 02</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Due</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Machine</a>
+                              <a href="technician-tasks.html" class="btn btn-sm btn-outline-secondary">Update</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-042</strong>
+                            <div class="cell-muted">Checklist: Feed dog + Needle bar</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-info">Weekly</span></td>
+                          <td data-label="Last PM">15 Apr 2026</td>
+                          <td data-label="Next Due">
+                            <strong>21 Apr 2026</strong>
+                            <div class="cell-muted">1 day delayed</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Sohel Rana</strong>
+                            <div class="cell-muted">Breakdown support also assigned</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Overdue</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="pm-due.html" class="btn btn-sm btn-outline-danger">Due</a>
+                              <a href="technician-tasks.html" class="btn btn-sm btn-outline-secondary">Follow Up</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-043</strong>
+                            <div class="cell-muted">Checklist: Belt tension + Motor cleaning</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>RM-2006</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-dark">Monthly</span></td>
+                          <td data-label="Last PM">18 Mar 2026</td>
+                          <td data-label="Next Due">
+                            <strong>18 Apr 2026</strong>
+                            <div class="cell-muted">Agreement: AGR-2026-004</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Hasan Ali</strong>
+                            <div class="cell-muted">Vendor support may be needed</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Overdue</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="rent-machines.html" class="btn btn-sm btn-outline-primary">Rent</a>
+                              <a href="pm-due.html" class="btn btn-sm btn-outline-secondary">Review</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-044</strong>
+                            <div class="cell-muted">Checklist: Air line + Pressure test</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1050</strong>
+                            <div class="cell-muted">Button Attach, Line 10</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-info">Weekly</span></td>
+                          <td data-label="Last PM">15 Apr 2026</td>
+                          <td data-label="Next Due">
+                            <strong>22 Apr 2026</strong>
+                            <div class="cell-muted">2nd shift check window</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Shamim Mia</strong>
+                            <div class="cell-muted">Support: Md. Imran</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Due</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="technician-tasks.html" class="btn btn-sm btn-outline-primary">Assign</a>
+                              <a href="pm-checklist.html" class="btn btn-sm btn-outline-secondary">Checklist</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-045</strong>
+                            <div class="cell-muted">Checklist: Trimmer knife inspection</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-dark">Monthly</span></td>
+                          <td data-label="Last PM">16 Mar 2026</td>
+                          <td data-label="Next Due">
+                            <strong>16 Apr 2026</strong>
+                            <div class="cell-muted">Vendor: Prime Machine Service</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Rafiqul Islam</strong>
+                            <div class="cell-muted">Waiting for spare knife stock</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Overdue</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="spare-parts.html" class="btn btn-sm btn-outline-primary">Parts</a>
+                              <a href="agreements.html" class="btn btn-sm btn-outline-secondary">Agreement</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-046</strong>
+                            <div class="cell-muted">Checklist: Cleaning + Safety guard</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1036</strong>
+                            <div class="cell-muted">Flatlock, Line 08</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-primary">Daily</span></td>
+                          <td data-label="Last PM">22 Apr 2026</td>
+                          <td data-label="Next Due">
+                            <strong>23 Apr 2026</strong>
+                            <div class="cell-muted">Tomorrow morning</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Hasina Akter</strong>
+                            <div class="cell-muted">Daily PM round</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-success">Completed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">History</button>
+                              <a href="technician-tasks.html" class="btn btn-sm btn-outline-secondary">View</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-047</strong>
+                            <div class="cell-muted">Checklist: Sensor cleaning</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1084</strong>
+                            <div class="cell-muted">Button Hole, Line 11</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-info">Weekly</span></td>
+                          <td data-label="Last PM">22 Apr 2026</td>
+                          <td data-label="Next Due">
+                            <strong>29 Apr 2026</strong>
+                            <div class="cell-muted">Next Wednesday</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Shamim Mia</strong>
+                            <div class="cell-muted">No issue reported</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-success">Completed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">History</button>
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-secondary">Machine</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Plan No">
+                            <strong>PM-2026-048</strong>
+                            <div class="cell-muted">Checklist: Motor carbon brush</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1092</strong>
+                            <div class="cell-muted">Bar Tack, Finishing 02</div>
+                          </td>
+                          <td data-label="Frequency"><span class="badge text-bg-dark">Monthly</span></td>
+                          <td data-label="Last PM">02 Apr 2026</td>
+                          <td data-label="Next Due">
+                            <strong>30 Apr 2026</strong>
+                            <div class="cell-muted">Planned in week 5</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Md. Imran</strong>
+                            <div class="cell-muted">Finishing support</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-secondary">Planned</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="pm-checklist.html" class="btn btn-sm btn-outline-primary">Checklist</a>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Reschedule</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <nav class="responsive-pagination mt-4" aria-label="PM schedule pages">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                      <li class="page-item active"><span class="page-link">1</span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+
+                  <div class="compact-note">
+                    PM schedule should always keep machine code, actual location, frequency, and last completion date clear. This makes due control, technician planning, and reporting easier for future backend integration.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Execution Window Plan</h3>
+                      <p class="section-text mb-0">Use the day in planned PM blocks so due items close faster and overdue pressure stays controlled.</p>
+                    </div>
+                    <a href="pm-due.html" class="btn btn-sm btn-outline-secondary">Open Due Board</a>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Time Window</th>
+                          <th>Focus</th>
+                          <th>Target Items</th>
+                          <th>Owner</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Time Window"><strong>09:00 AM - 11:00 AM</strong></td>
+                          <td data-label="Focus">Daily PM rounds on Line 01, Line 03, and Line 08</td>
+                          <td data-label="Target Items">7 tasks</td>
+                          <td data-label="Owner">Rafiqul Islam / Hasina Akter</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Running</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Time Window"><strong>11:30 AM - 01:00 PM</strong></td>
+                          <td data-label="Focus">Weekly checks with short machine hold windows</td>
+                          <td data-label="Target Items">4 tasks</td>
+                          <td data-label="Owner">Shamim Mia / Md. Imran</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Planned</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Time Window"><strong>02:00 PM - 04:00 PM</strong></td>
+                          <td data-label="Focus">Monthly overdue rent machine PM follow-up</td>
+                          <td data-label="Target Items">3 tasks</td>
+                          <td data-label="Owner">Hasan Ali / Vendor Support</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Critical</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Time Window"><strong>04:00 PM - Shift End</strong></td>
+                          <td data-label="Focus">Completion posting and next due update</td>
+                          <td data-label="Target Items">All closed items</td>
+                          <td data-label="Owner">Technician Board</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Closeout</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-lg-6">
+                    <div class="erp-card h-100">
+                      <div class="section-header">
+                        <div>
+                          <h3 class="section-title">Overdue Watch List</h3>
+                          <p class="section-text mb-0">Machines that should not slip into tomorrow without action.</p>
+                        </div>
+                      </div>
+
+                      <div class="mini-stat-list">
+                        <div class="mini-stat-item">
+                          <div>
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Monthly PM delayed and spare knife stock is still pending</div>
+                          </div>
+                          <span class="badge text-bg-danger">5 Days</span>
+                        </div>
+                        <div class="mini-stat-item">
+                          <div>
+                            <strong>RM-2006</strong>
+                            <div class="cell-muted">Vendor-linked machine needs PM closure under agreement</div>
+                          </div>
+                          <span class="badge text-bg-danger">4 Days</span>
+                        </div>
+                        <div class="mini-stat-item">
+                          <div>
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Breakdown support already delayed weekly PM execution</div>
+                          </div>
+                          <span class="badge text-bg-warning">1 Day</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="erp-card h-100">
+                      <div class="section-header">
+                        <div>
+                          <h3 class="section-title">PM Workflow Notes</h3>
+                          <p class="section-text mb-0">Keep preventive maintenance process practical and visible.</p>
+                        </div>
+                      </div>
+
+                      <div class="legend-list">
+                        <span class="legend-chip"><span class="badge text-bg-secondary">Planned</span> PM item created in schedule and waiting for due date.</span>
+                        <span class="legend-chip"><span class="badge text-bg-warning">Due</span> PM should be completed in current work date or shift.</span>
+                        <span class="legend-chip"><span class="badge text-bg-danger">Overdue</span> Due date passed and technician or supervisor follow-up is required.</span>
+                        <span class="legend-chip"><span class="badge text-bg-success">Completed</span> PM work done and service history updated for the machine.</span>
+                      </div>
+
+                      <div class="compact-note">
+                        Standard PM flow: schedule create, due review, technician complete work, spare parts use entry if needed, then next due date update. Keep this sequence visible across future pages such as PM due, technician task, and reports.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Schedule Focus</h3>
+                      <p class="section-text mb-0">Immediate actions for a cleaner PM board.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Complete Daily PM First</strong>
+                        <div class="cell-muted">Clear short-duration jobs early to free the team</div>
+                      </div>
+                      <span class="badge text-bg-primary">P1</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Push Monthly Overdue Items</strong>
+                        <div class="cell-muted">Rent machine PM backlog is already visible in reports</div>
+                      </div>
+                      <span class="badge text-bg-danger">P2</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Protect Technician Capacity</strong>
+                        <div class="cell-muted">Avoid breakdown-heavy technicians taking extra PM work</div>
+                      </div>
+                      <span class="badge text-bg-warning">P3</span>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2 mt-3">
+                    <a href="pm-due.html" class="btn btn-outline-primary">Open Due Board</a>
+                    <a href="technician-tasks.html" class="btn btn-outline-primary">Open Technician Tasks</a>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Shift Capacity Check</h3>
+                      <p class="section-text mb-0">Quick view of technician readiness before the PM board moves into delay.</p>
+                    </div>
+                    <span class="badge text-bg-info">Live</span>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>PM Technicians Available</strong>
+                      <div class="cell-muted">4 technicians fully available for scheduled PM work</div>
+                    </div>
+                    <span class="badge text-bg-success">04</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Shared With Breakdown</strong>
+                      <div class="cell-muted">2 technicians are already carrying breakdown support load</div>
+                    </div>
+                    <span class="badge text-bg-warning">02</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Vendor Support Needed</strong>
+                      <div class="cell-muted">1 rent machine PM may need agreement-linked vendor coordination</div>
+                    </div>
+                    <span class="badge text-bg-danger">01</span>
+                  </div>
+
+                  <div class="compact-note">
+                    If breakdown pressure rises after lunch, reassign monthly PM items first so daily rounds can still close on time.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Today's PM Queue</h3>
+                      <p class="section-text mb-0">Priority work items for technician follow-up.</p>
+                    </div>
+                    <span class="badge text-bg-warning">18 Due</span>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Daily PM Round</strong>
+                        <div class="cell-muted">9 machines before lunch break</div>
+                      </div>
+                      <span class="badge text-bg-primary">09</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Weekly Checks</strong>
+                        <div class="cell-muted">6 machines need deeper inspection</div>
+                      </div>
+                      <span class="badge text-bg-info">06</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Monthly PM</strong>
+                        <div class="cell-muted">3 high-risk machines pending</div>
+                      </div>
+                      <span class="badge text-bg-dark">03</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Frequency Compliance</h3>
+                      <p class="section-text mb-0">Simple view of completion against plan.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Daily PM</strong>
+                      <div class="cell-muted">28 completed out of 34 planned</div>
+                    </div>
+                    <span class="badge text-bg-success">82%</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Weekly PM</strong>
+                      <div class="cell-muted">9 completed out of 18 planned</div>
+                    </div>
+                    <span class="badge text-bg-warning">50%</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Monthly PM</strong>
+                      <div class="cell-muted">3 completed out of 12 planned</div>
+                    </div>
+                    <span class="badge text-bg-danger">25%</span>
+                  </div>
+
+                  <div class="compact-note">
+                    Monthly PM needs the most follow-up now. Rent machine records should stay linked with vendor and agreement when overdue continues.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Technician Planning Board</h3>
+                      <p class="section-text mb-0">Current PM load by technician for today and tomorrow.</p>
+                    </div>
+                    <a href="technician-tasks.html" class="btn btn-sm btn-outline-secondary">Open Task Page</a>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Rafiqul Islam</strong>
+                        <div class="cell-muted">5 PM jobs, 1 overdue rent machine follow-up</div>
+                      </div>
+                      <span class="badge text-bg-warning">Busy</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Sohel Rana</strong>
+                        <div class="cell-muted">3 PM jobs, also handling 2 breakdown tickets</div>
+                      </div>
+                      <span class="badge text-bg-danger">Loaded</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Shamim Mia</strong>
+                        <div class="cell-muted">4 PM jobs with one support technician</div>
+                      </div>
+                      <span class="badge text-bg-primary">Balanced</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Hasan Ali</strong>
+                        <div class="cell-muted">2 monthly PM jobs, vendor coordination needed</div>
+                      </div>
+                      <span class="badge text-bg-info">Support</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

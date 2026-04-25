@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roles and Permissions | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item active" href="user-list.html">Users</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Roles and Permissions</h2>
+            <p class="page-subtitle mb-0">Manage role-wise access for breakdown, PM, machine master, store actions, reports, and approval workflow.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="user-list.html">User List</a>
+          <a class="btn btn-primary" href="user-form.html">Add User</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-4 col-md-6">
+                <label for="roleSearch" class="form-label">Search Role</label>
+                <input type="text" class="form-control" id="roleSearch" placeholder="Search by role name, access scope, or department">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="roleDepartment" class="form-label">Department</label>
+                <select class="form-select" id="roleDepartment">
+                  <option selected>All Departments</option>
+                  <option>Admin</option>
+                  <option>Maintenance</option>
+                  <option>Production</option>
+                  <option>Store</option>
+                  <option>IT Support</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="approvalScope" class="form-label">Approval Scope</label>
+                <select class="form-select" id="approvalScope">
+                  <option selected>All Scope</option>
+                  <option>Need Approval Rights</option>
+                  <option>View Only Roles</option>
+                  <option>Operational Roles</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="permissionStatus" class="form-label">Status</label>
+                <select class="form-select" id="permissionStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Need Review</option>
+                  <option>Restricted</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find Role</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Permission Review: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 7 role profiles in current matrix</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Roles</span>
+                <h3 class="summary-value">9</h3>
+                <p class="summary-note mb-0">Operational, management, and control roles in current use</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Full Operational Roles</span>
+                <h3 class="summary-value text-success">3</h3>
+                <p class="summary-note mb-0">Can update work and use core module actions</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Need Review</span>
+                <h3 class="summary-value text-warning">2</h3>
+                <p class="summary-note mb-0">Permission scope should be rechecked after transfer</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Approval Roles</span>
+                <h3 class="summary-value text-primary">3</h3>
+                <p class="summary-note mb-0">Includes limited management approval for operational review</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Role Permission Matrix</h3>
+                      <p class="section-text mb-0">Simple matrix view of what each role can do across machine, breakdown, PM, store, and reports.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Matrix</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Export Access</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Role</th>
+                          <th>Department</th>
+                          <th>Machine Master</th>
+                          <th>Breakdown</th>
+                          <th>PM</th>
+                          <th>Spare Parts</th>
+                          <th>Reports</th>
+                          <th>Approval</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Role">
+                            <strong>Admin</strong>
+                            <div class="cell-muted">System control role</div>
+                          </td>
+                          <td data-label="Department">Admin</td>
+                          <td data-label="Machine Master"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="Breakdown"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="PM"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="Spare Parts"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="Reports"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="Approval"><span class="badge text-bg-primary">Approve</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Users</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Role">
+                            <strong>Maintenance Head</strong>
+                            <div class="cell-muted">Department control</div>
+                          </td>
+                          <td data-label="Department">Maintenance</td>
+                          <td data-label="Machine Master"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="Breakdown"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="PM"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="Spare Parts"><span class="badge text-bg-warning">Review</span></td>
+                          <td data-label="Reports"><span class="badge text-bg-primary">Export</span></td>
+                          <td data-label="Approval"><span class="badge text-bg-primary">Approve</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Scope</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Role">
+                            <strong>Supervisor</strong>
+                            <div class="cell-muted">Line and task review</div>
+                          </td>
+                          <td data-label="Department">Maintenance</td>
+                          <td data-label="Machine Master"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Breakdown"><span class="badge text-bg-success">Update</span></td>
+                          <td data-label="PM"><span class="badge text-bg-success">Update</span></td>
+                          <td data-label="Spare Parts"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Reports"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Approval"><span class="badge text-bg-warning">Limited</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Role">
+                            <strong>Technician</strong>
+                            <div class="cell-muted">Work execution role</div>
+                          </td>
+                          <td data-label="Department">Maintenance</td>
+                          <td data-label="Machine Master"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Breakdown"><span class="badge text-bg-success">Update</span></td>
+                          <td data-label="PM"><span class="badge text-bg-success">Update</span></td>
+                          <td data-label="Spare Parts"><span class="badge text-bg-warning">Request</span></td>
+                          <td data-label="Reports"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Approval"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Map</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Role">
+                            <strong>Production User</strong>
+                            <div class="cell-muted">Complaint entry role</div>
+                          </td>
+                          <td data-label="Department">Production</td>
+                          <td data-label="Machine Master"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Breakdown"><span class="badge text-bg-primary">Create</span></td>
+                          <td data-label="PM"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Spare Parts"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Reports"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Approval"><span class="badge text-bg-secondary">No</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Role">
+                            <strong>Store User</strong>
+                            <div class="cell-muted">Part issue control</div>
+                          </td>
+                          <td data-label="Department">Store</td>
+                          <td data-label="Machine Master"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Breakdown"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="PM"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Spare Parts"><span class="badge text-bg-success">Full</span></td>
+                          <td data-label="Reports"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Approval"><span class="badge text-bg-warning">Limited</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Audit</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Role">
+                            <strong>Operation GM</strong>
+                            <div class="cell-muted">High-level operational review role</div>
+                          </td>
+                          <td data-label="Department">Production</td>
+                          <td data-label="Machine Master"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Breakdown"><span class="badge text-bg-warning">View / Review</span></td>
+                          <td data-label="PM"><span class="badge text-bg-warning">View / Review</span></td>
+                          <td data-label="Spare Parts"><span class="badge text-bg-info">View</span></td>
+                          <td data-label="Reports"><span class="badge text-bg-primary">View + Export</span></td>
+                          <td data-label="Approval"><span class="badge text-bg-warning">Limited Mgmt</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Scope</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Permission Change Watch</h3>
+                      <p class="section-text mb-0">Keep role changes visible so access does not become too wide after department movement.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Supervisor Scope Review</strong>
+                          <div class="cell-muted">PM approval right should be checked before month close</div>
+                        </div>
+                        <span class="badge text-bg-warning">01</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Store Approval Limit</strong>
+                          <div class="cell-muted">Spare issue approval should stay restricted to approved roles</div>
+                        </div>
+                        <span class="badge text-bg-danger">02</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Technician Report Access</strong>
+                          <div class="cell-muted">No export access should be opened for execution-only users</div>
+                        </div>
+                        <span class="badge text-bg-info">03</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Admin Support Review</strong>
+                          <div class="cell-muted">Temporary access should expire after configuration work</div>
+                        </div>
+                        <span class="badge text-bg-primary">04</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Approval Control</h3>
+                      <p class="section-text mb-0">Roles that can approve user access or workflow-sensitive actions.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Admin</strong>
+                      <div class="cell-muted">User account approval and full system review</div>
+                    </div>
+                    <span class="badge text-bg-primary">Full</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Maintenance Head</strong>
+                      <div class="cell-muted">Department access and operational permission approval</div>
+                    </div>
+                    <span class="badge text-bg-success">Dept</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Store User</strong>
+                      <div class="cell-muted">Only limited approval on stock-related actions</div>
+                    </div>
+                    <span class="badge text-bg-warning">Limited</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Operation GM</strong>
+                      <div class="cell-muted">Limited management approval for operational risk and report review</div>
+                    </div>
+                    <span class="badge text-bg-warning">Limited</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Role Notes</h3>
+                      <p class="section-text mb-0">Short practical rules for keeping permissions usable and safe.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-success">Keep</span> Role access should follow actual job responsibility.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">Check</span> Approval rights should stay with a small number of roles.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">Avoid</span> Report export and edit rights should not be too wide.</span>
+                    <span class="legend-chip"><span class="badge text-bg-primary">Review</span> Recheck permissions after transfer or promotion.</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Permission Updates</h3>
+                      <p class="section-text mb-0">Latest access-related changes that need visibility.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-success"></span>
+                      <div>
+                        <strong>Supervisor PM update right enabled</strong>
+                        <div class="cell-muted">Role matrix updated after floor responsibility increase</div>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>Store approval scope reduced</strong>
+                        <div class="cell-muted">Stock approval kept limited to avoid uncontrolled issue flow</div>
+                      </div>
+                      <span class="activity-time">Yesterday</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>Temporary admin support access flagged</strong>
+                        <div class="cell-muted">Account should be reviewed before next month-end closing</div>
+                      </div>
+                      <span class="activity-time">18 Apr 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

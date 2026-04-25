@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rent Machine Receive | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item active" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Receive Rent Machine</h2>
+            <p class="page-subtitle mb-0">Register a new rent machine with vendor, agreement, receive details, allocation, and return or replacement terms.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="rent-machines.html">Rent Machine List</a>
+          <button class="btn btn-primary" type="submit" form="machineForm">Save Receive Entry</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="alert alert-warning mb-0" role="alert">
+            Rent machine receive must stay linked with vendor and agreement. Keep receive date, current allocation, and return or replacement terms clear from the beginning.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <form id="machineForm" class="erp-card h-100" data-current-machine-code="" data-machine-form-mode="registration">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Rent Machine Receive Information</h3>
+                    <p class="section-text mb-0">Use this form when a rent machine is physically received and made ready for allocation or store hold.</p>
+                  </div>
+                  <span class="badge text-bg-primary" id="machineRecordBadge">Record ID: Auto Generate</span>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="machineCode" class="form-label">Rent Machine Code</label>
+                    <input type="text" class="form-control" id="machineCode" value="" placeholder="Rent machine code will be generated automatically" autocomplete="off" maxlength="7" readonly required>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                      <button type="button" class="btn btn-sm btn-outline-secondary" id="generateMachineCode">Generate Unique Code</button>
+                    </div>
+                    <div id="machineCodeAlert" class="form-text d-none"></div>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="ownershipType" class="form-label">Ownership Type</label>
+                    <select class="form-select" id="ownershipType" disabled>
+                      <option>Own</option>
+                      <option selected>Rent</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="machineType" class="form-label">Machine Type</label>
+                    <input type="search" class="form-control" id="machineType" list="machineTypeOptions" value="Flatlock" placeholder="Select machine type">
+                    <datalist id="machineTypeOptions">
+                      <option value="Single Needle"></option>
+                      <option value="Overlock"></option>
+                      <option value="Flatlock"></option>
+                      <option value="Button Hole"></option>
+                      <option value="Button Attach"></option>
+                      <option value="Bar Tack"></option>
+                      <option value="Feed Off The Arm"></option>
+                    </datalist>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="machineStatus" class="form-label">Current Status</label>
+                    <select class="form-select" id="machineStatus">
+                      <option selected>Active</option>
+                      <option>Idle</option>
+                      <option>Under Maintenance</option>
+                      <option>Breakdown</option>
+                      <option>Returned</option>
+                      <option>Replaced</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="machineBrand" class="form-label">Brand</label>
+                    <input type="text" class="form-control" id="machineBrand" value="Pegasus" placeholder="Example: Juki, Brother, Pegasus">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="machineModel" class="form-label">Model</label>
+                    <input type="text" class="form-control" id="machineModel" value="W562" placeholder="Machine model number">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="serialNo" class="form-label">Vendor Serial Number</label>
+                    <input type="text" class="form-control" id="serialNo" value="PG-RM-24-5518" placeholder="Vendor serial or asset number">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="assetTag" class="form-label">Asset Tag / Receive Tag</label>
+                    <input type="text" class="form-control" id="assetTag" value="RT-21" placeholder="Example: RT-21">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="receivedDate" class="form-label">Receive Date</label>
+                    <input type="date" class="form-control" id="receivedDate" value="2026-04-21">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="installDate" class="form-label">Installation / Handover Date</label>
+                    <input type="date" class="form-control" id="installDate" value="2026-04-22">
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Vendor and Agreement Linkage</h3>
+                    <p class="section-text mb-0">These fields are required for rent machine records because return and replacement flow depends on them.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="vendorName" class="form-label">Vendor</label>
+                    <select class="form-select" id="vendorName">
+                      <option>ABC Sewing Support</option>
+                      <option selected>Prime Machine Service</option>
+                      <option>Metro Tech Engineering</option>
+                      <option>Dhaka Machine Trade</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="agreementNo" class="form-label">Agreement No</label>
+                    <select class="form-select" id="agreementNo">
+                      <option>AGR-2026-001</option>
+                      <option selected>AGR-2026-004</option>
+                      <option>AGR-2026-006</option>
+                      <option>AGR-2026-008</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="agreementCoverage" class="form-label">Agreement Coverage</label>
+                    <select class="form-select" id="agreementCoverage">
+                      <option selected>Rent Machine with Service Support</option>
+                      <option>Rent Machine Only</option>
+                      <option>Rent Machine with Spare Support</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="monthlyRent" class="form-label">Monthly Rent Cost</label>
+                    <input type="text" class="form-control" id="monthlyRent" value="BDT 14,500" placeholder="Example: BDT 14,500">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="rentStartDate" class="form-label">Rent Start Date</label>
+                    <input type="date" class="form-control" id="rentStartDate" value="2026-04-21">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="rentEndDate" class="form-label">Expected End Date</label>
+                    <input type="date" class="form-control" id="rentEndDate" value="2026-12-31">
+                  </div>
+
+                  <div class="col-12">
+                    <label for="vendorRemarks" class="form-label">Vendor / Agreement Remarks</label>
+                    <textarea class="form-control" id="vendorRemarks" rows="3" placeholder="Write receive condition, contract support, or vendor notes">Machine received under active contract AGR-2026-004. Vendor confirmed service support and replacement option during contract period.</textarea>
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Allocation and Floor Use</h3>
+                    <p class="section-text mb-0">Set the first allocation at receive time, or keep the machine in store hold until deployment.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="factoryUnit" class="form-label">Factory Unit</label>
+                    <select class="form-select" id="factoryUnit">
+                      <option>Unit 01 - Sewing</option>
+                      <option selected>Unit 02 - Sewing</option>
+                      <option>Unit 03 - Finishing</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="floorName" class="form-label">Floor</label>
+                    <select class="form-select" id="floorName">
+                      <option>Sewing Floor 02</option>
+                      <option selected>Sewing Floor 03</option>
+                      <option>Finishing Floor</option>
+                      <option>Store Hold</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="lineName" class="form-label">Line</label>
+                    <select class="form-select" id="lineName">
+                      <option>Line 03</option>
+                      <option selected>Line 07</option>
+                      <option>Line 10</option>
+                      <option>Store Hold</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="sectionName" class="form-label">Section</label>
+                    <select class="form-select" id="sectionName">
+                      <option selected>Sewing</option>
+                      <option>Finishing</option>
+                      <option>Store</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="receivedBy" class="form-label">Received By</label>
+                    <input type="text" class="form-control" id="receivedBy" value="Jahidul Islam" placeholder="Responsible person name">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="handoverTo" class="form-label">Handed Over To</label>
+                    <input type="text" class="form-control" id="handoverTo" value="Rahima Begum" placeholder="Supervisor or line in-charge">
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Return, Replacement, and PM Setup</h3>
+                    <p class="section-text mb-0">Keep return eligibility, replacement support, and initial maintenance planning visible from day one.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <label for="returnTerms" class="form-label">Return Terms</label>
+                    <select class="form-select" id="returnTerms">
+                      <option>Return Allowed</option>
+                      <option>Replacement Allowed</option>
+                      <option selected>Return and Replacement Allowed</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="pmFrequency" class="form-label">PM Frequency</label>
+                    <select class="form-select" id="pmFrequency">
+                      <option>Daily</option>
+                      <option>Weekly</option>
+                      <option selected>Monthly</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4">
+                    <label for="nextPmDate" class="form-label">Next PM Due Date</label>
+                    <input type="date" class="form-control" id="nextPmDate" value="2026-05-21">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="assignedTechnician" class="form-label">Responsible Technician</label>
+                    <select class="form-select" id="assignedTechnician">
+                      <option>Rafiqul Islam</option>
+                      <option>Sohel Rana</option>
+                      <option selected>Hasan Ali</option>
+                      <option>Shamim Mia</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="machineCondition" class="form-label">Receive Condition</label>
+                    <select class="form-select" id="machineCondition">
+                      <option selected>Good</option>
+                      <option>Minor Observation Needed</option>
+                      <option>Setup Adjustment Required</option>
+                      <option>Hold for Inspection</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="spareCategory" class="form-label">Common Spare Category</label>
+                    <select class="form-select" id="spareCategory">
+                      <option>Needle / Presser Parts</option>
+                      <option>Motor / Belt</option>
+                      <option selected>Looper / Hook Set</option>
+                      <option>Cutter / Knife</option>
+                      <option>Electrical / Sensor</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="servicePriority" class="form-label">Service Priority</label>
+                    <select class="form-select" id="servicePriority">
+                      <option>Low</option>
+                      <option selected>Medium</option>
+                      <option>High</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="maintenanceNotes" class="form-label">Receive and Maintenance Notes</label>
+                    <textarea class="form-control" id="maintenanceNotes" rows="4" placeholder="Write setup, PM, or support notes">Machine received in usable condition. Initial trial run required before full production. Keep monthly PM active and contact vendor if stitch balance issue repeats within first 7 days.</textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Receive Summary</h3>
+                      <p class="section-text mb-0">Quick review before saving the entry.</p>
+                    </div>
+                    <span class="badge text-bg-success">Ready to Receive</span>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Machine Code</strong>
+                      <div class="cell-muted">Auto-generated rent machine code</div>
+                    </div>
+                    <span class="badge text-bg-primary">Unique</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Vendor / Agreement</strong>
+                      <div class="cell-muted">Prime Machine Service, AGR-2026-004</div>
+                    </div>
+                    <span class="badge text-bg-dark">Linked</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>First Allocation</strong>
+                      <div class="cell-muted">Sewing Floor 03, Line 07</div>
+                    </div>
+                    <span class="badge text-bg-primary">Assigned</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Return / Replace</strong>
+                      <div class="cell-muted">Allowed under current agreement</div>
+                    </div>
+                    <span class="badge text-bg-warning">Covered</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Receive Rules</h3>
+                      <p class="section-text mb-0">Important points for rent machine entry.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-primary">Rent</span> Rent machine code should be generated automatically and kept linked with vendor and agreement.</span>
+                    <span class="legend-chip"><span class="badge text-bg-dark">Agreement</span> Do not receive a rent machine without checking agreement validity and contract coverage.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">Return</span> Return and replacement terms should be visible early to avoid later confusion in vendor follow-up.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">PM</span> Rent machines also need PM schedule, technician assignment, and service note visibility.</span>
+                  </div>
+
+                  <div class="compact-note">
+                    Use this page only for new rent machine receive entry. Later allocation transfer, return, and replacement should be handled from their dedicated pages.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Actions</h3>
+                      <p class="section-text mb-0">Related pages for rent machine follow-up.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <a href="rent-machines.html" class="mini-stat-item">
+                      <div>
+                        <strong>Back to Rent List</strong>
+                        <div class="cell-muted">Review all received rent machines</div>
+                      </div>
+                      <span class="badge text-bg-secondary">List</span>
+                    </a>
+                    <a href="agreements.html" class="mini-stat-item">
+                      <div>
+                        <strong>Agreement Register</strong>
+                        <div class="cell-muted">Check vendor contract coverage</div>
+                      </div>
+                      <span class="badge text-bg-dark">Contract</span>
+                    </a>
+                    <a href="return-replace.html" class="mini-stat-item">
+                      <div>
+                        <strong>Return / Replace Flow</strong>
+                        <div class="cell-muted">Open return or replacement workflow</div>
+                      </div>
+                      <span class="badge text-bg-warning">Flow</span>
+                    </a>
+                    <a href="pm-schedule.html" class="mini-stat-item">
+                      <div>
+                        <strong>PM Schedule</strong>
+                        <div class="cell-muted">Review PM due planning for this machine</div>
+                      </div>
+                      <span class="badge text-bg-primary">PM</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Floor List | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item active" href="factory-list.html">Factory Setup</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Floor Setup List</h2>
+            <p class="page-subtitle mb-0">Maintain floor-wise production area, line count, machine capacity, shift mapping, and responsible team visibility.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export Floors</button>
+          <button class="btn btn-primary" type="button">Add New Floor</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-4 col-md-6">
+                <label for="floorSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="floorSearch" placeholder="Search by floor, unit, area, supervisor or line group">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="floorUnit" class="form-label">Factory Unit</label>
+                <select class="form-select" id="floorUnit">
+                  <option selected>All Units</option>
+                  <option>LML Unit 01</option>
+                  <option>LML Unit 02</option>
+                  <option>LML Unit 03</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="floorArea" class="form-label">Area Type</label>
+                <select class="form-select" id="floorArea">
+                  <option selected>All Area</option>
+                  <option>Sewing</option>
+                  <option>Finishing</option>
+                  <option>Store</option>
+                  <option>Maintenance</option>
+                  <option>Sample</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="floorStatus" class="form-label">Status</label>
+                <select class="form-select" id="floorStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Under Review</option>
+                  <option>Inactive</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find Floor</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Floor Review: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 6 of 11 floor setup records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Floors</span>
+                <h3 class="summary-value">11</h3>
+                <p class="summary-note mb-0">Production and support floors under setup control</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Active Production Floors</span>
+                <h3 class="summary-value text-success">7</h3>
+                <p class="summary-note mb-0">Sewing and finishing floors available for operations</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Mapped Line Groups</span>
+                <h3 class="summary-value text-primary">28</h3>
+                <p class="summary-note mb-0">Active line blocks tied to floor records</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Need Review</span>
+                <h3 class="summary-value text-warning">2</h3>
+                <p class="summary-note mb-0">Supervisor and shift mapping still need update</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Floor Register</h3>
+                      <p class="section-text mb-0">Floor-wise setup for unit, area, line count, machine capacity, and shift or supervisor responsibility.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print List</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Review Capacity</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Floor Name</th>
+                          <th>Unit</th>
+                          <th>Area Type</th>
+                          <th>Line Group</th>
+                          <th>Machine Capacity</th>
+                          <th>Supervisor</th>
+                          <th>Shift</th>
+                          <th>Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Floor Name">
+                            <strong>Sewing Floor 01</strong>
+                            <div class="cell-muted">Primary line block</div>
+                          </td>
+                          <td data-label="Unit">LML Unit 01</td>
+                          <td data-label="Area Type">Sewing</td>
+                          <td data-label="Line Group">
+                            <strong>Line 01 - 08</strong>
+                            <div class="cell-muted">8 active line groups</div>
+                          </td>
+                          <td data-label="Machine Capacity">82 Machines</td>
+                          <td data-label="Supervisor">Nasima Akter</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Lines</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor Name">
+                            <strong>Sewing Floor 02</strong>
+                            <div class="cell-muted">High-volume sewing block</div>
+                          </td>
+                          <td data-label="Unit">LML Unit 02</td>
+                          <td data-label="Area Type">Sewing</td>
+                          <td data-label="Line Group">
+                            <strong>Line 09 - 16</strong>
+                            <div class="cell-muted">8 active line groups</div>
+                          </td>
+                          <td data-label="Machine Capacity">96 Machines</td>
+                          <td data-label="Supervisor">Sadia Yasmin</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Capacity</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor Name">
+                            <strong>Sewing Floor 03</strong>
+                            <div class="cell-muted">Support sewing block</div>
+                          </td>
+                          <td data-label="Unit">LML Unit 02</td>
+                          <td data-label="Area Type">Sewing</td>
+                          <td data-label="Line Group">
+                            <strong>Line 17 - 20</strong>
+                            <div class="cell-muted">4 active line groups</div>
+                          </td>
+                          <td data-label="Machine Capacity">44 Machines</td>
+                          <td data-label="Supervisor">Mizanur Rahman</td>
+                          <td data-label="Shift">Morning + General</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor Name">
+                            <strong>Finishing Floor</strong>
+                            <div class="cell-muted">Pressing and packing support</div>
+                          </td>
+                          <td data-label="Unit">LML Unit 03</td>
+                          <td data-label="Area Type">Finishing</td>
+                          <td data-label="Line Group">
+                            <strong>Finishing 01 - 04</strong>
+                            <div class="cell-muted">4 support counters</div>
+                          </td>
+                          <td data-label="Machine Capacity">41 Machines</td>
+                          <td data-label="Supervisor">Rehana Sultana</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Sections</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor Name">
+                            <strong>Store Floor</strong>
+                            <div class="cell-muted">Central spare and issue area</div>
+                          </td>
+                          <td data-label="Unit">LML Unit 02</td>
+                          <td data-label="Area Type">Store</td>
+                          <td data-label="Line Group">
+                            <strong>Central Spare Store</strong>
+                            <div class="cell-muted">Issue counter and stock zone</div>
+                          </td>
+                          <td data-label="Machine Capacity">Not Applicable</td>
+                          <td data-label="Supervisor">Asma Khatun</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Store</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor Name">
+                            <strong>Maintenance Bay</strong>
+                            <div class="cell-muted">Repair and testing area</div>
+                          </td>
+                          <td data-label="Unit">LML Unit 01</td>
+                          <td data-label="Area Type">Maintenance</td>
+                          <td data-label="Line Group">
+                            <strong>Repair Desk</strong>
+                            <div class="cell-muted">18 holding and test positions</div>
+                          </td>
+                          <td data-label="Machine Capacity">18 Slots</td>
+                          <td data-label="Supervisor">Kamrul Hasan</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Under Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Map</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <nav class="responsive-pagination mt-4" aria-label="Floor setup pages">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                      <li class="page-item active"><span class="page-link">1</span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Floor Review Watch</h3>
+                      <p class="section-text mb-0">Floors that need quick review before machine move, PM planning, or user assignment changes.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Maintenance Bay Mapping</strong>
+                          <div class="cell-muted">Repair slot count should match current machine holding capacity</div>
+                        </div>
+                        <span class="badge text-bg-danger">01</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Shift Review Pending</strong>
+                          <div class="cell-muted">Sewing Floor 03 has mixed shift use and needs approval update</div>
+                        </div>
+                        <span class="badge text-bg-warning">01</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Supervisor Sync</strong>
+                          <div class="cell-muted">Line supervisor naming should match user master exactly</div>
+                        </div>
+                        <span class="badge text-bg-info">02</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Capacity Check</strong>
+                          <div class="cell-muted">Finishing floor machine count should be reviewed after new setup</div>
+                        </div>
+                        <span class="badge text-bg-primary">01</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Floor Distribution</h3>
+                      <p class="section-text mb-0">Quick view of floor setup by area and unit.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Sewing Floors</strong>
+                      <div class="cell-muted">4 active floors across Unit 01 and Unit 02</div>
+                    </div>
+                    <span class="badge text-bg-success">04</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Finishing Floors</strong>
+                      <div class="cell-muted">1 active floor handling finishing support</div>
+                    </div>
+                    <span class="badge text-bg-primary">01</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Support Floors</strong>
+                      <div class="cell-muted">Store, maintenance, and sample area floors</div>
+                    </div>
+                    <span class="badge text-bg-info">03</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Floor Notes</h3>
+                      <p class="section-text mb-0">Short rules for keeping floor records clear and usable.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-success">Keep</span> Floor names and unit mapping the same across machine, PM, and user pages.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">Check</span> Shift and supervisor names should be reviewed when layout changes.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">Avoid</span> Duplicate floor labels without unit reference in active records.</span>
+                    <span class="legend-chip"><span class="badge text-bg-primary">Review</span> Store and maintenance floor setup should stay linked to support workflows.</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Floor Updates</h3>
+                      <p class="section-text mb-0">Latest floor-level setup changes visible for follow-up.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-success"></span>
+                      <div>
+                        <strong>Sewing Floor 02 capacity updated</strong>
+                        <div class="cell-muted">Machine count revised after line balancing adjustment</div>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>Mixed shift review opened</strong>
+                        <div class="cell-muted">Sewing Floor 03 requires approval for combined shift mapping</div>
+                      </div>
+                      <span class="activity-time">Yesterday</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>Maintenance floor mapping flagged</strong>
+                        <div class="cell-muted">Repair desk positions should align with breakdown holding flow</div>
+                      </div>
+                      <span class="activity-time">18 Apr 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

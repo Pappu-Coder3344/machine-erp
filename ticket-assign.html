@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Assign Breakdown Ticket | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item active" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Assign Breakdown Ticket</h2>
+            <p class="page-subtitle mb-0">Assign the right technician, set response expectation, and keep escalation steps clear before work starts.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="ticket-details.html">Ticket Details</a>
+          <button class="btn btn-primary" type="submit" form="ticketAssignForm">Confirm Assignment</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Selected Ticket Summary</h3>
+                <p class="section-text mb-0">Assignment should be based on machine type, floor urgency, and technician availability.</p>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="badge text-bg-danger">Open</span>
+                <span class="badge text-bg-danger">High Priority</span>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-lg-3 col-md-6">
+                <label for="assignTicketNo" class="form-label">Ticket No</label>
+                <input type="text" class="form-control" id="assignTicketNo" value="BD-2026-0001" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="assignMachineCode" class="form-label">Machine Code</label>
+                <input type="text" class="form-control" id="assignMachineCode" value="MC-1014" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="assignMachineType" class="form-label">Machine Type</label>
+                <input type="text" class="form-control" id="assignMachineType" value="Overlock" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="assignLocation" class="form-label">Floor / Line</label>
+                <input type="text" class="form-control" id="assignLocation" value="Sewing Floor 02 / Line 03" readonly>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Raised: <strong>20 Apr 2026, 09:10 AM</strong></span>
+              <span class="text-body-secondary">Raised by Salma Akter | Problem: Looper issue, thread break</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Production Impact</span>
+                <h3 class="summary-value text-danger">Stopped</h3>
+                <p class="summary-note mb-0">This machine is blocking output for the operator</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Required Skill</span>
+                <h3 class="summary-value text-primary">Overlock</h3>
+                <p class="summary-note mb-0">Prefer technician with overlock line experience</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Open Jobs</span>
+                <h3 class="summary-value text-warning">6</h3>
+                <p class="summary-note mb-0">Maintenance team has active queue in current shift</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Target Response</span>
+                <h3 class="summary-value text-success">30 Min</h3>
+                <p class="summary-note mb-0">Recommended response window for high priority issue</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <form id="ticketAssignForm" class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Assignment Form</h3>
+                    <p class="section-text mb-0">Use short practical fields so the supervisor can assign the ticket without delay.</p>
+                  </div>
+                  <span class="badge text-bg-primary">Ready to Assign</span>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="assignedTechnician" class="form-label">Assign Technician</label>
+                    <select class="form-select" id="assignedTechnician">
+                      <option value="">Select technician</option>
+                      <option selected>Rafiqul Islam</option>
+                      <option>Sohel Rana</option>
+                      <option>Shamim Mia</option>
+                      <option>Hasan Ali</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="assignedBy" class="form-label">Assigned By</label>
+                    <input type="text" class="form-control" id="assignedBy" value="Rahima Begum">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="assignmentDate" class="form-label">Assignment Date</label>
+                    <input type="date" class="form-control" id="assignmentDate" value="2026-04-20">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="assignmentTime" class="form-label">Assignment Time</label>
+                    <input type="time" class="form-control" id="assignmentTime" value="09:18">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="responseTarget" class="form-label">Target Response Time</label>
+                    <select class="form-select" id="responseTarget">
+                      <option>Within 15 Minutes</option>
+                      <option selected>Within 30 Minutes</option>
+                      <option>Within 1 Hour</option>
+                      <option>Next Shift</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="expectedStatus" class="form-label">Status After Assignment</label>
+                    <select class="form-select" id="expectedStatus">
+                      <option selected>Assigned</option>
+                      <option>In Progress</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="supportLevel" class="form-label">Support Level</label>
+                    <select class="form-select" id="supportLevel">
+                      <option selected>Internal Maintenance</option>
+                      <option>Internal + Store Support</option>
+                      <option>Vendor Stand By</option>
+                      <option>Immediate Vendor Support</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="relatedVendor" class="form-label">Related Vendor</label>
+                    <select class="form-select" id="relatedVendor">
+                      <option selected>Not Applicable</option>
+                      <option>ABC Sewing Support</option>
+                      <option>Prime Machine Service</option>
+                      <option>Metro Tech Engineering</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="assignmentInstruction" class="form-label">Supervisor Instruction</label>
+                    <textarea class="form-control" id="assignmentInstruction" rows="4" placeholder="Add short assignment note">Please attend Line 03 immediately. Production is stopped. Check looper timing first and confirm if any spare support is needed.</textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="followUpOwner" class="form-label">Follow-Up Owner</label>
+                    <select class="form-select" id="followUpOwner">
+                      <option>Admin</option>
+                      <option selected>Supervisor</option>
+                      <option>Maintenance Head</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="closureExpectation" class="form-label">Expected Closure</label>
+                    <select class="form-select" id="closureExpectation">
+                      <option selected>Within Current Shift</option>
+                      <option>Need Monitoring</option>
+                      <option>May Need Vendor Visit</option>
+                    </select>
+                  </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="section-header mb-3">
+                  <div>
+                    <h3 class="section-title">Escalation Rules</h3>
+                    <p class="section-text mb-0">Keep escalation simple so delayed response or repeat breakdown is easy to handle.</p>
+                  </div>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="delayEscalation" class="form-label">If Technician Delays</label>
+                    <select class="form-select" id="delayEscalation">
+                      <option>Notify Supervisor</option>
+                      <option selected>Notify Maintenance Head</option>
+                      <option>Reassign Ticket</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="repeatIssueAction" class="form-label">If Issue Repeats</label>
+                    <select class="form-select" id="repeatIssueAction">
+                      <option>Raise Fresh Complaint</option>
+                      <option selected>Escalate to Vendor / Specialist</option>
+                      <option>Start Return or Replace Review</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Technician Availability</h3>
+                      <p class="section-text mb-0">Simple availability view helps the supervisor choose quickly.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Technician</th>
+                          <th>Skill</th>
+                          <th>Open Jobs</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Technician"><strong>Rafiqul Islam</strong></td>
+                          <td data-label="Skill">Overlock, Flatlock</td>
+                          <td data-label="Open Jobs">2</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Available Soon</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Technician"><strong>Sohel Rana</strong></td>
+                          <td data-label="Skill">Single Needle, Overlock</td>
+                          <td data-label="Open Jobs">3</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Busy</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Technician"><strong>Shamim Mia</strong></td>
+                          <td data-label="Skill">Motor, Electrical</td>
+                          <td data-label="Open Jobs">1</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Available</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Assignment Checklist</h3>
+                      <p class="section-text mb-0">Small checklist for a clean handover.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Machine Identified</strong>
+                        <div class="cell-muted">Machine code and location confirmed</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Priority Checked</strong>
+                        <div class="cell-muted">Production stopped, so high priority remains</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Skill Match</strong>
+                        <div class="cell-muted">Technician should be familiar with overlock setup</div>
+                      </div>
+                      <span class="badge text-bg-primary">Review</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Vendor Need</strong>
+                        <div class="cell-muted">Not required at assignment stage</div>
+                      </div>
+                      <span class="badge text-bg-secondary">No</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Assignment History</h3>
+                      <p class="section-text mb-0">Keep one simple audit trail for future backend use.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>09:12 AM</strong>
+                        <div class="cell-muted">Complaint reviewed by supervisor</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Open</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>09:15 AM</strong>
+                        <div class="cell-muted">Maintenance desk informed about production stop</div>
+                      </div>
+                      <span class="badge text-bg-warning">Pending</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>09:18 AM</strong>
+                        <div class="cell-muted">This page will store the assignment confirmation</div>
+                      </div>
+                      <span class="badge text-bg-primary">Current</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Links</h3>
+                      <p class="section-text mb-0">Connected actions for the next steps.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary" href="ticket-details.html">Open Ticket Details</a>
+                    <a class="btn btn-outline-primary" href="technician-tasks.html">Technician Task Board</a>
+                    <a class="btn btn-outline-primary" href="breakdown-form.html">Edit Complaint Entry</a>
+                    <a class="btn btn-outline-secondary" href="breakdown-list.html">Back to Ticket List</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

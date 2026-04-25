@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Downtime Report | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item active" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Downtime Report</h2>
+            <p class="page-subtitle mb-0">Analyze machine downtime impact, line-wise loss, repeat interruption trends, and recovery performance across the selected period.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="reports.html">All Reports</a>
+          <button class="btn btn-primary" type="button">Export Downtime Report</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-2 col-md-6">
+                <label for="downtimeReportFrom" class="form-label">From Date</label>
+                <input type="date" class="form-control" id="downtimeReportFrom" value="2026-04-01">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="downtimeReportTo" class="form-label">To Date</label>
+                <input type="date" class="form-control" id="downtimeReportTo" value="2026-04-22">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="downtimeReportUnit" class="form-label">Factory Unit</label>
+                <select class="form-select" id="downtimeReportUnit">
+                  <option>Unit 01 - Sewing</option>
+                  <option selected>Unit 02 - Sewing</option>
+                  <option>Unit 03 - Finishing</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="downtimeReportArea" class="form-label">Floor / Line</label>
+                <select class="form-select" id="downtimeReportArea">
+                  <option selected>All Locations</option>
+                  <option>Line 01</option>
+                  <option>Line 03</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Finishing 02</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="downtimeReportOwnership" class="form-label">Ownership</label>
+                <select class="form-select" id="downtimeReportOwnership">
+                  <option selected>All Machines</option>
+                  <option>Own</option>
+                  <option>Rent</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Generate Report</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Report Date: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Period: 01 Apr 2026 to 22 Apr 2026 | Unit 02 - Sewing</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Downtime</span>
+                <h3 class="summary-value text-danger">61.4 Hrs</h3>
+                <p class="summary-note mb-0">Combined machine interruption recorded in the selected period</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Average Per Ticket</span>
+                <h3 class="summary-value text-warning">1.9 Hrs</h3>
+                <p class="summary-note mb-0">Average line impact before machine release</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Highest Loss Line</span>
+                <h3 class="summary-value text-primary">Line 03</h3>
+                <p class="summary-note mb-0">14.6 hrs downtime with repeated overlock interruption</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Repeat Downtime Machines</span>
+                <h3 class="summary-value">5</h3>
+                <p class="summary-note mb-0">Machines creating repeated output loss inside the same month</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="alert-strip alert-strip-warning">
+            Line 03 and Line 07 contributed most of the downtime hours. RM-2008 and MC-1014 remain the biggest repeat interruption risk and should be reviewed with breakdown, PM, and spare support together.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Downtime Report Snapshot</h3>
+                      <p class="section-text mb-0">High-level comparison of downtime volume, ticket impact, repeat machine pressure, and current recovery efficiency.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Report</button>
+                      <a href="breakdown-list.html" class="btn btn-sm btn-outline-secondary">Open Breakdown List</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Report Area</th>
+                          <th>Current Figure</th>
+                          <th>Observation</th>
+                          <th>Gap / Risk</th>
+                          <th>Suggested Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Total Downtime Volume</strong>
+                            <div class="cell-muted">Combined interruption across active tickets</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>61.4 Hrs</strong>
+                            <div class="cell-muted">32 breakdown-linked records reviewed</div>
+                          </td>
+                          <td data-label="Observation">Downtime is concentrated on repeat issue machines and high-output sewing lines</td>
+                          <td data-label="Gap / Risk">Production planning pressure rises when closure delay crosses 2 hours</td>
+                          <td data-label="Suggested Action"><a href="report-breakdown.html" class="btn btn-sm btn-outline-primary">Breakdown Report</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Recovery Speed</strong>
+                            <div class="cell-muted">Technician and line release performance</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>1.9 Hrs Avg</strong>
+                            <div class="cell-muted">Fastest close 40 min, slowest 4.5 hrs</div>
+                          </td>
+                          <td data-label="Observation">Recovery is stable on single-incident tickets, but slower on repeat overlock and rent machine cases</td>
+                          <td data-label="Gap / Risk">Vendor and parts dependency increase downtime duration</td>
+                          <td data-label="Suggested Action"><a href="technician-tasks.html" class="btn btn-sm btn-outline-primary">Task Follow-Up</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Line-Wise Exposure</strong>
+                            <div class="cell-muted">Where output loss is highest</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>Line 03 / 14.6 Hrs</strong>
+                            <div class="cell-muted">Line 07 close behind at 12.2 hrs</div>
+                          </td>
+                          <td data-label="Observation">Lines using overlock and rent support machines are carrying most of the current downtime load</td>
+                          <td data-label="Gap / Risk">Shipment and balancing risk increase on export-heavy lines</td>
+                          <td data-label="Suggested Action"><a href="machines.html" class="btn btn-sm btn-outline-primary">Machine Review</a></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Report Area">
+                            <strong>Repeat Downtime Pressure</strong>
+                            <div class="cell-muted">Recurring machines causing repeated interruption</div>
+                          </td>
+                          <td data-label="Current Figure">
+                            <strong>5 Machines</strong>
+                            <div class="cell-muted">MC-1014, RM-2008, RM-2010 are top risk codes</div>
+                          </td>
+                          <td data-label="Observation">Repeated tickets are creating a bigger production loss than one-time failures</td>
+                          <td data-label="Gap / Risk">Root-cause closure is not fully effective yet</td>
+                          <td data-label="Suggested Action"><a href="pm-schedule.html" class="btn btn-sm btn-outline-primary">PM Follow-Up</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="compact-note">
+                    This report should help management and maintenance head understand where downtime is hurting output most and which machines need faster root-cause action.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Line-Wise Downtime Summary</h3>
+                      <p class="section-text mb-0">Use line-level reporting to understand which areas are losing the most productive machine hours.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Floor / Line</th>
+                          <th>Total Tickets</th>
+                          <th>Total Downtime</th>
+                          <th>Avg Per Ticket</th>
+                          <th>Main Machine Type</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 02 / Line 03</strong>
+                          </td>
+                          <td data-label="Total Tickets">9</td>
+                          <td data-label="Total Downtime">14.6 Hrs</td>
+                          <td data-label="Avg Per Ticket">1.6 Hrs</td>
+                          <td data-label="Main Machine Type">Overlock</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">High Loss</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 03 / Line 07</strong>
+                          </td>
+                          <td data-label="Total Tickets">8</td>
+                          <td data-label="Total Downtime">12.2 Hrs</td>
+                          <td data-label="Avg Per Ticket">1.5 Hrs</td>
+                          <td data-label="Main Machine Type">Flatlock</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Watch</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Sewing Floor 02 / Line 01</strong>
+                          </td>
+                          <td data-label="Total Tickets">5</td>
+                          <td data-label="Total Downtime">7.4 Hrs</td>
+                          <td data-label="Avg Per Ticket">1.5 Hrs</td>
+                          <td data-label="Main Machine Type">Single Needle</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Controlled</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Floor / Line">
+                            <strong>Finishing 02</strong>
+                          </td>
+                          <td data-label="Total Tickets">3</td>
+                          <td data-label="Total Downtime">3.1 Hrs</td>
+                          <td data-label="Avg Per Ticket">1.0 Hr</td>
+                          <td data-label="Main Machine Type">Button Attach</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Stable</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Top Downtime Machines</h3>
+                      <p class="section-text mb-0">List machines causing the highest interruption so management can decide PM, vendor, or replacement action faster.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Machine</th>
+                          <th>Ownership</th>
+                          <th>Total Downtime</th>
+                          <th>Main Issue</th>
+                          <th>Suggested Action</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2008</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                          <td data-label="Total Downtime">6.8 Hrs</td>
+                          <td data-label="Main Issue">Repeat stitch imbalance and vendor delay</td>
+                          <td data-label="Suggested Action">Vendor review and standby support plan</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Critical Watch</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Ownership"><span class="badge text-bg-dark">Own</span></td>
+                          <td data-label="Total Downtime">5.9 Hrs</td>
+                          <td data-label="Main Issue">Looper timing drift and thread break</td>
+                          <td data-label="Suggested Action">Weekly PM and root-cause correction</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Repeat Risk</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                          <td data-label="Total Downtime">4.7 Hrs</td>
+                          <td data-label="Main Issue">Trim failure and belt wear</td>
+                          <td data-label="Suggested Action">Parts support and vendor service check</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Parts Risk</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Downtime Cause Watch</h3>
+                      <p class="section-text mb-0">Most common reasons behind current machine-hour loss.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Thread Break / Tension</strong>
+                        <div class="cell-muted">Largest share of downtime on overlock and flatlock lines</div>
+                      </div>
+                      <span class="badge text-bg-danger">C1</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Looper / Timing Issue</strong>
+                        <div class="cell-muted">Repeat interruption when PM and corrective action are incomplete</div>
+                      </div>
+                      <span class="badge text-bg-warning">C2</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Parts / Vendor Delay</strong>
+                        <div class="cell-muted">Main reason longer downtime stays open on rent machines</div>
+                      </div>
+                      <span class="badge text-bg-info">C3</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recovery Performance Board</h3>
+                      <p class="section-text mb-0">Simple view of who is reducing downtime most effectively.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Rafiqul Islam</strong>
+                        <div class="cell-muted">Best average recovery speed on own machine tickets</div>
+                      </div>
+                      <span class="badge text-bg-success">1.4 Hrs</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Sohel Rana</strong>
+                        <div class="cell-muted">Strong closure count but slower when vendor-linked tickets increase</div>
+                      </div>
+                      <span class="badge text-bg-warning">2.1 Hrs</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Hasan Ali</strong>
+                        <div class="cell-muted">More stable PM-linked release performance on finishing area</div>
+                      </div>
+                      <span class="badge text-bg-primary">1.3 Hrs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Report Notes</h3>
+                      <p class="section-text mb-0">Management observations from the current downtime period.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-list">
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 11:45 AM</strong>
+                      <p class="mb-0">Line 03 continues to create the highest downtime and should be reviewed with repeat machine and PM backlog together.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 09:25 AM</strong>
+                      <p class="mb-0">RM-2008 remains the top rent machine downtime contributor because vendor-linked closure is slower than own machine recovery.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>21 Apr 2026, 05:00 PM</strong>
+                      <p class="mb-0">Parts shortage and timing drift were identified as the biggest causes behind extended closure on three tickets.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Keep the report practical for admin, maintenance head, and production review.</p>
+                    </div>
+                  </div>
+
+                  <ul class="list-unstyled note-list mb-0">
+                    <li>Downtime reporting should clearly show line loss, repeat machine pressure, and recovery speed together.</li>
+                    <li>Rent machine downtime must stay visible with vendor, agreement, and replacement context.</li>
+                    <li>Repeat interruption is more important than one-time failure when deciding PM and machine replacement priority.</li>
+                    <li>This report structure can later support PDF, Excel, and monthly management review without redesign.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

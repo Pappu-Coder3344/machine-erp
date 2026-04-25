@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Machine Master | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item active" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Machine Master</h2>
+            <p class="page-subtitle mb-0">Manage own and rent machines with line allocation, current status, and service-ready records.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export List</button>
+          <a class="btn btn-primary" href="machine-registration.html">Add New Machine</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="machineSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="machineSearch" placeholder="Search by code, type, brand or line">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="ownershipType" class="form-label">Ownership</label>
+                <select class="form-select" id="ownershipType">
+                  <option selected>All</option>
+                  <option>Own</option>
+                  <option>Rent</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="machineCategory" class="form-label">Machine Type</label>
+                <select class="form-select" id="machineCategory">
+                  <option selected>All Types</option>
+                  <option>Single Needle</option>
+                  <option>Overlock</option>
+                  <option>Flatlock</option>
+                  <option>Button Attach</option>
+                  <option>Bar Tack</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="floorLine" class="form-label">Floor / Line</label>
+                <select class="form-select" id="floorLine">
+                  <option selected>All Floors</option>
+                  <option>Line 01</option>
+                  <option>Line 03</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Finishing 02</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="machineStatus" class="form-label">Status</label>
+                <select class="form-select" id="machineStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Idle</option>
+                  <option>Breakdown</option>
+                  <option>Under Maintenance</option>
+                  <option>Returned</option>
+                  <option>Replaced</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">List Updated: <strong>20 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 12 of 248 machine records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Machine Record</span>
+                <h3 class="summary-value">248</h3>
+                <p class="summary-note mb-0">198 own machines and 50 rent machines</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Active Machines</span>
+                <h3 class="summary-value text-success">214</h3>
+                <p class="summary-note mb-0">Running in sewing and finishing areas</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Breakdown / Maintenance</span>
+                <h3 class="summary-value text-danger">19</h3>
+                <p class="summary-note mb-0">Require technician follow-up or repair update</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Rent Linked Properly</span>
+                <h3 class="summary-value text-primary">48</h3>
+                <p class="summary-note mb-0">2 records missing allocation or agreement review</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-9">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Machine List</h3>
+                    <p class="section-text mb-0">Master record for machine code, type, location, ownership, and current operating condition.</p>
+                  </div>
+                  <div class="d-flex gap-2 flex-wrap">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Import Excel</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Print</button>
+                  </div>
+                </div>
+
+                <div class="table-responsive">
+                  <table class="table erp-table mobile-card-table align-middle mb-0">
+                    <thead>
+                      <tr>
+                        <th>Machine Code</th>
+                        <th>Machine Details</th>
+                        <th>Floor / Line</th>
+                        <th>Ownership</th>
+                        <th>Vendor / Agreement</th>
+                        <th>Status</th>
+                        <th>Last Service</th>
+                        <th class="text-end">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>MC-1001</strong>
+                          <div class="cell-muted">Juki</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Single Needle</strong>
+                          <div class="cell-muted">Model: DDL-8700</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Line 01</strong>
+                          <div class="cell-muted">Sewing Floor 02</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-dark">Own</span></td>
+                        <td data-label="Vendor / Agreement" class="cell-muted">Not Applicable</td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Last Service">18 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="machine-edit.html" class="btn btn-sm btn-outline-secondary">Edit</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>MC-1014</strong>
+                          <div class="cell-muted">Brother</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Overlock</strong>
+                          <div class="cell-muted">Model: 737F</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Line 03</strong>
+                          <div class="cell-muted">Sewing Floor 02</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-dark">Own</span></td>
+                        <td data-label="Vendor / Agreement" class="cell-muted">Not Applicable</td>
+                        <td data-label="Status"><span class="badge text-bg-danger">Breakdown</span></td>
+                        <td data-label="Last Service">12 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="breakdown-form.html" class="btn btn-sm btn-outline-danger">Raise</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>RM-2003</strong>
+                          <div class="cell-muted">Pegasus</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Flatlock</strong>
+                          <div class="cell-muted">Model: W562</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Line 07</strong>
+                          <div class="cell-muted">Sewing Floor 03</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>ABC Sewing Support</strong>
+                          <div class="cell-muted">AGR-2026-001</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-warning">Under Maintenance</span></td>
+                        <td data-label="Last Service">16 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="return-replace.html" class="btn btn-sm btn-outline-secondary">Flow</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>RM-2011</strong>
+                          <div class="cell-muted">Siruba</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Button Attach</strong>
+                          <div class="cell-muted">Model: LKS-1900</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Line 10</strong>
+                          <div class="cell-muted">Sewing Floor 03</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Prime Machine Service</strong>
+                          <div class="cell-muted">AGR-2026-004</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-secondary">Idle</span></td>
+                        <td data-label="Last Service">09 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="allocation.html" class="btn btn-sm btn-outline-secondary">Allocate</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>MC-1098</strong>
+                          <div class="cell-muted">Typical</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Bar Tack</strong>
+                          <div class="cell-muted">Model: GT-1850</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Finishing 02</strong>
+                          <div class="cell-muted">Finishing Floor</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-dark">Own</span></td>
+                        <td data-label="Vendor / Agreement" class="cell-muted">Not Applicable</td>
+                        <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                        <td data-label="Last Service">19 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="machine-edit.html" class="btn btn-sm btn-outline-secondary">Edit</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>RM-2015</strong>
+                          <div class="cell-muted">Jack</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Single Needle</strong>
+                          <div class="cell-muted">Model: A4E</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Line 05</strong>
+                          <div class="cell-muted">Sewing Floor 02</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Metro Tech Engineering</strong>
+                          <div class="cell-muted">AGR-2026-006</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-info">Replaced</span></td>
+                        <td data-label="Last Service">10 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="return-replace.html" class="btn btn-sm btn-outline-secondary">History</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>MC-1112</strong>
+                          <div class="cell-muted">Brother</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Flatlock</strong>
+                          <div class="cell-muted">Model: MF-7900</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Line 08</strong>
+                          <div class="cell-muted">Sewing Floor 03</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-dark">Own</span></td>
+                        <td data-label="Vendor / Agreement" class="cell-muted">Not Applicable</td>
+                        <td data-label="Status"><span class="badge text-bg-warning">Under Maintenance</span></td>
+                        <td data-label="Last Service">17 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="pm-schedule.html" class="btn btn-sm btn-outline-secondary">PM</a>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td data-label="Machine Code">
+                          <strong>RM-2020</strong>
+                          <div class="cell-muted">Juki</div>
+                        </td>
+                        <td data-label="Machine Details">
+                          <strong>Overlock</strong>
+                          <div class="cell-muted">Model: MO-6714S</div>
+                        </td>
+                        <td data-label="Floor / Line">
+                          <strong>Store Hold</strong>
+                          <div class="cell-muted">Pending allocation</div>
+                        </td>
+                        <td data-label="Ownership"><span class="badge text-bg-primary">Rent</span></td>
+                        <td data-label="Vendor / Agreement">
+                          <strong>Prime Machine Service</strong>
+                          <div class="cell-muted">AGR-2026-004</div>
+                        </td>
+                        <td data-label="Status"><span class="badge text-bg-secondary">Idle</span></td>
+                        <td data-label="Last Service">08 Apr 2026</td>
+                        <td data-label="Action" class="text-end">
+                          <div class="table-actions">
+                            <a href="machine-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                            <a href="allocation.html" class="btn btn-sm btn-outline-secondary">Allocate</a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 pt-3">
+                  <div class="small text-body-secondary">Showing 1 to 8 of 248 machine records</div>
+                  <nav aria-label="Machine list pages">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                      <li class="page-item active"><span class="page-link">1</span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-3">
+              <div class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Master Data Notes</h3>
+                    <p class="section-text mb-0">Important checks for correct machine record maintenance.</p>
+                  </div>
+                </div>
+
+                <div class="mini-stat-list">
+                  <div class="mini-stat-item">
+                    <span>Machines Without Line</span>
+                    <strong>3</strong>
+                  </div>
+                  <div class="mini-stat-item">
+                    <span>Rent Without Vendor Link</span>
+                    <strong>1</strong>
+                  </div>
+                  <div class="mini-stat-item">
+                    <span>PM Schedule Missing</span>
+                    <strong>5</strong>
+                  </div>
+                </div>
+
+                <hr>
+
+                <div class="legend-list">
+                  <span class="legend-chip"><span class="badge text-bg-success">Active</span> Running in production</span>
+                  <span class="legend-chip"><span class="badge text-bg-secondary">Idle</span> Available but not running</span>
+                  <span class="legend-chip"><span class="badge text-bg-danger">Breakdown</span> Complaint raised or repair needed</span>
+                  <span class="legend-chip"><span class="badge text-bg-warning">Under Maintenance</span> PM or service work ongoing</span>
+                  <span class="legend-chip"><span class="badge text-bg-info">Replaced</span> Replacement flow already completed</span>
+                </div>
+
+                <div class="compact-note">
+                  Rent machine records should always include vendor, agreement number, receive date, and current allocation line.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

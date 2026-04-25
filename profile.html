@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Profile | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item active" href="user-list.html">Users</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">My Profile</h2>
+            <p class="page-subtitle mb-0">Review your account details, role access, contact information, and recent account activity for daily factory operation.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="user-list.html">User List</a>
+          <a class="btn btn-outline-primary" href="change-password.html">Change Password</a>
+          <a class="btn btn-primary" href="user-form.html">Edit Profile</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Selected Profile Overview</h3>
+                <p class="section-text mb-0">This sample profile shows a maintenance supervisor account with active access to breakdown review, PM update, and report view functions.</p>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="badge text-bg-success">Active</span>
+                <span class="badge text-bg-primary">Supervisor</span>
+              </div>
+            </div>
+
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="profileUserId" class="form-label">User ID</label>
+                <input type="text" class="form-control" id="profileUserId" value="USR-011" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="profileName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="profileName" value="Nasima Akter" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="profileRole" class="form-label">Role</label>
+                <input type="text" class="form-control" id="profileRole" value="Maintenance Supervisor" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="profileUnit" class="form-label">Factory Unit</label>
+                <input type="text" class="form-control" id="profileUnit" value="Unit 02 - Sewing" readonly>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Last Login: <strong>22 Apr 2026, 08:18 AM</strong></span>
+              <span class="text-body-secondary">Department: Maintenance | Shift: General Shift</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Account Status</span>
+                <h3 class="summary-value text-success">Active</h3>
+                <p class="summary-note mb-0">Profile is ready for login and daily workflow activity</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Breakdown Access</span>
+                <h3 class="summary-value text-primary">Review</h3>
+                <p class="summary-note mb-0">Can create and review complaint and assignment flow</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">PM Access</span>
+                <h3 class="summary-value text-warning">Update</h3>
+                <p class="summary-note mb-0">Can view and update PM task and due items</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Report Access</span>
+                <h3 class="summary-value">View</h3>
+                <p class="summary-note mb-0">Can open management reports without export control</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Personal and Employment Details</h3>
+                      <p class="section-text mb-0">Basic user identity and factory assignment details used for approval, reporting, and workflow ownership.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Employee ID</strong>
+                          <div class="cell-muted">SUP-04</div>
+                        </div>
+                        <span class="badge text-bg-dark">Employee</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Designation</strong>
+                          <div class="cell-muted">Maintenance Supervisor</div>
+                        </div>
+                        <span class="badge text-bg-primary">Role</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Department</strong>
+                          <div class="cell-muted">Maintenance</div>
+                        </div>
+                        <span class="badge text-bg-secondary">Dept</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Reporting Area</strong>
+                          <div class="cell-muted">Sewing Floor 02 and Sewing Floor 03</div>
+                        </div>
+                        <span class="badge text-bg-info">Area</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Shift Access</strong>
+                          <div class="cell-muted">General Shift</div>
+                        </div>
+                        <span class="badge text-bg-success">Shift</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Joining Date</strong>
+                          <div class="cell-muted">12 Sep 2024</div>
+                        </div>
+                        <span class="badge text-bg-warning">Service</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    This profile should always keep user name, role, department, and account condition easy to read before the person is assigned to PM, breakdown, or approval-related work.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Role and Module Access</h3>
+                      <p class="section-text mb-0">Profile-level access summary for breakdown, PM, reports, and supporting factory modules.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Module</th>
+                          <th>Access Level</th>
+                          <th>Scope</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Module"><strong>Breakdown</strong></td>
+                          <td data-label="Access Level">Create and Review</td>
+                          <td data-label="Scope">Complaint review, assignment follow-up, closure watch</td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Enabled</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Module"><strong>PM Schedule</strong></td>
+                          <td data-label="Access Level">View and Update</td>
+                          <td data-label="Scope">Due follow-up, checklist update, completion tracking</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Enabled</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Module"><strong>Reports</strong></td>
+                          <td data-label="Access Level">View Only</td>
+                          <td data-label="Scope">Module reports, risk view, no export approval</td>
+                          <td data-label="Status"><span class="badge text-bg-secondary">Limited</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Module"><strong>Spare Parts</strong></td>
+                          <td data-label="Access Level">View Only</td>
+                          <td data-label="Scope">Stock visibility for maintenance coordination</td>
+                          <td data-label="Status"><span class="badge text-bg-secondary">Limited</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Module"><strong>User Management</strong></td>
+                          <td data-label="Access Level">No Direct Control</td>
+                          <td data-label="Scope">Can see own profile only</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Restricted</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Account Activity</h3>
+                      <p class="section-text mb-0">Recent actions and system activity that help admin or the user understand current account usage.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Date / Time</th>
+                          <th>Activity</th>
+                          <th>Module</th>
+                          <th>Result</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Date / Time">22 Apr 2026, 08:18 AM</td>
+                          <td data-label="Activity">Logged in and opened PM Due board</td>
+                          <td data-label="Module">PM Schedule</td>
+                          <td data-label="Result"><span class="badge text-bg-success">Success</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">21 Apr 2026, 05:12 PM</td>
+                          <td data-label="Activity">Reviewed technician follow-up on BD-2026-0119</td>
+                          <td data-label="Module">Breakdown</td>
+                          <td data-label="Result"><span class="badge text-bg-success">Updated</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">21 Apr 2026, 03:46 PM</td>
+                          <td data-label="Activity">Checked PM completion status for Line 03</td>
+                          <td data-label="Module">PM Report</td>
+                          <td data-label="Result"><span class="badge text-bg-primary">Viewed</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Date / Time">20 Apr 2026, 10:40 AM</td>
+                          <td data-label="Activity">Reviewed repeat issue machine risk list</td>
+                          <td data-label="Module">Machines</td>
+                          <td data-label="Result"><span class="badge text-bg-primary">Viewed</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Contact and Login Details</h3>
+                      <p class="section-text mb-0">Keep contact identity ready for password reset, approval follow-up, and urgent coordination.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Mobile Number</strong>
+                        <div class="cell-muted">01718-771144</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Mobile</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Email</strong>
+                        <div class="cell-muted">nasima.sup@lml.com</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Email</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Login Name</strong>
+                        <div class="cell-muted">nasima.sup</div>
+                      </div>
+                      <span class="badge text-bg-dark">Login</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Password Reset</strong>
+                        <div class="cell-muted">Last changed on 02 Apr 2026</div>
+                      </div>
+                      <span class="badge text-bg-success">Updated</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Account Security Watch</h3>
+                      <p class="section-text mb-0">Simple status view of login, approval, and account readiness.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Approval Status</strong>
+                        <div class="cell-muted">Account approved for daily factory use</div>
+                      </div>
+                      <span class="badge text-bg-success">Approved</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Last Failed Login</strong>
+                        <div class="cell-muted">No failed attempt in the last 30 days</div>
+                      </div>
+                      <span class="badge text-bg-primary">Clean</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Account Lock Risk</strong>
+                        <div class="cell-muted">No current risk flag on this account</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Low</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Notes</h3>
+                      <p class="section-text mb-0">Short reminders related to this user profile and access role.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-list">
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026</strong>
+                      <p class="mb-0">Profile accessed before reviewing PM due items for current shift planning.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>18 Apr 2026</strong>
+                      <p class="mb-0">Role access was confirmed after supervisor review for Unit 02 maintenance operations.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>02 Apr 2026</strong>
+                      <p class="mb-0">Password updated successfully after scheduled account security reminder.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Keep profile pages simple and useful for daily factory access management.</p>
+                    </div>
+                  </div>
+
+                  <ul class="list-unstyled note-list mb-0">
+                    <li>Profile should always show role, department, account status, and recent activity clearly.</li>
+                    <li>Contact and login details help admin support password reset and account follow-up quickly.</li>
+                    <li>Module access summary helps avoid confusion about who can update PM, breakdown, and reports.</li>
+                    <li>This page can later connect with audit logs and approval records without changing the layout.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

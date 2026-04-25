@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Close Breakdown Ticket | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item active" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Close Breakdown Ticket</h2>
+            <p class="page-subtitle mb-0">Confirm repair completion, production acceptance, and final closure details before the ticket moves to closed status.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="ticket-details.html">Ticket Details</a>
+          <button class="btn btn-primary" type="submit" form="ticketCloseForm">Confirm Closure</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card">
+            <div class="section-header">
+              <div>
+                <h3 class="section-title">Selected Ticket for Closure</h3>
+                <p class="section-text mb-0">Only completed tickets should be closed after production confirmation and final maintenance note review.</p>
+              </div>
+              <div class="d-flex gap-2 flex-wrap">
+                <span class="badge text-bg-success">Completed</span>
+                <span class="badge text-bg-warning">Ready to Close</span>
+              </div>
+            </div>
+
+            <div class="row g-3">
+              <div class="col-lg-3 col-md-6">
+                <label for="closeTicketNo" class="form-label">Ticket No</label>
+                <input type="text" class="form-control" id="closeTicketNo" value="BD-2026-0010" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="closeMachineCode" class="form-label">Machine Code</label>
+                <input type="text" class="form-control" id="closeMachineCode" value="MC-1081" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="closeMachineType" class="form-label">Machine Type</label>
+                <input type="text" class="form-control" id="closeMachineType" value="Finishing Machine" readonly>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <label for="closeLocation" class="form-label">Floor / Line</label>
+                <input type="text" class="form-control" id="closeLocation" value="Finishing Floor / Finishing 02" readonly>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Completed: <strong>19 Apr 2026, 04:10 PM</strong></span>
+              <span class="text-body-secondary">Technician: Shamim Mia | Raised by Jui Sarker</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Total Downtime</span>
+                <h3 class="summary-value text-danger">52 Min</h3>
+                <p class="summary-note mb-0">Machine was unavailable during finishing operation</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Repair Result</span>
+                <h3 class="summary-value text-success">Stable</h3>
+                <p class="summary-note mb-0">Motor checked and machine restarted successfully</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Production Feedback</span>
+                <h3 class="summary-value text-primary">Accepted</h3>
+                <p class="summary-note mb-0">Output resumed without repeat issue in same shift</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Repeat Risk</span>
+                <h3 class="summary-value text-warning">Low</h3>
+                <p class="summary-note mb-0">Monitor in next PM review for noise trend</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <form id="ticketCloseForm" class="erp-card h-100">
+                <div class="section-header">
+                  <div>
+                    <h3 class="section-title">Closure Form</h3>
+                    <p class="section-text mb-0">Keep closure short and practical so the final record is useful for reports and future maintenance review.</p>
+                  </div>
+                  <span class="badge text-bg-secondary">Awaiting Final Confirmation</span>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label for="closeDate" class="form-label">Closure Date</label>
+                    <input type="date" class="form-control" id="closeDate" value="2026-04-19">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="closeTime" class="form-label">Closure Time</label>
+                    <input type="time" class="form-control" id="closeTime" value="16:25">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="closeStatus" class="form-label">Final Status</label>
+                    <select class="form-select" id="closeStatus">
+                      <option>Completed</option>
+                      <option selected>Closed</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="closeBy" class="form-label">Closed By</label>
+                    <input type="text" class="form-control" id="closeBy" value="Jui Sarker">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="productionConfirmation" class="form-label">Production Confirmation</label>
+                    <select class="form-select" id="productionConfirmation">
+                      <option>Pending</option>
+                      <option selected>Accepted by Supervisor</option>
+                      <option>Accepted by Production User</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="repairOutcome" class="form-label">Repair Outcome</label>
+                    <select class="form-select" id="repairOutcome">
+                      <option selected>Repair Completed</option>
+                      <option>Temporary Fix</option>
+                      <option>Needs Further Follow-Up</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="downtimeMinutes" class="form-label">Downtime in Minutes</label>
+                    <input type="number" class="form-control" id="downtimeMinutes" value="52">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="spareConsumption" class="form-label">Spare Parts Usage</label>
+                    <select class="form-select" id="spareConsumption">
+                      <option>No Spare Used</option>
+                      <option selected>Minor Spare Used</option>
+                      <option>Major Part Replaced</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="repairSummary" class="form-label">Repair Summary</label>
+                    <textarea class="form-control" id="repairSummary" rows="4">Motor connector was tightened, overheating source checked, and worn cable sleeve replaced. Machine was tested for 25 minutes after restart and production confirmed normal performance.</textarea>
+                  </div>
+
+                  <div class="col-12">
+                    <label for="closureNote" class="form-label">Closure Note</label>
+                    <textarea class="form-control" id="closureNote" rows="4">No repeat issue observed in finishing operation after restart. Close the ticket and keep the machine under normal PM observation.</textarea>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="followUpAction" class="form-label">Future Follow-Up</label>
+                    <select class="form-select" id="followUpAction">
+                      <option selected>Normal PM Review</option>
+                      <option>Supervisor Monitoring</option>
+                      <option>Vendor Review</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <label for="reportImpact" class="form-label">Report Category</label>
+                    <select class="form-select" id="reportImpact">
+                      <option selected>Normal Breakdown Close</option>
+                      <option>High Downtime Case</option>
+                      <option>Repeat Breakdown Case</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Closure Checklist</h3>
+                      <p class="section-text mb-0">Final checks before moving to closed status.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Repair Completed</strong>
+                        <div class="cell-muted">Technician marked the work complete</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Production Verified</strong>
+                        <div class="cell-muted">Supervisor confirmed stable output</div>
+                      </div>
+                      <span class="badge text-bg-success">Done</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Spare Log Updated</strong>
+                        <div class="cell-muted">Minor issue part captured for store record</div>
+                      </div>
+                      <span class="badge text-bg-primary">Ready</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Repeat Risk Reviewed</strong>
+                        <div class="cell-muted">No repeat complaint in current shift</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Checked</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Completion Snapshot</h3>
+                      <p class="section-text mb-0">Quick closure-ready highlights.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Item</th>
+                          <th>Details</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Item"><strong>Technician</strong></td>
+                          <td data-label="Details">Shamim Mia completed repair activity</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Done</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Parts Support</strong></td>
+                          <td data-label="Details">Cable sleeve replaced from store stock</td>
+                          <td data-label="Status"><span class="badge text-bg-info">Logged</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Production Trial</strong></td>
+                          <td data-label="Details">25-minute run completed without issue</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Passed</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Item"><strong>Next Review</strong></td>
+                          <td data-label="Details">Check motor noise in upcoming PM cycle</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Track</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Closure Timeline</h3>
+                      <p class="section-text mb-0">Simple timeline for final activity.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>03:20 PM</strong>
+                        <div class="cell-muted">Complaint raised from finishing floor</div>
+                      </div>
+                      <span class="badge text-bg-secondary">Open</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>03:32 PM</strong>
+                        <div class="cell-muted">Technician assigned and reached machine</div>
+                      </div>
+                      <span class="badge text-bg-primary">Assigned</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>04:10 PM</strong>
+                        <div class="cell-muted">Repair completed and tested</div>
+                      </div>
+                      <span class="badge text-bg-success">Completed</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>04:25 PM</strong>
+                        <div class="cell-muted">This page records the final close confirmation</div>
+                      </div>
+                      <span class="badge text-bg-warning">Current</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Links</h3>
+                      <p class="section-text mb-0">Connected views for final check.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary" href="ticket-details.html">Open Ticket Details</a>
+                    <a class="btn btn-outline-primary" href="technician-tasks.html">Technician Updates</a>
+                    <a class="btn btn-outline-primary" href="reports.html">View Reports</a>
+                    <a class="btn btn-outline-secondary" href="breakdown-list.html">Back to Ticket List</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

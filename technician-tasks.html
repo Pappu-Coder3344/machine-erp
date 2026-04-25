@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Technician Tasks | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item active" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Technician Tasks</h2>
+            <p class="page-subtitle mb-0">Manage technician work updates for breakdown tickets and PM tasks from one practical working board.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="breakdown-list.html">Breakdown Board</a>
+          <a class="btn btn-primary" href="technician-task-update.html">New Update</a>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="taskSearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="taskSearch" placeholder="Search by ticket no, PM plan, machine code or technician">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="taskType" class="form-label">Task Type</label>
+                <select class="form-select" id="taskType">
+                  <option selected>All Tasks</option>
+                  <option>Breakdown</option>
+                  <option>PM</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="taskStatus" class="form-label">Status</label>
+                <select class="form-select" id="taskStatus">
+                  <option selected>All Status</option>
+                  <option>Assigned</option>
+                  <option>In Progress</option>
+                  <option>Completed</option>
+                  <option>Hold</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="taskTechnician" class="form-label">Technician</label>
+                <select class="form-select" id="taskTechnician">
+                  <option selected>All Technicians</option>
+                  <option>Rafiqul Islam</option>
+                  <option>Sohel Rana</option>
+                  <option>Shamim Mia</option>
+                  <option>Hasan Ali</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="taskArea" class="form-label">Floor / Line</label>
+                <select class="form-select" id="taskArea">
+                  <option selected>All Locations</option>
+                  <option>Line 01</option>
+                  <option>Line 03</option>
+                  <option>Line 07</option>
+                  <option>Line 10</option>
+                  <option>Finishing 02</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Shift Board: <strong>21 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 8 of 26 technician work items</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Assigned Today</span>
+                <h3 class="summary-value text-primary">12</h3>
+                <p class="summary-note mb-0">Breakdown and PM tasks handed to technicians this shift</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">In Progress</span>
+                <h3 class="summary-value text-warning">7</h3>
+                <p class="summary-note mb-0">Work updates needed before end of shift</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Completed</span>
+                <h3 class="summary-value text-success">9</h3>
+                <p class="summary-note mb-0">Ready for ticket close or PM completion confirmation</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Need Spare / Support</span>
+                <h3 class="summary-value text-danger">3</h3>
+                <p class="summary-note mb-0">Waiting for spare parts, vendor, or supervisor decision</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="alert-strip alert-strip-warning">
+            Two breakdown jobs and one monthly PM task are waiting for a work update. Post the latest status before the current shift handover.
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-4">
+            <div class="col-xl-8">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Technician Work Register</h3>
+                      <p class="section-text mb-0">Combined work list for breakdown and PM activity with machine, location, next step, and completion pressure.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Export Task Board</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Shift List</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Reference</th>
+                          <th>Type</th>
+                          <th>Machine / Location</th>
+                          <th>Assigned Technician</th>
+                          <th>Current Work Note</th>
+                          <th>Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Reference">
+                            <strong>BD-2026-0004</strong>
+                            <div class="cell-muted">Raised 10:25 AM</div>
+                          </td>
+                          <td data-label="Type"><span class="badge text-bg-danger">Breakdown</span></td>
+                          <td data-label="Machine / Location">
+                            <strong>RM-2003</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Sohel Rana</strong>
+                            <div class="cell-muted">Supervisor support active</div>
+                          </td>
+                          <td data-label="Current Work Note">
+                            <strong>Trial run after needle bar setting</strong>
+                            <div class="cell-muted">Waiting for stable output confirmation</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-info">In Progress</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Ticket</a>
+                              <a href="technician-task-update.html" class="btn btn-sm btn-outline-secondary">Update</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Reference">
+                            <strong>PM-2026-044</strong>
+                            <div class="cell-muted">Weekly PM</div>
+                          </td>
+                          <td data-label="Type"><span class="badge text-bg-primary">PM</span></td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1050</strong>
+                            <div class="cell-muted">Button Attach, Line 10</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Shamim Mia</strong>
+                            <div class="cell-muted">Support: Md. Imran</div>
+                          </td>
+                          <td data-label="Current Work Note">
+                            <strong>Checklist execution pending</strong>
+                            <div class="cell-muted">Air line and pressure test in 2nd shift slot</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Assigned</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="pm-checklist.html" class="btn btn-sm btn-outline-primary">Checklist</a>
+                              <a href="technician-task-update.html" class="btn btn-sm btn-outline-secondary">Update</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Reference">
+                            <strong>BD-2026-0007</strong>
+                            <div class="cell-muted">Raised 11:05 AM</div>
+                          </td>
+                          <td data-label="Type"><span class="badge text-bg-danger">Breakdown</span></td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1035</strong>
+                            <div class="cell-muted">Single Needle, Line 01</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Rafiqul Islam</strong>
+                            <div class="cell-muted">High priority follow-up</div>
+                          </td>
+                          <td data-label="Current Work Note">
+                            <strong>Feed issue inspection started</strong>
+                            <div class="cell-muted">Operator stop is still active on the line</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-primary">Assigned</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Ticket</a>
+                              <a href="technician-task-update.html" class="btn btn-sm btn-outline-secondary">Update</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Reference">
+                            <strong>PM-2026-048</strong>
+                            <div class="cell-muted">Daily PM</div>
+                          </td>
+                          <td data-label="Type"><span class="badge text-bg-primary">PM</span></td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1108</strong>
+                            <div class="cell-muted">Single Needle, Line 01</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Rafiqul Islam</strong>
+                            <div class="cell-muted">Daily PM round</div>
+                          </td>
+                          <td data-label="Current Work Note">
+                            <strong>Cleaning and oil check finished</strong>
+                            <div class="cell-muted">Waiting for final PM completion confirmation</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-success">Completed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="pm-complete.html" class="btn btn-sm btn-outline-primary">Complete</a>
+                              <a href="technician-task-update.html" class="btn btn-sm btn-outline-secondary">Update</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Reference">
+                            <strong>PM-2026-045</strong>
+                            <div class="cell-muted">Monthly PM</div>
+                          </td>
+                          <td data-label="Type"><span class="badge text-bg-primary">PM</span></td>
+                          <td data-label="Machine / Location">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Assigned Technician">
+                            <strong>Rafiqul Islam</strong>
+                            <div class="cell-muted">Store coordination pending</div>
+                          </td>
+                          <td data-label="Current Work Note">
+                            <strong>Knife inspection on hold</strong>
+                            <div class="cell-muted">Waiting for spare knife stock from store</div>
+                          </td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Hold</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="spare-parts.html" class="btn btn-sm btn-outline-primary">Spare</a>
+                              <a href="technician-task-update.html" class="btn btn-sm btn-outline-secondary">Update</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <form id="technicianUpdateForm" class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Work Update Form</h3>
+                      <p class="section-text mb-0">Technicians can use this simple form to post the latest progress, support need, and final result.</p>
+                    </div>
+                    <span class="badge text-bg-info">Update Entry</span>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <label for="updateReference" class="form-label">Reference No</label>
+                      <input type="text" class="form-control" id="updateReference" value="BD-2026-0004">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="updateMachineCode" class="form-label">Machine Code</label>
+                      <input type="text" class="form-control" id="updateMachineCode" value="RM-2003">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="updateTechnician" class="form-label">Technician</label>
+                      <select class="form-select" id="updateTechnician">
+                        <option>Rafiqul Islam</option>
+                        <option selected>Sohel Rana</option>
+                        <option>Shamim Mia</option>
+                        <option>Hasan Ali</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="updateType" class="form-label">Task Type</label>
+                      <select class="form-select" id="updateType">
+                        <option selected>Breakdown</option>
+                        <option>PM</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="updateStatus" class="form-label">Current Status</label>
+                      <select class="form-select" id="updateStatus">
+                        <option>Assigned</option>
+                        <option selected>In Progress</option>
+                        <option>Completed</option>
+                        <option>Hold</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="updateTime" class="form-label">Update Time</label>
+                      <input type="time" class="form-control" id="updateTime" value="11:48">
+                    </div>
+                    <div class="col-md-6">
+                      <label for="supportNeed" class="form-label">Support Need</label>
+                      <select class="form-select" id="supportNeed">
+                        <option selected>No Extra Support</option>
+                        <option>Need Spare Parts</option>
+                        <option>Need Vendor Support</option>
+                        <option>Need Supervisor Decision</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="nextAction" class="form-label">Next Action</label>
+                      <select class="form-select" id="nextAction">
+                        <option>Continue Work</option>
+                        <option selected>Trial Run and Monitor</option>
+                        <option>Close and Confirm</option>
+                        <option>Escalate</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label for="workNote" class="form-label">Work Note</label>
+                      <textarea class="form-control" id="workNote" rows="4">Needle bar setting corrected and trial run started. Stitch appearance looks stable now. Waiting for line supervisor confirmation after short output monitoring.</textarea>
+                    </div>
+                    <div class="col-12">
+                      <label for="observationNote" class="form-label">Observation / Spare Note</label>
+                      <textarea class="form-control" id="observationNote" rows="3">No spare used yet. If vibration repeats during production speed, needle bar set may need replacement.</textarea>
+                    </div>
+                  </div>
+
+                  <div class="d-flex flex-column flex-md-row justify-content-end gap-2 pt-4">
+                    <button type="button" class="btn btn-outline-secondary">Save Draft</button>
+                    <button type="submit" class="btn btn-primary">Post Update</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-4">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Technician Load Board</h3>
+                      <p class="section-text mb-0">Quick view of current work pressure by technician.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-3">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Rafiqul Islam</strong>
+                        <div class="cell-muted">2 PM tasks, 1 breakdown follow-up</div>
+                      </div>
+                      <span class="badge text-bg-warning">Busy</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Sohel Rana</strong>
+                        <div class="cell-muted">2 breakdown tickets under active monitoring</div>
+                      </div>
+                      <span class="badge text-bg-primary">Running</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Shamim Mia</strong>
+                        <div class="cell-muted">1 PM task plus 1 completed repair job</div>
+                      </div>
+                      <span class="badge text-bg-success">Balanced</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Hasan Ali</strong>
+                        <div class="cell-muted">1 overdue rent machine PM with vendor watch</div>
+                      </div>
+                      <span class="badge text-bg-danger">Watch</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Shift Priorities</h3>
+                      <p class="section-text mb-0">Tasks that should be finished before handover.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>BD-2026-0007</strong>
+                        <p class="mb-0">High-priority breakdown on Line 01 needs technician visit confirmation and status update.</p>
+                      </div>
+                      <span class="activity-time">Urgent</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>PM-2026-044</strong>
+                        <p class="mb-0">Weekly PM for MC-1050 should move from assigned to checklist execution in current shift.</p>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-primary"></span>
+                      <div>
+                        <strong>BD-2026-0004</strong>
+                        <p class="mb-0">Post trial-run result and decide whether the ticket can move toward close confirmation.</p>
+                      </div>
+                      <span class="activity-time">Update</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Quick Links</h3>
+                      <p class="section-text mb-0">Connected work pages for technicians and supervisors.</p>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <a class="btn btn-outline-primary" href="technician-task-update.html">Open Update Page</a>
+                    <a class="btn btn-outline-primary" href="pm-checklist.html">Open PM Checklist</a>
+                    <a class="btn btn-outline-primary" href="pm-complete.html">Open PM Complete</a>
+                    <a class="btn btn-outline-primary" href="ticket-close.html">Open Ticket Close</a>
+                    <a class="btn btn-outline-secondary" href="dashboard.html">Back to Dashboard</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

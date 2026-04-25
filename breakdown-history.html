@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breakdown History | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item active" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Breakdown History</h2>
+            <p class="page-subtitle mb-0">Review completed and closed breakdown tickets with machine repeat issue visibility, closure timing, and follow-up notes.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <a class="btn btn-outline-primary" href="breakdown-list.html">Open Ticket List</a>
+          <button class="btn btn-primary" type="button">Export History</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-3 col-md-6">
+                <label for="historySearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="historySearch" placeholder="Search by ticket no, machine code, line, technician or issue">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="historyStatus" class="form-label">Final Status</label>
+                <select class="form-select" id="historyStatus">
+                  <option selected>All Final Status</option>
+                  <option>Completed</option>
+                  <option>Closed</option>
+                  <option>Closed with Vendor Follow-Up</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="historyMachineType" class="form-label">Machine Type</label>
+                <select class="form-select" id="historyMachineType">
+                  <option selected>All Types</option>
+                  <option>Single Needle</option>
+                  <option>Overlock</option>
+                  <option>Flatlock</option>
+                  <option>Button Attach</option>
+                  <option>Bar Tack</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="historyTechnician" class="form-label">Technician</label>
+                <select class="form-select" id="historyTechnician">
+                  <option selected>All Technicians</option>
+                  <option>Rafiqul Islam</option>
+                  <option>Sohel Rana</option>
+                  <option>Shamim Mia</option>
+                  <option>Hasan Ali</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="historyPeriod" class="form-label">Review Period</label>
+                <select class="form-select" id="historyPeriod">
+                  <option selected>Last 30 Days</option>
+                  <option>Today</option>
+                  <option>Last 7 Days</option>
+                  <option>This Month</option>
+                  <option>Last Quarter</option>
+                </select>
+              </div>
+              <div class="col-lg-1 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">History Review: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 8 of 57 closed breakdown records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Closed This Month</span>
+                <h3 class="summary-value text-success">57</h3>
+                <p class="summary-note mb-0">Tickets completed and confirmed by production or supervisor</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Average Closure Time</span>
+                <h3 class="summary-value text-primary">2.8 Hrs</h3>
+                <p class="summary-note mb-0">From complaint raise to final close entry</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Repeat Machine Cases</span>
+                <h3 class="summary-value text-warning">9</h3>
+                <p class="summary-note mb-0">Need PM review or deeper root-cause check</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Vendor-Linked Closures</span>
+                <h3 class="summary-value text-danger">6</h3>
+                <p class="summary-note mb-0">Rent machine history still linked to vendor action</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Breakdown History Register</h3>
+                      <p class="section-text mb-0">Closed ticket history with machine, issue type, technician response, closure result, and repeat breakdown visibility.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print History</button>
+                      <a href="reports.html" class="btn btn-sm btn-outline-secondary">View Reports</a>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Ticket No</th>
+                          <th>Machine / Location</th>
+                          <th>Issue Summary</th>
+                          <th>Technician</th>
+                          <th>Raised</th>
+                          <th>Closed</th>
+                          <th>Closure Time</th>
+                          <th>Final Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Ticket No">
+                            <strong>BD-2026-0118</strong>
+                            <div class="cell-muted">Closed by supervisor</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Issue Summary">
+                            <strong>Looper timing adjustment</strong>
+                            <div class="cell-muted">Second similar issue in 14 days</div>
+                          </td>
+                          <td data-label="Technician">
+                            <strong>Rafiqul Islam</strong>
+                            <div class="cell-muted">Trial run completed</div>
+                          </td>
+                          <td data-label="Raised">20 Apr 2026, 09:10 AM</td>
+                          <td data-label="Closed">20 Apr 2026, 11:05 AM</td>
+                          <td data-label="Closure Time">1 Hr 55 Min</td>
+                          <td data-label="Final Status"><span class="badge text-bg-success">Closed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-secondary">Machine</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Ticket No">
+                            <strong>BD-2026-0116</strong>
+                            <div class="cell-muted">Production confirmed</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>RM-2006</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Issue Summary">
+                            <strong>Needle bar setting problem</strong>
+                            <div class="cell-muted">Vendor informed after repeat complaint</div>
+                          </td>
+                          <td data-label="Technician">
+                            <strong>Sohel Rana</strong>
+                            <div class="cell-muted">Vendor support standby</div>
+                          </td>
+                          <td data-label="Raised">19 Apr 2026, 03:20 PM</td>
+                          <td data-label="Closed">19 Apr 2026, 06:05 PM</td>
+                          <td data-label="Closure Time">2 Hrs 45 Min</td>
+                          <td data-label="Final Status"><span class="badge text-bg-warning">Closed with Vendor Follow-Up</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="rent-machine-details.html" class="btn btn-sm btn-outline-secondary">Machine</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Ticket No">
+                            <strong>BD-2026-0112</strong>
+                            <div class="cell-muted">Technician completed</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1050</strong>
+                            <div class="cell-muted">Button Attach, Line 10</div>
+                          </td>
+                          <td data-label="Issue Summary">
+                            <strong>Pressure foot alignment</strong>
+                            <div class="cell-muted">No repeat issue in last 30 days</div>
+                          </td>
+                          <td data-label="Technician">
+                            <strong>Shamim Mia</strong>
+                            <div class="cell-muted">Support from Md. Imran</div>
+                          </td>
+                          <td data-label="Raised">18 Apr 2026, 11:35 AM</td>
+                          <td data-label="Closed">18 Apr 2026, 12:40 PM</td>
+                          <td data-label="Closure Time">1 Hr 05 Min</td>
+                          <td data-label="Final Status"><span class="badge text-bg-success">Closed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="pm-due.html" class="btn btn-sm btn-outline-secondary">PM</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Ticket No">
+                            <strong>BD-2026-0109</strong>
+                            <div class="cell-muted">Line released</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1036</strong>
+                            <div class="cell-muted">Flatlock, Line 08</div>
+                          </td>
+                          <td data-label="Issue Summary">
+                            <strong>Safety guard loose</strong>
+                            <div class="cell-muted">Minor mechanical correction only</div>
+                          </td>
+                          <td data-label="Technician">
+                            <strong>Hasan Ali</strong>
+                            <div class="cell-muted">Closed on first response</div>
+                          </td>
+                          <td data-label="Raised">17 Apr 2026, 08:55 AM</td>
+                          <td data-label="Closed">17 Apr 2026, 09:35 AM</td>
+                          <td data-label="Closure Time">40 Min</td>
+                          <td data-label="Final Status"><span class="badge text-bg-success">Closed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="technician-tasks.html" class="btn btn-sm btn-outline-secondary">Technician</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Ticket No">
+                            <strong>BD-2026-0105</strong>
+                            <div class="cell-muted">Closed after test run</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Issue Summary">
+                            <strong>Thread trimming failure</strong>
+                            <div class="cell-muted">Spare knife changed from stock</div>
+                          </td>
+                          <td data-label="Technician">
+                            <strong>Rafiqul Islam</strong>
+                            <div class="cell-muted">Store issue recorded</div>
+                          </td>
+                          <td data-label="Raised">16 Apr 2026, 02:10 PM</td>
+                          <td data-label="Closed">16 Apr 2026, 04:00 PM</td>
+                          <td data-label="Closure Time">1 Hr 50 Min</td>
+                          <td data-label="Final Status"><span class="badge text-bg-info">Completed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="spare-parts.html" class="btn btn-sm btn-outline-secondary">Parts</a>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Ticket No">
+                            <strong>BD-2026-0101</strong>
+                            <div class="cell-muted">Maintenance closed</div>
+                          </td>
+                          <td data-label="Machine / Location">
+                            <strong>MC-1048</strong>
+                            <div class="cell-muted">Button Hole, Line 11</div>
+                          </td>
+                          <td data-label="Issue Summary">
+                            <strong>Sensor cleaning and reset</strong>
+                            <div class="cell-muted">Operator retraining also given</div>
+                          </td>
+                          <td data-label="Technician">
+                            <strong>Shamim Mia</strong>
+                            <div class="cell-muted">No spare parts used</div>
+                          </td>
+                          <td data-label="Raised">15 Apr 2026, 10:05 AM</td>
+                          <td data-label="Closed">15 Apr 2026, 11:15 AM</td>
+                          <td data-label="Closure Time">1 Hr 10 Min</td>
+                          <td data-label="Final Status"><span class="badge text-bg-success">Closed</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <a href="ticket-details.html" class="btn btn-sm btn-outline-primary">Details</a>
+                              <a href="machine-details.html" class="btn btn-sm btn-outline-secondary">Machine</a>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <div class="table-footer">
+                    <div class="pagination-info">History records help compare repeat machine issues, technician response quality, and closure discipline before monthly reporting.</div>
+                    <nav aria-label="Breakdown history pagination">
+                      <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                        <li class="page-item active"><span class="page-link">1</span></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Repeat Issue and Closure Review</h3>
+                      <p class="section-text mb-0">Use history to detect machines that need PM escalation, vendor review, or spare parts planning after repeated breakdown closure.</p>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Machine</th>
+                          <th>Recent Closed Tickets</th>
+                          <th>Main Pattern</th>
+                          <th>Suggested Follow-Up</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>MC-1014</strong>
+                            <div class="cell-muted">Overlock, Line 03</div>
+                          </td>
+                          <td data-label="Recent Closed Tickets">2 tickets in 14 days</td>
+                          <td data-label="Main Pattern">Looper timing drift after heavy run</td>
+                          <td data-label="Suggested Follow-Up">Move machine into weekly PM review slot</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">PM Review</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2006</strong>
+                            <div class="cell-muted">Flatlock, Line 07</div>
+                          </td>
+                          <td data-label="Recent Closed Tickets">3 tickets in 30 days</td>
+                          <td data-label="Main Pattern">Vendor-linked alignment issue recurring</td>
+                          <td data-label="Suggested Follow-Up">Check agreement support and replacement risk</td>
+                          <td data-label="Status"><span class="badge text-bg-danger">Vendor Follow-Up</span></td>
+                        </tr>
+                        <tr>
+                          <td data-label="Machine">
+                            <strong>RM-2010</strong>
+                            <div class="cell-muted">Single Needle, Line 05</div>
+                          </td>
+                          <td data-label="Recent Closed Tickets">2 tickets in 21 days</td>
+                          <td data-label="Main Pattern">Knife wear tied to spare stock delay</td>
+                          <td data-label="Suggested Follow-Up">Keep knife set as priority reorder item</td>
+                          <td data-label="Status"><span class="badge text-bg-info">Store Action</span></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Closure Trend</h3>
+                      <p class="section-text mb-0">Quick view of recent breakdown history discipline.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Closed Within 2 Hours</strong>
+                        <div class="cell-muted">34 tickets met fast closure expectation</div>
+                      </div>
+                      <span class="badge text-bg-success">60%</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Closed in 2 to 4 Hours</strong>
+                        <div class="cell-muted">15 tickets needed extended follow-up</div>
+                      </div>
+                      <span class="badge text-bg-primary">26%</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Over 4 Hours</strong>
+                        <div class="cell-muted">8 cases tied to parts or vendor delay</div>
+                      </div>
+                      <span class="badge text-bg-danger">14%</span>
+                    </div>
+                  </div>
+
+                  <div class="compact-note">
+                    History shows most delayed closures came from rent machine support and repeated setup issues after production restart.
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Closure Updates</h3>
+                      <p class="section-text mb-0">Latest history actions already finalized in the module.</p>
+                    </div>
+                  </div>
+
+                  <div class="timeline-list">
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 11:10 AM</strong>
+                      <p class="mb-0">BD-2026-0118 closed after line supervisor confirmed stable output on MC-1014.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>22 Apr 2026, 09:20 AM</strong>
+                      <p class="mb-0">BD-2026-0116 marked closed with vendor follow-up note for RM-2006 agreement review.</p>
+                    </div>
+                    <div class="timeline-item">
+                      <strong>21 Apr 2026, 05:35 PM</strong>
+                      <p class="mb-0">BD-2026-0105 completed after spare knife issue entry synced with store tracking.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">History Watch</h3>
+                      <p class="section-text mb-0">Items that should not be ignored even after ticket closure.</p>
+                    </div>
+                  </div>
+
+                  <div class="mini-stat-list">
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Recurring Machine</strong>
+                        <div class="cell-muted">RM-2006 has 3 closed complaints in one month</div>
+                      </div>
+                      <span class="badge text-bg-danger">Watch</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>Technician Load Pattern</strong>
+                        <div class="cell-muted">Rafiqul Islam closed 12 of the last 20 tickets</div>
+                      </div>
+                      <span class="badge text-bg-warning">High Share</span>
+                    </div>
+                    <div class="mini-stat-item">
+                      <div>
+                        <strong>PM Link Required</strong>
+                        <div class="cell-muted">4 machines should move from history into PM follow-up</div>
+                      </div>
+                      <span class="badge text-bg-primary">Action</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Operational Notes</h3>
+                      <p class="section-text mb-0">Keep history practical for monthly review and future backend reporting.</p>
+                    </div>
+                  </div>
+
+                  <ul class="list-unstyled note-list mb-0">
+                    <li>Closed tickets should still retain machine, line, technician, and exact closure time.</li>
+                    <li>Repeat issue flags help decide PM frequency, vendor review, or spare parts stocking.</li>
+                    <li>Rent machine history should stay linked with vendor and agreement context for replacement decision.</li>
+                    <li>Monthly report pages can later pull these same fields without changing the page structure.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+

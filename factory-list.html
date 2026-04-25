@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Factory List | LML MACHINE MANAGEMENT</title>
+  <link rel="icon" type="image/jpeg" href="assets/img/logo.jpg">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body>
+  <div class="app-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo-wrap">
+          <img src="assets/img/logo.jpg" alt="Louietex logo" class="brand-logo">
+        </div>
+        <div>
+          <h1 class="brand-title">LML MACHINE MANAGEMENT</h1>
+          <p class="brand-subtitle">Garments Factory ERP</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="nav-link-item" href="dashboard.html">Dashboard</a>
+        <a class="nav-link-item active" href="factory-list.html">Factory Setup</a>
+        <a class="nav-link-item" href="machines.html">Machines</a>
+        <a class="nav-link-item" href="rent-machines.html">Rent Machines</a>
+        <a class="nav-link-item" href="vendors.html">Vendors</a>
+        <a class="nav-link-item" href="agreements.html">Agreements</a>
+        <a class="nav-link-item" href="breakdown-list.html">Breakdown</a>
+        <a class="nav-link-item" href="pm-schedule.html">PM Schedule</a>
+        <a class="nav-link-item" href="reports.html">Reports</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="factory-info">
+          <span class="info-label">Factory</span>
+          <strong>LML Unit 02 - Sewing</strong>
+        </div>
+        <div class="factory-info">
+          <span class="info-label">Shift</span>
+          <strong>General Shift</strong>
+        </div>
+      </div>
+    </aside>
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+    <div class="content-wrapper">
+      <header class="top-header">
+        <div class="header-start">
+          <button class="btn btn-outline-secondary d-lg-none" id="sidebarToggle" type="button">Menu</button>
+          <div class="header-brand d-none d-md-inline-flex">
+            <img src="assets/img/logo.jpg" alt="Louietex logo" class="header-brand-logo">
+          </div>
+          <div>
+            <h2 class="page-title mb-1">Factory and Unit Setup</h2>
+            <p class="page-subtitle mb-0">Maintain factory unit, floor, line, section, and shift setup so machine, PM, and breakdown records stay mapped correctly.</p>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <button class="btn btn-outline-primary" type="button">Export Setup</button>
+          <button class="btn btn-primary" type="button">Add Factory Unit</button>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="content-section">
+          <div class="erp-card filter-panel">
+            <div class="row g-3 align-items-end">
+              <div class="col-lg-4 col-md-6">
+                <label for="factorySearch" class="form-label">Search</label>
+                <input type="text" class="form-control" id="factorySearch" placeholder="Search by factory, unit, floor, line or section">
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="setupType" class="form-label">Setup Type</label>
+                <select class="form-select" id="setupType">
+                  <option selected>All Setup</option>
+                  <option>Factory Unit</option>
+                  <option>Floor</option>
+                  <option>Line</option>
+                  <option>Section</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="productionArea" class="form-label">Area</label>
+                <select class="form-select" id="productionArea">
+                  <option selected>All Area</option>
+                  <option>Sewing</option>
+                  <option>Finishing</option>
+                  <option>Store</option>
+                  <option>Sample</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <label for="setupStatus" class="form-label">Status</label>
+                <select class="form-select" id="setupStatus">
+                  <option selected>All Status</option>
+                  <option>Active</option>
+                  <option>Under Review</option>
+                  <option>Inactive</option>
+                </select>
+              </div>
+              <div class="col-lg-2 col-md-6">
+                <button class="btn btn-primary w-100" type="button">Find Setup</button>
+              </div>
+            </div>
+
+            <div class="filter-meta">
+              <span class="dashboard-date-pill">Setup Review: <strong>22 Apr 2026</strong></span>
+              <span class="text-body-secondary">Showing 7 of 19 active setup records</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3">
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Factory Units</span>
+                <h3 class="summary-value">3</h3>
+                <p class="summary-note mb-0">Sewing and finishing units under current setup</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Active Floors</span>
+                <h3 class="summary-value text-success">6</h3>
+                <p class="summary-note mb-0">Production and support floors mapped for users</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Running Lines</span>
+                <h3 class="summary-value text-primary">28</h3>
+                <p class="summary-note mb-0">Machine and complaint entry depend on these lines</p>
+              </div>
+            </div>
+            <div class="col-sm-6 col-xl-3">
+              <div class="summary-card">
+                <span class="summary-label">Need Review</span>
+                <h3 class="summary-value text-warning">2</h3>
+                <p class="summary-note mb-0">Line transfer and section naming still need cleanup</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="row g-3 align-items-start">
+            <div class="col-xl-8">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Factory Setup Register</h3>
+                      <p class="section-text mb-0">Master register of factory unit, floor, line, section, and shift mapping used across the ERP prototype.</p>
+                    </div>
+                    <div class="section-tools">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Print Setup</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Review Mapping</button>
+                    </div>
+                  </div>
+
+                  <div class="table-responsive">
+                    <table class="table erp-table mobile-card-table align-middle mb-0">
+                      <thead>
+                        <tr>
+                          <th>Factory / Unit</th>
+                          <th>Floor</th>
+                          <th>Line / Section</th>
+                          <th>Area Type</th>
+                          <th>Shift</th>
+                          <th>Machine Capacity</th>
+                          <th>Status</th>
+                          <th class="text-end">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td data-label="Factory / Unit">
+                            <strong>LML Unit 01</strong>
+                            <div class="cell-muted">Sewing Unit</div>
+                          </td>
+                          <td data-label="Floor">Sewing Floor 01</td>
+                          <td data-label="Line / Section">
+                            <strong>Line 01 - Line 08</strong>
+                            <div class="cell-muted">Main Sewing Section</div>
+                          </td>
+                          <td data-label="Area Type">Sewing</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Machine Capacity">82 Machines</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Factory / Unit">
+                            <strong>LML Unit 02</strong>
+                            <div class="cell-muted">Sewing Unit</div>
+                          </td>
+                          <td data-label="Floor">Sewing Floor 02</td>
+                          <td data-label="Line / Section">
+                            <strong>Line 09 - Line 16</strong>
+                            <div class="cell-muted">Sewing and Repair Support</div>
+                          </td>
+                          <td data-label="Area Type">Sewing</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Machine Capacity">96 Machines</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Lines</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Factory / Unit">
+                            <strong>LML Unit 03</strong>
+                            <div class="cell-muted">Finishing Unit</div>
+                          </td>
+                          <td data-label="Floor">Finishing Floor</td>
+                          <td data-label="Line / Section">
+                            <strong>Finishing 01 - 04</strong>
+                            <div class="cell-muted">Packing and Finishing Area</div>
+                          </td>
+                          <td data-label="Area Type">Finishing</td>
+                          <td data-label="Shift">Morning + General</td>
+                          <td data-label="Machine Capacity">41 Machines</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Sections</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Factory / Unit">
+                            <strong>LML Unit 02</strong>
+                            <div class="cell-muted">Support Area</div>
+                          </td>
+                          <td data-label="Floor">Store Floor</td>
+                          <td data-label="Line / Section">
+                            <strong>Central Spare Store</strong>
+                            <div class="cell-muted">Store and issue counter</div>
+                          </td>
+                          <td data-label="Area Type">Store</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Machine Capacity">Not Applicable</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Review</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Factory / Unit">
+                            <strong>LML Unit 01</strong>
+                            <div class="cell-muted">Support Area</div>
+                          </td>
+                          <td data-label="Floor">Maintenance Bay</td>
+                          <td data-label="Line / Section">
+                            <strong>Repair Desk</strong>
+                            <div class="cell-muted">Machine holding and test point</div>
+                          </td>
+                          <td data-label="Area Type">Maintenance</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Machine Capacity">18 Holding Slots</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Under Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Map</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Factory / Unit">
+                            <strong>LML Unit 02</strong>
+                            <div class="cell-muted">Sample Area</div>
+                          </td>
+                          <td data-label="Floor">Sample Room</td>
+                          <td data-label="Line / Section">
+                            <strong>Sample Line</strong>
+                            <div class="cell-muted">Pilot machine test area</div>
+                          </td>
+                          <td data-label="Area Type">Sample</td>
+                          <td data-label="Shift">Morning Shift</td>
+                          <td data-label="Machine Capacity">12 Machines</td>
+                          <td data-label="Status"><span class="badge text-bg-warning">Under Review</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">Shift</button>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td data-label="Factory / Unit">
+                            <strong>LML Unit 03</strong>
+                            <div class="cell-muted">Packing Zone</div>
+                          </td>
+                          <td data-label="Floor">Packing Floor</td>
+                          <td data-label="Line / Section">
+                            <strong>Packing Counter</strong>
+                            <div class="cell-muted">Final dispatch support area</div>
+                          </td>
+                          <td data-label="Area Type">Packing</td>
+                          <td data-label="Shift">General Shift</td>
+                          <td data-label="Machine Capacity">6 Support Points</td>
+                          <td data-label="Status"><span class="badge text-bg-success">Active</span></td>
+                          <td data-label="Action" class="text-end">
+                            <div class="table-actions">
+                              <button type="button" class="btn btn-sm btn-outline-primary">Edit</button>
+                              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <nav class="responsive-pagination mt-4" aria-label="Factory setup pages">
+                    <ul class="pagination pagination-sm mb-0">
+                      <li class="page-item disabled"><span class="page-link">Previous</span></li>
+                      <li class="page-item active"><span class="page-link">1</span></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                  </nav>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Mapping Watch</h3>
+                      <p class="section-text mb-0">Watch setup areas that can affect machine location, PM responsibility, or user access mapping.</p>
+                    </div>
+                  </div>
+
+                  <div class="row g-3">
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Line Rename Pending</strong>
+                          <div class="cell-muted">Two lines still use old naming from previous season</div>
+                        </div>
+                        <span class="badge text-bg-warning">02</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Maintenance Bay Review</strong>
+                          <div class="cell-muted">Holding slot mapping should match current repair flow</div>
+                        </div>
+                        <span class="badge text-bg-danger">01</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Shift Mapping Check</strong>
+                          <div class="cell-muted">Sample room shift access should be confirmed before PM plan</div>
+                        </div>
+                        <span class="badge text-bg-info">01</span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="mini-stat-item">
+                        <div>
+                          <strong>Store Location Sync</strong>
+                          <div class="cell-muted">Central store should stay linked with spare issue records</div>
+                        </div>
+                        <span class="badge text-bg-primary">01</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xl-4">
+              <div class="d-grid gap-3">
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Area Distribution</h3>
+                      <p class="section-text mb-0">Quick view of how setup is divided across operational areas.</p>
+                    </div>
+                  </div>
+
+                  <div class="status-line">
+                    <div>
+                      <strong>Sewing</strong>
+                      <div class="cell-muted">2 units, 4 floors, 24 active lines</div>
+                    </div>
+                    <span class="badge text-bg-success">Main</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Finishing</strong>
+                      <div class="cell-muted">1 unit and 4 active finishing counters</div>
+                    </div>
+                    <span class="badge text-bg-primary">Ready</span>
+                  </div>
+                  <div class="status-line">
+                    <div>
+                      <strong>Store / Support</strong>
+                      <div class="cell-muted">Store and maintenance support points active</div>
+                    </div>
+                    <span class="badge text-bg-info">Support</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Setup Notes</h3>
+                      <p class="section-text mb-0">Short rules to keep factory mapping practical and usable.</p>
+                    </div>
+                  </div>
+
+                  <div class="legend-list">
+                    <span class="legend-chip"><span class="badge text-bg-success">Keep</span> Unit, floor, and line names consistent across all pages.</span>
+                    <span class="legend-chip"><span class="badge text-bg-warning">Check</span> Shift and area mapping before assigning users or PM plans.</span>
+                    <span class="legend-chip"><span class="badge text-bg-danger">Avoid</span> Duplicate line names across different units without clear unit code.</span>
+                    <span class="legend-chip"><span class="badge text-bg-primary">Review</span> Repair and sample areas should be updated when layout changes.</span>
+                  </div>
+                </div>
+
+                <div class="erp-card">
+                  <div class="section-header">
+                    <div>
+                      <h3 class="section-title">Recent Setup Updates</h3>
+                      <p class="section-text mb-0">Latest area and line mapping changes visible for admin review.</p>
+                    </div>
+                  </div>
+
+                  <div class="activity-list">
+                    <div class="activity-item">
+                      <span class="activity-dot bg-success"></span>
+                      <div>
+                        <strong>Unit 02 line map updated</strong>
+                        <div class="cell-muted">Repair support desk was linked with the correct sewing floor</div>
+                      </div>
+                      <span class="activity-time">Today</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-warning"></span>
+                      <div>
+                        <strong>Sample room shift under review</strong>
+                        <div class="cell-muted">Morning shift mapping needs approval before new user setup</div>
+                      </div>
+                      <span class="activity-time">Yesterday</span>
+                    </div>
+                    <div class="activity-item">
+                      <span class="activity-dot bg-danger"></span>
+                      <div>
+                        <strong>Old line code still found</strong>
+                        <div class="cell-muted">One line is still using the previous season naming structure</div>
+                      </div>
+                      <span class="activity-time">18 Apr 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/mock-data.js"></script>
+  <script src="assets/js/layout.js"></script>
+  <script src="assets/js/prototype-actions.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
+
